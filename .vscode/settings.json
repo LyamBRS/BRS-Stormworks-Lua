@@ -8,11 +8,14 @@
                 },
             ]
         },
-        "(@import)": {
+        "(@import)|(\"[^\"\\n]*\")": {
             "filterFileRegex": ".*\\.lua",
             "decorations": [
                 {
-                    "color": "#ff5050"
+                    "color": "#50ff50"
+                },
+                {
+                    "color": "#D09030"
                 },
             ]       
         }
