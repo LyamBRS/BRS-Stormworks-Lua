@@ -1,0 +1,24 @@
+{
+    "highlight.regexes": {
+        "((?<!['\"-])\\bscreen\\b)": {
+            "filterFileRegex": ".*\\.lua",
+            "decorations": [
+                {
+                    "color": "#5050ff"
+                },
+            ]
+        },
+        "(@import)": {
+            "filterFileRegex": ".*\\.lua",
+            "decorations": [
+                {
+                    "color": "#ff5050"
+                },
+            ]       
+        }
+    },
+    "highlight.minDelay": 10,
+    "highlight.decorations": {
+        "rangeBehavior": 3
+    }
+}
