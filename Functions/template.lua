@@ -1,4 +1,4 @@
--- @import "Variables.preprocessor_test.g_globalvar.lua"
+-- @import "stuff"
 
 -- `YY/MM/DD`
 -- ### Description
