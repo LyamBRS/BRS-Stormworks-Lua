@@ -1,3 +1,4 @@
+-- [BRS] - [[ Information ]] --
 -- `25/08/02`
 -- ### Description
 -- Test variable only used when creating the first version of the python Lua preprocessor.

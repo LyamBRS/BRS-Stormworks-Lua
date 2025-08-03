@@ -1,3 +1,4 @@
+-- [BRS] - [[ Information ]] --
 -- `YY/MM/DD`
 -- ### Description
 -- What the variable is

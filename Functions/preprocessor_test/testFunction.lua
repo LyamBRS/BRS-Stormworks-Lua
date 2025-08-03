@@ -1,5 +1,6 @@
 -- @import "Variables.preprocessor_test.g_globalvar.lua"
 
+-- [BRS] - [[ Information ]] --
 -- `25/08/03`
 -- ### Description
 -- Its just a test function that adds 2 numbers together
