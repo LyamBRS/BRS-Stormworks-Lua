@@ -253,6 +253,20 @@ def manage_arguments():
     args = parser.parse_args()
     return args
 
+def character_counter(bundled_code):
+    Debug.Step("Analyzing character count.")
+    amount_of_characters = len(bundled_code)
+
+    color = Debug.GREEN
+    if amount_of_characters > 7000:
+        color = Debug.YELLOW
+    if amount_of_characters > 8192:
+        color = Debug.RED
+
+    Debug.Note("===================================")
+    Debug.Info(f"Characters used: {color}{amount_of_characters}/8192")
+    Debug.Note("===================================")
+
 # Example usage:
 if __name__ == "__main__":
     Step_Header()
@@ -283,5 +297,7 @@ if __name__ == "__main__":
     Debug.NewStep("Saving generated bundle")
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(bundled_code)
+
+    character_counter(bundled_code)
 
     # print("Bundled file written to bundled_output.lua")
