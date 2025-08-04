@@ -1,29 +1,100 @@
 {
-    "highlight.regexes": {
-        "((?<!['\"-+])\\bscreen\\b)": {
-            "filterFileRegex": ".*\\.lua",
-            "decorations": [
-                {
-                    "color": "#5050ff"
-                },
-            ]
+    "todohighlight.isEnable": true,
+    "todohighlight.isCaseSensitive": true,
+    "todohighlight.keywords": [
+        // "DEBUG:",
+        // "REVIEW:",
+        {
+            "text": "[BRS]",
+            "color": "#8000FF",
         },
-        "(@import)|(\"[^\"\\n]*\")": {
-            "filterFileRegex": ".*\\.lua",
-            "decorations": [
-                {
-                    "color": "#50ff50"
-                },
-                {
-                    "color": "#D09030"
-                },
-            ]       
-        }
+        {
+            "text": "screen",
+            "color": "#6060dd",
+        },
+        {
+            "text": "input",
+            "color": "#6060dd",
+        },
+        {
+            "text": "map",
+            "color": "#6060dd",
+        },
+        {
+            "text": "output",
+            "color": "#6060dd",
+        },
+        {
+            "text": "property",
+            "color": "#6060dd",
+        },
+        {
+            "text": "tonumber",
+            "color": "#9090ff",
+        },
+        {
+            "text": "string",
+            "color": "#9090ff",
+        },
+        {
+            "text": ".format",
+            "color": "#66dddd",
+        },
+        {
+            "text": "math",
+            "color": "#9090ff",
+        },
+        {
+            "text": ".getBool",
+            "color": "#dd6060",
+        },
+        {
+            "text": ".setBool",
+            "color": "#dd6060",
+        },
+        {
+            "text": ".getNumber",
+            "color": "#60dd60",
+        },
+        {
+            "text": ".setNumber",
+            "color": "#60dd60",
+        },
+    ],
+    //"todohighlight.keywordsPattern": "TODO:|FIXME:|\\(([^)]+)\\)", //highlight `TODO:`,`FIXME:` or content between parentheses
+    "todohighlight.defaultStyle": {
+        "backgroundColor": "transparent",
+        "overviewRulerColor": "grey",
+        "border": "none",
+        "isWholeLine": false,
+        //other styling properties goes here ... 
     },
-    "highlight.minDelay": 10,
-    "highlight.decorations": {
-        "rangeBehavior": 3
-    },
+    "todohighlight.include": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.php",
+        "**/*.css",
+        "**/*.lua",
+        "**/*.scss"
+    ],
+    "todohighlight.exclude": [
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/.vscode/**",
+        "**/.github/**",
+        "**/_output/**",
+        "**/*.min.*",
+        "**/*.map",
+        "**/.next/**",
+        "**/.json/**"
+    ],
+    "todohighlight.maxFilesForSearch": 5120,
+    "todohighlight.toggleURI": false,
 
     "Lua.diagnostics.globals": [
         "screen",
