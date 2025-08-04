@@ -1,4 +1,4 @@
--- @import "Variables.preprocessor_test.g_globalvar.lua"
+require("Variables.preprocessor_test.g_globalvar")
 
 -- [BRS] - [[ Information ]] --
 -- `25/08/03`

@@ -132,24 +132,33 @@ def Step_Header() -> bool:
     Debug.Note("===========================================")
     return False
 
+def Error_Line() -> bool:
+    Debug.Error(f"{Debug.GREY}===========================================")
+    return False
+
+def Error_In(file, at_line):
+    Debug.Error(f"Error occured in {Debug.GREY}{file}{Debug.RED} at line {Debug.GREY}{at_line}")
+
+
 # Regular expression to match the import directive
-IMPORT_PATTERN = re.compile(r'--\s*@import\s+"([\w\.]+\.lua)"')
+IMPORT_PATTERN = re.compile(r'require\s*\(\s*["\']([\w\.]+)["\']\s*\)')
 
 def resolve_import_path(import_str, repo_root, file_having_the_import, line_number):
     """Convert dot notation to file path relative to repo root, preserving .lua extension."""
-    if not import_str.endswith(".lua"):
-        Debug.Error("@import error. The specified path did not end with .lua")
-        Debug.Error(f"At line {Debug.BLUE}{line_number}")
-        Debug.Error(f"Of {Debug.BLUE}{file_having_the_import}")
+    if import_str.endswith(".lua"):
+        Error_Line()
+        Debug.Error(f"Require path error. The specified path cannot end with {Debug.YELLOW}.lua")
+        Error_In(file_having_the_import, line_number)
         Debug.Error(f"You wrote: {Debug.YELLOW}{import_str}")
-        raise ValueError("Import path must end with .lua")
+        Error_Line()
+        sys.exit(2)
 
-    parts = import_str.rsplit('.', 1)  # Split at the last dot
+    parts = import_str.rsplit('.', 0)  # Split at the last dot
     path = os.path.join(repo_root, *parts[0].split('.')) + '.lua'
     return os.path.normpath(path)
 
 
-def process_file(file_path, repo_root, imported_files, level):
+def process_file(file_path, repo_root, imported_files, level, caller, caller_line):
     """Recursively process a Lua file, inlining imports."""
 
     # Recursively indent the deeper the shit goes.
@@ -161,14 +170,16 @@ def process_file(file_path, repo_root, imported_files, level):
         Debug.Warning(f"{tabs}Skipped duplicate import: {os.path.relpath(file_path, repo_root)}")
         return ""
     
-    Debug.Info(f"{tabs}{Debug.MAGENTA}{os.path.basename(file_path)}{Debug.BLUE} : {Debug.GREY}{os.path.join(*(file_path.split(os.path.sep)[3:]))}")
+    debug_file_name = os.path.join(*(file_path.split(os.path.sep)[3:]))
+    Debug.Info(f"{tabs}{Debug.MAGENTA}{os.path.basename(file_path)}{Debug.BLUE} : {Debug.GREY}{debug_file_name}")
     imported_files.add(file_path)
 
     output_lines = [""]
     
+    line_number = 0
+
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
-            line_number = 0
             skip_comment_block = False
             for line in f:
                 line_number += 1
@@ -195,18 +206,22 @@ def process_file(file_path, repo_root, imported_files, level):
                     import_path = resolve_import_path(match.group(1), repo_root, file_path, line_number)
                     import_path = os.path.normpath(import_path)
                     Debug.Info(f"{tabs}\tLine {line_number}: {Debug.GREY}@import {os.path.basename(import_path)}")
-                    imported_code = process_file(import_path, repo_root, imported_files, level + 1)
+                    imported_code = process_file(import_path, repo_root, imported_files, level + 1, debug_file_name, line_number)
                     output_lines.append(imported_code)
                 else:
                     output_lines.append(line)
 
     except FileNotFoundError:
+        Error_Line()
         Debug.Error("File not found error.")
-        Debug.Error(f"File base name: {Debug.YELLOW}{os.path.basename(file_path)}")
+        Error_In(caller, caller_line)
+        Debug.Note("The path you gave for the file you're trying to require / import does not exist. Validate the full path parsed by the preprocessor.")
+        Debug.Error(f"Base name:      {Debug.YELLOW}{os.path.basename(file_path)}")
         Debug.Error(f"File not found: {Debug.GREY}{os.path.relpath(file_path, repo_root)}")
-        Debug.Error(f"File path arg: {Debug.YELLOW}{file_path}")
-        Debug.Error(f"Repo root arg: {Debug.GREY}{repo_root}")
+        Debug.Error(f"Full path:      {Debug.YELLOW}{file_path}")
+        Debug.Error(f"Repo root arg:  {Debug.GREY}{repo_root}")
         Debug.Warning("Process terminating early.")
+        Error_Line()
         sys.exit(2)
 
     # output_lines.append(f"-- [End import: {os.path.relpath(file_path, repo_root)}]\n\n")
@@ -216,7 +231,7 @@ def bundle_lua(entry_file_path, repo_root):
     """Entrypoint for the Lua bundler."""
     imported_files = set()
     entry_file_path = os.path.normpath(entry_file_path)
-    return process_file(entry_file_path, repo_root, imported_files, 0)
+    return process_file(entry_file_path, repo_root, imported_files, 0, "Preprocessor", 0)
 
 
 def full_repository_path():
@@ -224,7 +239,7 @@ def full_repository_path():
         Returns the full path to the root of the repository.
         From which you can get the imports working.
     """
-    current_working_directory = os.getcwd()
+    current_working_directory = os.path.dirname(os.path.abspath(__file__))
     tools_directory = os.path.normpath(current_working_directory + os.sep + os.pardir)
     root_directory = os.path.normpath(tools_directory + os.sep + os.pardir)
     return root_directory

@@ -10,15 +10,15 @@
 -- In the tests of the pre-processor.
 
 -- [BRS] - [[  imports  ]] --
--- @import "Functions.preprocessor_test.testFunction.lua"
--- @import "Variables.preprocessor_test.g_globalvar.lua"
+require("Functions.preprocessor_test.testFunction")
+require("Variables.preprocessor_test.g_globalvar")
 
 -- [BRS] - [[ variables ]] --
 bruh = 0
 yoMama = true
 g_globalvar = 12
 
-G = screen.setColor
+G = screen.setColor()
 
 -- [BRS] - [[   mains   ]] --
 --[[

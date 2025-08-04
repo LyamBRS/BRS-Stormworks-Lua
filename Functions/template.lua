@@ -1,4 +1,4 @@
--- @import "stuff"
+require("stuff")
 
 -- [BRS] - [[ Information ]] --
 -- `YY/MM/DD`

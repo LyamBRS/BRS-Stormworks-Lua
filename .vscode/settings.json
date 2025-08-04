@@ -1,6 +1,6 @@
 {
     "highlight.regexes": {
-        "((?<!['\"-])\\bscreen\\b)": {
+        "((?<!['\"-+])\\bscreen\\b)": {
             "filterFileRegex": ".*\\.lua",
             "decorations": [
                 {
@@ -33,5 +33,11 @@
         "property",
         "onDraw",
         "onTick"
+    ],
+
+    "editor.semanticHighlighting.enabled": true,
+    "Lua.semantic.enable": true,
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
     ]
 }
