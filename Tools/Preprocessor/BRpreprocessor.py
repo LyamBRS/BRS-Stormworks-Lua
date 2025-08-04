@@ -192,7 +192,7 @@ def process_file(file_path, repo_root, imported_files, level, caller, caller_lin
 
                 if skip_comment_block:
                     # Stop skipping if it's a block comment or import
-                    if stripped_line.startswith("--[[") or stripped_line.startswith("-- @import"):
+                    if stripped_line.startswith("--[["):
                         skip_comment_block = False
                     # Keep skipping regular comments
                     elif stripped_line.startswith("--"):
@@ -205,7 +205,7 @@ def process_file(file_path, repo_root, imported_files, level, caller, caller_lin
                 if match:
                     import_path = resolve_import_path(match.group(1), repo_root, file_path, line_number)
                     import_path = os.path.normpath(import_path)
-                    Debug.Info(f"{tabs}\tLine {line_number}: {Debug.GREY}@import {os.path.basename(import_path)}")
+                    Debug.Info(f"{tabs}\tLine {line_number}: {Debug.GREY}require(\"{os.path.basename(import_path)}\")")
                     imported_code = process_file(import_path, repo_root, imported_files, level + 1, debug_file_name, line_number)
                     output_lines.append(imported_code)
                 else:
