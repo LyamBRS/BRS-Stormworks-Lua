@@ -208,6 +208,7 @@ def process_file(file_path, repo_root, imported_files, level, caller, caller_lin
                     Debug.Info(f"{tabs}\tLine {line_number}: {Debug.GREY}require(\"{os.path.basename(import_path)}\")")
                     imported_code = process_file(import_path, repo_root, imported_files, level + 1, debug_file_name, line_number)
                     output_lines.append(imported_code)
+                    output_lines.append("\n")
                 else:
                     output_lines.append(line)
 
