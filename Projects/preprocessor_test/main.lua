@@ -18,6 +18,8 @@ bruh = 0
 yoMama = true
 g_globalvar = 12
 
+G = screen.setColor
+
 -- [BRS] - [[   mains   ]] --
 --[[
     This should still be here

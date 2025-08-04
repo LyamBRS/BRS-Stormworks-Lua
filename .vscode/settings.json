@@ -23,5 +23,15 @@
     "highlight.minDelay": 10,
     "highlight.decorations": {
         "rangeBehavior": 3
-    }
+    },
+
+    "Lua.diagnostics.globals": [
+        "screen",
+        "map",
+        "input",
+        "output",
+        "property",
+        "onDraw",
+        "onTick"
+    ]
 }

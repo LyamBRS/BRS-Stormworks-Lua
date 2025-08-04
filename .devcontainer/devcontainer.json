@@ -10,8 +10,8 @@
       "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "yinfei.luahelper",
-        "fabiospampinato.vscode-highlight"
+        "fabiospampinato.vscode-highlight",
+        "sumneko.lua"
       ]
     }
   },
