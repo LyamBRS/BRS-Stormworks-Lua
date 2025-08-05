@@ -38,7 +38,27 @@
         },
         {
             "text": ".format",
-            "color": "#66dddd",
+            "color": "#66ddaa",
+        },
+        {
+            "text": ".pack",
+            "color": "#66ddaa",
+        },
+        {
+            "text": ".gsub",
+            "color": "#66ddaa",
+        },
+        {
+            "text": ".char",
+            "color": "#66ddaa",
+        },
+        {
+            "text": ".sub",
+            "color": "#66ddaa",
+        },
+        {
+            "text": ".unpack",
+            "color": "#66ddaa",
         },
         {
             "text": "math",
