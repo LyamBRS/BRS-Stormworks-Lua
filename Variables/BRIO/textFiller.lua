@@ -1,0 +1,12 @@
+-- [BRS] - [[ Information ]] --
+-- `25/08/04`
+-- ### Description
+-- string.char(30)
+-- ### Used for
+-- BRIO can only send 4 characters or nothing when sending or receiving text.
+-- This is the filler character that is used if you're packets are less than 4 characters.
+-- ### Held data
+-- ```json
+-- {}
+-- ```
+g_BRIO_char_filler = string.char(30)

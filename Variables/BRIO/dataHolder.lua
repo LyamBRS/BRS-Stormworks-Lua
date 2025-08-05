@@ -1,0 +1,24 @@
+-- [BRS] - [[ Information ]] --
+-- `25/08/04`
+-- ### Description
+-- The BRIO array that must be given along to BRIO functions.
+-- ### Used for
+-- Contains the stages and their steps for both received BRIO and sending BRIO.
+-- Contains the currently seen BRIO input, as well as the number to output.
+-- Also tells if a command was executed or not, so another can be ready.
+-- Also contains the awaiting ticks to avoid getting stuck in transmissions that can't end.
+-- ### Held data
+-- ```json
+-- {
+--  0, // output command stage.
+--  0, // output command's step.
+--  false, // output command's ongoing command. false if available. Holds what output BRIO commands is being executed to send data.
+--  0, // input command's stage
+--  0, // input command's step.
+--  false // input's executed reading. Holds the BRIO functions currently being executed to read a detected address.
+--  0, // Holds how long you've been awaiting for an answer.
+--  0, // Current BRIO input. Must be read through input in onTick
+--  0, // Wanted BRIO output. Must be set at the very end of onTick.
+-- }
+-- ```
+g_BRIO_DATA = {0, 0, false, 0, 0, false, 0, 0, 0}

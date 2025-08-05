@@ -1,0 +1,12 @@
+-- [BRS] - [[ Information ]] --
+-- `25/08/04`
+-- ### Description
+-- A BRIO array utilized as pointers when executing BRIO functions that must hold data.
+-- ### Used for
+-- BRIO functions are automatically executed from an array. There's thus no way to directly get the output of text or numbers or whatever the fuck.
+-- So every potential input commands out output commands that await something must reserve a slot in this array to put the data they received.
+-- ### Held data
+-- ```json
+-- {}
+-- ```
+g_BRIO_results = {}
