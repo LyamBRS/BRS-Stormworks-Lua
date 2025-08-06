@@ -1,12 +1,5 @@
 require("Variables.BRIO.dataHolders.constants.busInHolderIndex")
 require("Variables.BRIO.dataHolders.constants.commandBlockHolderIndex")
-require("Variables.BRIO.dataHolders.constants.stageHolderIndex")
-require("Variables.BRIO.dataHolders.constants.executedAddressIndex")
-require("Variables.BRIO.commands.constants.toExecute")
-require("Variables.BRIO.commands.constants.functionEntries")
-require("Variables.BRIO.commands.constants.callWhenDone")
-require("Variables.BRIO.flags.end")
-require("Variables.BRIO.functionReturnsHolder")
 require("Functions.BRIO.Managers.executor")
 -- [BRS] - [[ Information ]] --
 -- `25/08/05`

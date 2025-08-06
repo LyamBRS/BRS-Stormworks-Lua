@@ -33,7 +33,7 @@ require("Projects.Prosty.MainController.variables")
     	end
     end
 
-    if hoodPressed[1] ~= hoodPressed[2] and hoodPressed[1] then
+    if hoodPressed[1] ~= hoodPressed[2] then
     	hoodPressed[2] = hoodPressed[1]
 
     	if hoodPressed[1] then

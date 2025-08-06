@@ -14,4 +14,4 @@
 --          {function, {inputs, inputs...}, optionalFuncToCallOnFinish }
 --      }
 -- }
-g_masterCommands = nil
+g_slaveCommands = nil

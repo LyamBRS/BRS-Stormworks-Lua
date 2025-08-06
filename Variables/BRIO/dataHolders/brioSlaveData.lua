@@ -20,4 +20,4 @@
 --  0, // Executed address.
 -- }
 -- ```
-g_BRIOMasterData = {0, 0, false, 0, 0, 0, 0}
+g_BRIOSlaveData = {0, 0, false, 0, 0, 0, 0}

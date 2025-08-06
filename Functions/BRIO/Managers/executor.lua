@@ -5,7 +5,7 @@ require("Variables.BRIO.dataHolders.constants.executedAddressIndex")
 require("Variables.BRIO.commands.constants.toExecute")
 require("Variables.BRIO.commands.constants.functionEntries")
 require("Variables.BRIO.commands.constants.callWhenDone")
-require("Variables.BRIO.flags.end")
+require("Variables.BRIO.constants.flags.end")
 require("Variables.BRIO.functionReturnsHolder")
 -- [BRS] - [[ Information ]] --
 -- `25/08/05`
