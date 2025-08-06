@@ -1,6 +1,7 @@
-require("Variables.BRIO.flags.divider")
-require("Variables.BRIO.textFiller")
-
+require("Variables.BRIO.constants.flags.divider")
+require("Variables.BRIO.constants.textFiller")
+require("Variables.BRIO.dataHolders.constants.busInHolderIndex")
+require("Variables.BRIO.dataHolders.constants.stageHolderIndex")
 -- [BRS] - [[ Information ]] --
 -- `25/08/04`
 -- ### Description
@@ -17,12 +18,12 @@ require("Variables.BRIO.textFiller")
 -- ### @Returns
 -- ##### 1. `text` : `string`
 -- `textReceivedSoFar` concatenated to the characters that were parsed this very tick.
-function BrioGetText(brioData, textReceivedSoFar)
+function BrioGetText(brioData, entries, textReceivedSoFar)
     -- [BRS] - Check what's currently read by the Lua script.
-    packedCharacters = brioData[8]
-    if packedCharacters == g_BRIO_divider then
+    packedCharacters = brioData[c_BusInIndex]
+    if packedCharacters == c_BRIO_divider then
         -- [BRS] - A divider was received. The stage must increase.
-        brioData[4] = brioData[4] + 1
+        brioData[c_StageIndex] = brioData[c_StageIndex] + 1
         return textReceivedSoFar
     end
 
@@ -34,6 +35,6 @@ function BrioGetText(brioData, textReceivedSoFar)
     decoded = string.pack("f", packedCharacters)
     -- [BRS] - We can only receive 4 characters. So fillers are used if you needed less... Like you sent a string of 3 letters.
     -- This removes the fillers.
-    decoded = string.gsub(decoded, g_BRIO_char_filler, "")
+    decoded = string.gsub(decoded, c_BRIO_char_filler, "")
     return textReceivedSoFar..decoded
 end

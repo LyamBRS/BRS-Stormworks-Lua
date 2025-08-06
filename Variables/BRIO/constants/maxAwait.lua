@@ -7,4 +7,4 @@
 -- Uniformizing the maximum amount of awaiting Getters and Awaiters can do before calling it quits and raising errors.
 -- ### Held data
 -- 60
-g_BRIO_max_waiting = 60
+c_BRIO_max_waiting = 60

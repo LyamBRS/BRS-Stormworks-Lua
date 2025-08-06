@@ -1,5 +1,7 @@
-require("Variables.BRIO.maxAwait")
-require("Functions.BRIO.Utils.brioResetInputData")
+require("Functions.BRIO.Utils.brioResetData")
+require("Variables.BRIO.dataHolders.constants.awaitTimerHolderIndex")
+require("Variables.BRIO.dataHolders.constants.busInHolderIndex")
+require("Variables.BRIO.dataHolders.constants.stageHolderIndex")
 -- [BRS] - [[ Information ]] --
 -- `25/08/04`
 -- ### Description
@@ -8,21 +10,24 @@ require("Functions.BRIO.Utils.brioResetInputData")
 -- Awaiting END flags or ACKs. The moment your protocol must await a specific number, use this.
 -- ### @Input
 -- ##### - `brioData` : `g_BRIO_data` = Passed BRIO data array.
--- ##### - `awaitingThis` : `number`
+-- ##### - `entries` : `table` = {awaitedNumber, maxWaitTime}
 -- Until it sees that number... an await timer is increased. If it busts the max await timer, reset occcurs.
-function BrioAwaitNumber(brioData, awaitingThis)
-    if brioData[8] == awaitingThis then
+function BrioAwaitNumber(brioData, entries)
+    awaiting = entries[1]
+    maxAwaitTime = entries[2]
+
+    if brioData[c_BusInIndex] == awaiting then
         -- [BRS] - You received the number you wanted. You're ready to go to the next step.
-        brioData[4] = brioData[4] + 1
+        brioData[c_StageIndex] = brioData[c_StageIndex] + 1
         -- [BRS] - Ensures future awaits start with a fresh await counter.
-        brioData[7] = 0
+        brioData[c_awaitedTimeIndex] = 0
     else
         -- [BRS] - We're not receiving the number we want...
-        brioData[7] = brioData[7] + 1
-        if brioData[7] > g_BRIO_max_waiting then
+        brioData[c_awaitedTimeIndex] = brioData[c_awaitedTimeIndex] + 1
+        if brioData[c_awaitedTimeIndex] > maxAwaitTime then
             -- [BRS] - We busted the maximum we were ready to await that number for. It's not comming.
             -- [BRS] - Needs future error call functions as well as getter resets.
-            BrioResetInputData(brioData)
+            BrioResetData(brioData)
         end
     end
 end

@@ -7,3 +7,9 @@
 -- ### Held data
 -- The structure of the data within the variable
 g_name = nil
+
+-- [BRS] - [[ Information ]] --
+-- `YY/MM/DD`
+-- ### Description
+-- What the variable is
+c_name = nil

@@ -4,7 +4,10 @@
 -- A BRIO array utilized as pointers when executing BRIO functions that must hold data.
 -- ### Used for
 -- BRIO functions are automatically executed from an array. There's thus no way to directly get the output of text or numbers or whatever the fuck.
--- So every potential input commands out output commands that await something must reserve a slot in this array to put the data they received.
+-- Results are stored at the same index as their associated commands address. At the address, there'll be another table, in which every stage's result is an entry.
+-- Stages that don't produce any entries still have a reserved slot.
+--
+-- Its up to you to validate that its not `nil` and to reset the entries once you parsed them.
 -- ### Held data
 -- ```json
 -- {}

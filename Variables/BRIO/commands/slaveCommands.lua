@@ -1,0 +1,17 @@
+-- [BRS] - [[ Information ]] --
+-- `25/08/05`
+-- ### Description
+-- Holds the list of commands to do when an address is seen as an input, per stages, supported by the Lua script holding this value.
+-- Must be defined in onTick when equals to nil to ensure proper multiplayer synchronization.
+-- ### Used for
+-- Knowing all the BRIO commands that can be answered by the Lua script.
+-- **Do not include an await number for the address. Management scripts do that already.**
+-- Absolutely no output commands.
+-- ### Held data
+-- ```json
+-- {
+--      [-adr] = {
+--          {function, {inputs, inputs...}, optionalFuncToCallOnFinish }
+--      }
+-- }
+g_masterCommands = nil

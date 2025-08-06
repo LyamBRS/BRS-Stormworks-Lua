@@ -1,0 +1,23 @@
+-- [BRS] - [[ Information ]] --
+-- `25/08/05`
+-- ### Description
+-- A BRIO array that must be given along to BRIO functions.
+-- This one is for the slave side of the controller. Which means it only listens to the BUS input.
+-- ### Used for
+-- Contains the stages and their steps.
+-- Contains the currently seen BRIO input.
+-- Also tells if a command was executed or not, so another can be ready.
+-- Also contains the awaiting ticks to avoid getting stuck in transmissions that can't end.
+-- ### Held data
+-- ```json
+-- {
+--  0, // Command stage.
+--  0, // Command's step.
+--  false, // Ongoing command. false if none. Holds what set of BRIO commands is being executed.
+--  0, // BRIO number seen on the bus entry
+--  0, // BRIO number to output. There solely for the simplicity of master and slave being identical.
+--  0, // Await (as per constants)
+--  0, // Executed address.
+-- }
+-- ```
+g_BRIOMasterData = {0, 0, false, 0, 0, 0, 0}

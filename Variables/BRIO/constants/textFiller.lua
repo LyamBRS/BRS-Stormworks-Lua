@@ -9,4 +9,4 @@
 -- ```json
 -- {}
 -- ```
-g_BRIO_char_filler = string.char(30)
+c_BRIO_char_filler = string.char(30)
