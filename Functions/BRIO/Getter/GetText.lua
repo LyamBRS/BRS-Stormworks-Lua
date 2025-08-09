@@ -1,7 +1,9 @@
 require("Variables.BRIO.constants.flags.divider")
+require("Variables.BRIO.constants.flags.end")
 require("Variables.BRIO.constants.textFiller")
 require("Variables.BRIO.dataHolders.constants.busInHolderIndex")
 require("Variables.BRIO.dataHolders.constants.stageHolderIndex")
+require("Functions.BRIO.Utils.brioResetData")
 -- [BRS] - [[ Information ]] --
 -- `25/08/04`
 -- ### Description
@@ -21,9 +23,14 @@ require("Variables.BRIO.dataHolders.constants.stageHolderIndex")
 function BrioGetText(brioData, entries, textReceivedSoFar)
     -- [BRS] - Check what's currently read by the Lua script.
     packedCharacters = brioData[c_BusInIndex]
-    if packedCharacters == c_BRIO_divider then
+    if packedCharacters == c_BRIO_divider or packedCharacters == c_BRIO_end then
         -- [BRS] - A divider was received. The stage must increase.
         brioData[c_StageIndex] = brioData[c_StageIndex] + 1
+        return textReceivedSoFar
+    end
+
+    if packedCharacters == 0 then
+        BrioResetData(brioData)
         return textReceivedSoFar
     end
 

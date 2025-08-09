@@ -7,6 +7,7 @@ require("Variables.BRIO.commands.constants.functionEntries")
 require("Variables.BRIO.commands.constants.callWhenDone")
 require("Variables.BRIO.constants.flags.end")
 require("Variables.BRIO.functionReturnsHolder")
+require("Functions.BRIO.Utils.brioResetData")
 -- [BRS] - [[ Information ]] --
 -- `25/08/05`
 -- ### Description
@@ -22,7 +23,8 @@ function BrioExecutor(brioData)
     -- [BRS] - Since we begin at stage 0, we must read 1 above the current stage.
     stage = brioData[c_StageIndex] + 1
     -- [BRS] - Get the current stage's command to execute and its data.
-    executionData = brioData[c_CommandsIndex][stage]
+    stageCommands = brioData[c_CommandsIndex]
+    executionData = stageCommands[stage]
     executedAddress = brioData[c_executedAddressIndex]
 
     -- [BRS] - Functions always output in the global result manager. Even if they don't need to.
@@ -30,17 +32,22 @@ function BrioExecutor(brioData)
         g_BRIO_results[executedAddress] = {}
     end
 
+    if stage > #stageCommands then
+        BrioResetData(brioData)
+        return
+    end
+
     -- [BRS] - Executing the function
     g_BRIO_results[executedAddress][stage] = executionData[c_ToExecuteIndex](brioData, executionData[c_EntriesIndex], g_BRIO_results[executedAddress][stage])
     
     -- [BRS] - If the execution successfully ended, then the stage increased. If thats the case, we must check for the callOnSuccess function and do it.
     newStage = brioData[c_StageIndex]
-    if newStage > stage and brioData[c_callWhenDoneIndex] ~= nil then
-        brioData[c_callWhenDoneIndex]()
+    if newStage == stage and executionData[c_callWhenDoneIndex] ~= nil then
+        executionData[c_callWhenDoneIndex]()
     end
 
     -- [BRS] - Seeing an END, you must reset everything. Same if you're now past the amount of stages of that function.
-    if busIn == c_BRIO_end or newStage > #executionData then
+    if busIn == c_BRIO_end or newStage > #stageCommands then
         BrioResetData(brioData)
     end
 end

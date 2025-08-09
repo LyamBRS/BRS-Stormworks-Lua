@@ -1,0 +1,13 @@
+-- [BRS] - Just all the requires of the testbench. In one file.
+require("Variables.BRIO.dataHolders.constants.busOutHolderIndex")
+require("Variables.BRIO.dataHolders.constants.busInHolderIndex")
+require("Variables.BRIO.functionReturnsHolder")
+require("Variables.BRIO.constants.flags.divider")
+require("Variables.BRIO.constants.flags.end")
+require("Variables.BRIO.commands.masterCommands")
+require("Variables.BRIO.dataHolders.brioMasterData")
+require("Functions.BRIO.Managers.masterManager")
+require("Functions.BRIO.Senders.sendNumber")
+require("Functions.BRIO.Getter.GetText")
+require("Functions.BRIO.Awaiters.awaitNumber")
+require("Functions.BRIO.Utils.setMasterCommand")
