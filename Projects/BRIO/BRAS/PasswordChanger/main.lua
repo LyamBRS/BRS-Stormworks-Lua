@@ -43,13 +43,18 @@ handshakeSuccess = false
 message = ""
 error = false
 
+resetTimer = 0
+
+currentAccessID = 0
+selectedAccessID = 0
 receivedAnswer = false
 handshakeAnswer = 0
+receivedAccessID = 0
 
 -- [BRS] - [[   mains   ]] --
 function onTick()
     -- [BRS] - [[ Inputs ]] --
-    selectedAccessID = input.getNumber(1)
+    currentAccessID = input.getNumber(1)
     updatePassword = input.getBool(1)
 
     -- [BRS] - Identify that BRIO is going
@@ -64,14 +69,33 @@ function onTick()
         end
     end
 
+    -- [BRS] - Automated message clearing
+    if resetTimer > 0 then
+        resetTimer = resetTimer - 1
+        if resetTimer == 0 then
+            Reset()
+        end
+    end
+
+    -- [BRS] - Initiating the command transmittion
+    if updatePassword and not g_onGoing then
+        Reset()
+        BrioSetMasterCommand(g_BRIOMasterData, g_masterCommands, -3102)
+    end
+
+    -- [BRS] - Debug message management.
     if oldOngoing ~= g_onGoing then -- the communication started or stopped.
         oldOngoing = g_onGoing
         if not g_onGoing and not handshakeSuccess then -- Well, it seems like we stopped communicating but not the full thing happened!
             message = "Incomplete handshake"
+            error = true
+            resetTimer = 300
         end
 
         if not g_onGoing and not receivedAnswer then -- We never received an answer
             message = "No answer"
+            error = true
+            resetTimer = 300
         end
 
         if not g_onGoing and handshakeSuccess then -- we received right proper shit mate
@@ -84,6 +108,12 @@ function onTick()
             message = handshakeAnswer == c_brasIncorrectPassword and "Wrong password" or message
             message = handshakeAnswer == c_brasLocked and "Failed. Locked" or message
             message = handshakeAnswer == c_brasSuccess and "Password changed" or message
+
+            message = receivedAccessID ~= selectedAccessID and "Got wrong access ID" or message
+            resetTimer = 300
+
+            -- [BRS] - instead of doing if then true else false.
+            error = message ~= "Password changed"
         end
     end
 
@@ -95,7 +125,30 @@ function onTick()
 end
 
 function onDraw()
+    if not g_onGoing then
+        if resetTimer > 0 then
+            if error then
+                screen.setColor(32,0,0)
+                screen.drawClear()
+                screen.setColor(255,0,0)
+            else
+                screen.setColor(0,32,0)
+                screen.drawClear()
+                screen.setColor(0,255,0)
+            end
+        else
+            screen.setColor(8,8,8)
+            screen.drawClear()
+            screen.setColor(64,64,64)
+        end
+    else
+        screen.setColor(32,32,0)
+        screen.drawClear()
+        screen.setColor(255,255,0)
+    end
+    screen.drawTextBox(0,0,96,32, message)
 
+    screen.drawRectF(0,30,(resetTimer/300)*96,2)
 end
 
 -- [BRS] - [[   Functions   ]] --
@@ -103,6 +156,9 @@ end
 -- This doesn't mean that the password changed, but that the handshake was right!
 function HandshakeSuccess()
     handshakeSuccess = true
+    receivedAccessID = g_BRIO_results[-3102][9]
+    receivedAnswer = g_BRIO_results[-3102][10]
+    g_BRIO_results[-3102] = nil
 end
 
 function StopTransmitting()
@@ -111,4 +167,16 @@ end
 
 function ReceivedAnswer()
     receivedAnswer = true
+end
+
+function Reset()
+    message = "initiated"
+    handshakeAnswer = 0
+    g_ticksTaken = 0
+    selectedAccessID = currentAccessID
+    antennaTransmit = true
+    handshakeSuccess = false
+    receivedAnswer = false
+    receivedAccessID = 0
+    error = false
 end
