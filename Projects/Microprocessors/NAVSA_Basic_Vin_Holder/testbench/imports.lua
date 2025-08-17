@@ -1,4 +1,5 @@
 -- [BRS] - Just all the requires of the testbench. In one file.
+require("Variables.BRIO.constants.channel")
 require("Variables.BRIO.dataHolders.constants.busOutHolderIndex")
 require("Variables.BRIO.dataHolders.constants.busInHolderIndex")
 require("Variables.BRIO.functionReturnsHolder")

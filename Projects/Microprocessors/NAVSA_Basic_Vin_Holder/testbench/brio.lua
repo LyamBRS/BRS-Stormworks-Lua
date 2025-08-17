@@ -1,6 +1,6 @@
 -- [BRS] - The BRIO portion of onTick of the testbench.
     -- [BRS] - [[ Inputs ]] --
-    g_BRIOMasterData[c_BusInIndex] = input.getNumber(32)
+    g_BRIOMasterData[c_BusInIndex] = input.getNumber(c_BrioChannel)
 
     -- [BRS] - Slave commands. Even tho these are in commands, they output data
     if g_masterCommands == nil then
@@ -20,4 +20,4 @@
     BrioMasterManager(g_BRIOMasterData, g_masterCommands)
 
     -- [BRS] - [[ Outputs ]] --
-    output.setNumber(32, g_BRIOMasterData[c_BusOutIndex])
+    output.setNumber(c_BrioChannel, g_BRIOMasterData[c_BusOutIndex])

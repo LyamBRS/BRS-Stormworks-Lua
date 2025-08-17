@@ -11,6 +11,7 @@
 -- Used in vehicles that supports VIN and NAVSA grading. For basic vehicles that just want to hold a basic VIN and grade.
 
 -- [BRS] - [[  imports  ]] --
+require("Variables.BRIO.constants.channel")
 require("Variables.BRIO.dataHolders.constants.busOutHolderIndex")
 require("Variables.BRIO.dataHolders.constants.busInHolderIndex")
 require("Variables.BRIO.functionReturnsHolder")
@@ -29,7 +30,7 @@ require("Functions.BRIO.Managers.slaveManager")
 
 function onTick()
     -- [BRS] - [[ Inputs ]] --
-    g_BRIOSlaveData[c_BusInIndex] = input.getNumber(32)
+    g_BRIOSlaveData[c_BusInIndex] = input.getNumber(c_BrioChannel)
 
     -- [BRS] - Slave commands. Even tho these are in commands, they output data
     if g_slaveCommands == nil then
@@ -48,7 +49,7 @@ function onTick()
     BrioSlaveManager(g_BRIOSlaveData, g_slaveCommands)
 
     -- [BRS] - [[ Outputs ]] --
-    output.setNumber(32, g_BRIOSlaveData[c_BusOutIndex])
+    output.setNumber(c_BrioChannel, g_BRIOSlaveData[c_BusOutIndex])
 end
 
 -- [BRS] - [[   Functions   ]] --
