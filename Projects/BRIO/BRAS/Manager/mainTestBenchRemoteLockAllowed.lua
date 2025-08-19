@@ -44,6 +44,7 @@ message = ""
 error = false
 
 resetTimer = 0
+g_ticksTaken = 0
 
 -- [BRS] - The data received in slave commands, stored to be reused in master answer commands.
 savedAccessID = 0
@@ -51,12 +52,12 @@ savedPassword = ""
 savedNewPassword = ""
 savedWantedStatus = 0
 
+currentAccess = 1
+g_Accesses = {}
+
 -- [BRS] - If we transmit at the same tick that the command gets 
 -- The the transmit boolean may reach the antenna 1 tick too late.
 setCommandNextTick = false
-
--- [BRS] - Creating the access status table.
-require("Projects.BRIO.BRAS.Manager.accessPropertyParser")
 
 -- [BRS] - [[   mains   ]] --
 function onTick()
@@ -64,11 +65,14 @@ function onTick()
     -- Boolean 31 locks all doors.
     -- All numerical output, except 31, indicate if a door is opened or closed. 1: opened, 2: closed.
 
+    -- [BRS] - Creating the access status table.
+    require("Projects.BRIO.BRAS.Manager.accessPropertyParser")
+
     -- [BRS] - Identify that BRIO is going
     g_onGoing = (g_BRIOMasterData[c_CommandsIndex] ~= false) or (g_BRIOSlaveData[c_CommandsIndex] ~= false)
     if g_onGoing then
         g_ticksTaken = g_ticksTaken + 1
-        message = antennaTransmit and "Sending" or "receiving"
+        -- message = antennaTransmit and "Sending" or "receiving"
     end
 
     -- [BRS] - Automated message clearing
@@ -93,7 +97,7 @@ function onTick()
     for id, access in pairs(g_Accesses) do
         status = access[3]
         accessNumber = access[1]
-        output.setBool(accessNumber, status == c_brasLocked)
+        output.setBool(accessNumber, access[4])
         output.setNumber(accessNumber, status)
     end
 
@@ -131,9 +135,9 @@ end
 -- [BRS] - [[   Functions   ]] --
 function ReceivedStatusChangeRequest()
     stages = g_BRIO_results[-3101]
-    savedAccessID = stages[1][2][1]
-    savedWantedStatus = stages[2][2][1]
-    savedPassword = stages[3][2][1]
+    savedAccessID = stages[1]
+    savedWantedStatus = stages[2]
+    savedPassword = stages[3]
 
     if g_Accesses[savedAccessID] ~= nil then
         -- [BRS] - This manager handles this access ID!
@@ -143,6 +147,8 @@ function ReceivedStatusChangeRequest()
             -- [BRS] - That access has a password!
             if accessPassword ~= savedPassword then
                 -- [BRS] - But the one provided is wrong... rip.
+                message = "Incorrect password"
+                error = true
                 StartBRIOReply(-4101, c_brasIncorrectPassword)
             else
                 ParseNewStatus(access, savedWantedStatus)
@@ -159,9 +165,9 @@ end
 
 function ReceivedPasswordChangeRequest()
     stages = g_BRIO_results[-3102]
-    savedAccessID = stages[1][2][1]
-    savedPassword = stages[2][2][1]
-    savedNewPassword = stages[3][2][1]
+    savedAccessID = stages[1]
+    savedPassword = stages[2]
+    savedNewPassword = stages[3]
 
     if g_Accesses[savedAccessID] ~= nil then
         -- [BRS] - This manager handles this access ID!
@@ -178,6 +184,8 @@ function ReceivedPasswordChangeRequest()
             -- [BRS] - The access has no password.
             -- For safety measures, you can't just add one remotely...
             -- You'd lock out everyone bruh.
+            message = "No password doors cant receive passwords"
+            error = true
             StartBRIOReply(-4102, c_brasUnsupported)
         end
     else
@@ -188,7 +196,7 @@ end
 
 function ReceivedStatusRequest()
     stages = g_BRIO_results[-3103]
-    savedAccessID = stages[1][2][1]
+    savedAccessID = stages[1]
 
     if g_Accesses[savedAccessID] ~= nil then
         StartBRIOReply(-4103, g_Accesses[savedAccessID][3])
@@ -212,20 +220,23 @@ function ParseNewStatus(access, newStatus)
     -- [BRS] - The password matches! Now we can do stuff
     -- According to the received status.
     number = access[1]
-    accessLocked = access[3] == c_brasLocked
+    accessLocked = access[4]
     repliedStatus = c_brasUnsupported
+    message = "ERR: None"
 
-    if newStatus == c_brasUnlocked and c_brasLocked then
+    if newStatus == c_brasUnlocked and accessLocked then
         -- [BRS] - it gets unlocked
         access[3] = c_brasClosed
+        access[4] = false
         repliedStatus = c_brasUnlocked
         message = "Unlocked access "..number
-    elseif newStatus == c_brasLocked and not c_brasLocked then
+    elseif newStatus == c_brasLocked and not accessLocked then
         -- [BRS] - Locking the access.
         access[3] = c_brasClosed
+        access[4] = true
         repliedStatus = c_brasLocked
         message = "Locked access "..number
-    elseif newStatus ~= c_brasUnlocked and c_brasLocked then
+    elseif newStatus ~= c_brasUnlocked and accessLocked then
         -- [BRS] - You can't do anything to a locked access.
         repliedStatus = c_brasLocked
         message = "Access "..number.." is locked."
@@ -249,7 +260,7 @@ end
 function Reset()
     message = "initiated"
     g_ticksTaken = 0
-    antennaTransmit = true
+    antennaTransmit = false
     error = false
     savedAccessID = 0
     savedPassword = ""
