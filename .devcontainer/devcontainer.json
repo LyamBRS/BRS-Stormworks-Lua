@@ -15,5 +15,5 @@
       ]
     }
   },
-  "postCreateCommand": ""
+  "postCreateCommand": "chmod +x /workspaces/BRS-Stormworks-Lua/bin/* && echo 'export PATH=\"/workspaces/BRS-Stormworks-Lua/bin:$PATH\"' >> ~/.bashrc"
 }
