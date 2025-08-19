@@ -61,6 +61,10 @@
             "color": "#66ddaa",
         },
         {
+            "text": ".find",
+            "color": "#66ddaa",
+        },
+        {
             "text": ".getText",
             "color": "#66ddaa",
         },
