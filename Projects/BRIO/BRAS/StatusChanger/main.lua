@@ -43,7 +43,7 @@ message = ""
 error = false
 
 resetTimer = 0
-wantedStatus = 0
+wantedStatus = c_brasOpened
 
 currentAccessID = 0
 selectedAccessID = 0
@@ -83,25 +83,18 @@ function onTick()
         end
     end
 
-    -- [BRS] - Initiating the command transmittion
-    if updateStatus and not g_onGoing then
-        Reset()
-        g_masterCommands[-3101][2][2][1] = selectedAccessID
-        g_masterCommands[-3101][3][2][1] = wantedStatus
-        BrioSetMasterCommand(g_BRIOMasterData, g_masterCommands, -3101)
-    end
-
     -- [BRS] - Debug message management.
     if oldOngoing ~= g_onGoing then -- the communication started or stopped.
         oldOngoing = g_onGoing
-        if not g_onGoing and not handshakeSuccess then -- Well, it seems like we stopped communicating but not the full thing happened!
-            message = "Incomplete handshake"
+
+        if not g_onGoing and not receivedAnswer then -- We never received an answer
+            message = "No answer"
             error = true
             resetTimer = 300
         end
 
-        if not g_onGoing and not receivedAnswer then -- We never received an answer
-            message = "No answer"
+        if not g_onGoing and not handshakeSuccess then -- Well, it seems like we stopped communicating but not the full thing happened!
+            message = "Incomplete handshake"
             error = true
             resetTimer = 300
         end
@@ -141,6 +134,15 @@ function onTick()
     -- [BRS] - [[ BRIO ]] --
     require("Projects.BRIO.BRAS.StatusChanger.brio")
 
+    -- [BRS] - Initiating the command transmittion
+    if updateStatus and not g_onGoing then
+        Reset()
+        g_masterCommands[-3101][2][2][1] = selectedAccessID
+        g_masterCommands[-3101][3][2][1] = wantedStatus
+        antennaTransmit = true
+        BrioSetMasterCommand(g_BRIOMasterData, g_masterCommands, -3101)
+    end
+
     -- [BRS] - [[ Outputs ]] --
     output.setBool(1, antennaTransmit)
     output.setNumber(1, g_ticksTaken)
@@ -179,7 +181,7 @@ end
 function HandshakeSuccess()
     handshakeSuccess = true
     receivedAccessID = g_BRIO_results[-3101][8]
-    receivedAnswer = g_BRIO_results[-3101][9]
+    handshakeAnswer = g_BRIO_results[-3101][9]
     g_BRIO_results[-3101] = nil
 end
 
@@ -196,7 +198,7 @@ function Reset()
     handshakeAnswer = 0
     g_ticksTaken = 0
     selectedAccessID = currentAccessID
-    antennaTransmit = true
+    antennaTransmit = false
     handshakeSuccess = false
     receivedAnswer = false
     receivedAccessID = 0
