@@ -122,6 +122,7 @@ function onTick()
 
     -- [BRS] - [[ Outputs ]] --
     output.setBool(1, antennaTransmit)
+    output.setNumber(1, g_ticksTaken)
 end
 
 function onDraw()
@@ -146,7 +147,7 @@ function onDraw()
         screen.drawClear()
         screen.setColor(255,255,0)
     end
-    screen.drawTextBox(0,0,96,32, message)
+    screen.drawTextBox(2,2,92,28, message)
 
     screen.drawRectF(0,30,(resetTimer/300)*96,2)
 end
