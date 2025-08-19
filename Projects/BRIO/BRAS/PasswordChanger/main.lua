@@ -80,7 +80,7 @@ function onTick()
     -- [BRS] - Initiating the command transmittion
     if updatePassword and not g_onGoing then
         Reset()
-        g_masterCommands[-3102][2][2] = selectedAccessID
+        g_masterCommands[-3102][2][2][1] = selectedAccessID
         BrioSetMasterCommand(g_BRIOMasterData, g_masterCommands, -3102)
     end
 
