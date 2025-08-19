@@ -4,12 +4,8 @@
 -- Not having a password will make it so any password is valid to change the status of the access.
 -- To not have a password, keep the property text "AccessX.password" of the same door number, empty.
 -- If you're missing an access number, it will stop parsing property texts and numbers.
-
-g_Accesses = {}
-currentAccess = 1
-while(currentAccess) do
-    accessAsString = tostring(currentAccess)
-    accessProperty = "Access" .. accessAsString
+if currentAccess then
+    accessProperty = "Access" .. currentAccess
 
     id = property.getNumber(accessProperty .. ".id")
     if id == nil then
@@ -17,7 +13,8 @@ while(currentAccess) do
         currentAccess = false
     else
         password = property.getText(accessProperty .. ".password")
-        -- [BRS] - Initialized to [id] = {door number, access password, closed}
-        g_Accesses[id] = {currentAccess, password, c_brasClosed}
+        -- [BRS] - Initialized to [id] = {door number, access password, closed, locked}
+        g_Accesses[id] = {currentAccess, password, c_brasClosed, false}
+        currentAccess = currentAccess + 1
     end
 end
