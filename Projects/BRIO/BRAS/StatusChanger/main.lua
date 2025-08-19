@@ -86,8 +86,8 @@ function onTick()
     -- [BRS] - Initiating the command transmittion
     if updateStatus and not g_onGoing then
         Reset()
-        g_masterCommands[-3101][2][2] = selectedAccessID
-        g_masterCommands[-3101][3][2] = wantedStatus
+        g_masterCommands[-3101][2][2][1] = selectedAccessID
+        g_masterCommands[-3101][3][2][1] = wantedStatus
         BrioSetMasterCommand(g_BRIOMasterData, g_masterCommands, -3101)
     end
 
