@@ -12,7 +12,7 @@
                 {BrioSendText, {password}},
                 {BrioSendNumber, {c_BRIO_end}},
                 {BrioSendNumber, {0}, StopTransmitting},
-                {BrioAwaitNumber, {-4101, 20}, ReceivedAnswer}, -- Address
+                {BrioAwaitNumber, {-4101, 60}, ReceivedAnswer}, -- Address
                 {BrioGetNumber, {}}, -- Access ID
                 {BrioGetNumber, {}}, -- Answer
                 {BrioAwaitNumber, {-10, 1}, HandshakeSuccess}
