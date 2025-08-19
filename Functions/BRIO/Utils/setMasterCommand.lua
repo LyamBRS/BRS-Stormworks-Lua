@@ -1,4 +1,5 @@
 require("Variables.BRIO.dataHolders.constants.commandBlockHolderIndex")
+require("Variables.BRIO.dataHolders.constants.executedAddressIndex")
 -- [BRS] - [[ Information ]] --
 -- `25/08/08`
 -- ### Description
