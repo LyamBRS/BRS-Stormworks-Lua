@@ -1,8 +1,9 @@
 require("Variables.BRIO.dataHolders.constants.busInHolderIndex")
 require("Variables.BRIO.dataHolders.constants.commandBlockHolderIndex")
+require("Variables.BRIO.dataHolders.constants.executedAddressIndex")
 require("Functions.BRIO.Managers.executor")
 -- [BRS] - [[ Information ]] --
--- `25/08/05`
+-- `25/08/19`
 -- ### Description
 -- Manages the execution of BRIO slave output commands.
 -- Slave commands listens for their addresses, then gets the data from the command.
@@ -20,6 +21,7 @@ function BrioSlaveManager(brioData, commands)
             -- [BRS] - Is the data we're currently reading one of our supported addresses?
             if brioData[c_BusInIndex] == address then
                 brioData[c_CommandsIndex] = execution
+                brioData[c_executedAddressIndex] = address
                 -- [BRS] - Do not reset function results pointer array here. Its the job of reader functions to do so when they are done reading them.
             end
         end
