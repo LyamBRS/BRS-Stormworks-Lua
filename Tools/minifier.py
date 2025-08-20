@@ -4,112 +4,12 @@ import argparse
 import sys
 import pathlib
 from collections import Counter
+from Utils.debug import *
+from Utils.CharactersAnalysis.analyzer import analyze_character_usage
 
 #=====================================================#
-# region Debug definitions
+# region Minifier Header
 #=====================================================#
-class Debug():
-    #region ----------- docstring
-    """
-        Debug
-        -----
-        This class is responsible for the prints you
-        see in the terminal.
-    """
-    #endregion
-    #region ----------- Members
-    RED:str = "\033[31m"
-    GREEN:str = "\033[32m"
-    YELLOW:str = "\033[33m"
-    BLUE:str = "\033[34m"
-    MAGENTA:str = "\033[35m"
-    CYAN:str = "\033[36m"
-    GREY:str = "\033[90m"
-    RESET:str = "\033[0m"
-
-    currentStep:int = 0
-    #endregion
-    #region ----------- Methods
-    def NewStep(text:str):
-        """
-            Error
-            -----
-            This function writes an uniform error message
-            inside the terminal.
-        """
-        Debug.currentStep = Debug.currentStep + 1
-        Debug.Step(text)
-    # ----------------------------------------------------
-    def Error(text:str):
-        """
-            Error
-            -----
-            This function writes an uniform error message
-            inside the terminal.
-        """
-        print(f"{Debug.RED}[BRS][ERROR   ]:\t {text}{Debug.RESET}")
-    # ----------------------------------------------------
-    def Success(text:str=None):
-        """
-            Success
-            -------
-            This function writes an uniform success message
-            inside the terminal.
-        """
-        if(text == None):
-            print(f"{Debug.GREEN}[BRS][SUCCESS ]{Debug.RESET}")
-        else:
-            print(f"{Debug.GREEN}[BRS][SUCCESS ]:\t {text}{Debug.RESET}")
-    # ----------------------------------------------------
-    def Warning(text:str):
-        """
-            Warning
-            -------
-            This function writes an uniform warning message
-            inside the terminal.
-        """
-        if(text == None):
-            print(f"{Debug.YELLOW}[BRS][WARNING ]{Debug.RESET}")
-        else:
-            print(f"{Debug.YELLOW}[BRS][WARNING ]:\t {text}{Debug.RESET}")
-    # ----------------------------------------------------
-    def Question(text:str):
-        """
-            Question
-            --------
-            This function writes an uniform question message
-            inside the terminal.
-        """
-        print(f"{Debug.CYAN}[BRS][QUESTION]:\t {text}{Debug.RESET}")
-    # ----------------------------------------------------
-    def Info(text:str):
-        """
-            Info
-            --------
-            This function writes unform information message
-            inside the terminal.
-        """
-        print(f"{Debug.BLUE}[BRS][INFO    ]:\t {text}{Debug.RESET}")
-    # ----------------------------------------------------
-    def Note(text:str):
-        """
-            Note
-            --------
-            This function writes unform note message
-            inside the terminal.
-        """
-        print(f"{Debug.GREY}[BRS][NOTE    ]:\t {text}{Debug.RESET}")
-    # ----------------------------------------------------
-    def Step(text:str):
-        """
-            Note
-            --------
-            This function writes unform note message
-            inside the terminal.
-        """
-        print(f"{Debug.MAGENTA}[BRS][STEP    ]: [{Debug.currentStep}]:\t {text}{Debug.RESET}")
-    #endregion
-#endregion
 
 def Step_Header() -> bool:
     """
@@ -133,13 +33,6 @@ def Step_Header() -> bool:
     Debug.Note("===========================================")
     return False
 
-def Error_Line() -> bool:
-    Debug.Error(f"{Debug.GREY}===========================================")
-    return False
-
-def Error_In(file, at_line):
-    Debug.Error(f"Error occured in {Debug.GREY}{file}{Debug.RED} at line {Debug.GREY}{at_line}")
-
 #=====================================================#
 # region Patterns
 #=====================================================#
@@ -157,19 +50,6 @@ STRING_PATTERN = r'''
 #=====================================================#
 # Code character analysis.
 #=====================================================#
-def analyze_character_usage(full_code):
-    analyze_constants(full_code)
-    analyze_strings(full_code)
-
-def remove_strings_and_comments(code):
-    pattern = r"""
-        (?:--\[\[.*?\]\])           # multi-line comment
-        | (?:--[^\n]*)              # single-line comment
-        | (?:"(?:\\.|[^"\\])*")     # double-quoted string
-        | (?:'(?:\\.|[^'\\])*')     # single-quoted string
-    """
-    return re.sub(pattern, '', code, flags=re.DOTALL | re.VERBOSE)
-
 def remove_lua_indentation(lua_code: str) -> str:
     """
     Removes leading whitespace (indentation) from each line of the Lua script.
@@ -185,35 +65,6 @@ def remove_lua_indentation(lua_code: str) -> str:
     stripped_lines = [line.lstrip() for line in lines]
     return "\n".join(stripped_lines)
 
-def analyze_strings(full_code):
-    strings = re.findall(STRING_PATTERN, full_code, re.VERBOSE)
-    character_used_by_strings = sum(len(s) for s in strings)
-    unique_strings = set(strings)
-    amount_of_unique = len(unique_strings)
-    duplicates = [s for s, count in Counter(strings).items() if count > 1]
-
-    if len(strings) == 0:
-        Debug.Note(f"{Debug.GREEN}0{Debug.GREY} characters are used by strings definitions.")
-    else:
-        percentage = (character_used_by_strings / len(full_code))*100
-        Debug.Note(f"{Debug.YELLOW}{character_used_by_strings}{Debug.GREY} ({Debug.YELLOW}{int(percentage)}%{Debug.GREY}) characters are used by defining {Debug.YELLOW}{amount_of_unique}{Debug.GREY} unique strings {Debug.YELLOW}{len(strings)}{Debug.GREY} times.")
-        Debug.Note("\t" + str(unique_strings))
-        if duplicates:
-            Debug.Warning("You have duplicate string definitions! Create a constant to avoid wasting characters like this.")
-
-def analyze_constants(full_code):
-    # Cleaning it for the regex to work better.
-    cleaned_code = remove_strings_and_comments(full_code)
-    constants = re.findall(r'\bc_[a-zA-Z0-9_]*\b', cleaned_code)
-    unique_constants = set(constants)
-    amount_of_unique_constants = len(unique_constants)
-    character_used_by_constants = sum(len(s) for s in constants)
-
-    if len(constants) == 0:
-        Debug.Note(f"{Debug.GREEN}0{Debug.GREY} characters are used by constants.")
-    else:
-        percentage = (character_used_by_constants / len(full_code))*100
-        Debug.Note(f"{Debug.YELLOW}{character_used_by_constants}{Debug.GREY} ({Debug.YELLOW}{int(percentage)}%{Debug.GREY}) characters are used by calling {Debug.YELLOW}{amount_of_unique_constants}{Debug.GREY} unique constants {Debug.YELLOW}{len(constants)}{Debug.GREY} times.")
 #=====================================================#
 # region Debug definitions
 #=====================================================#
