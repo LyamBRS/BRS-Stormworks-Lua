@@ -55,6 +55,8 @@ savedWantedStatus = 0
 currentAccess = 1
 g_Accesses = {}
 
+amountOfAccesses = 1
+
 -- [BRS] - If we transmit at the same tick that the command gets 
 -- The the transmit boolean may reach the antenna 1 tick too late.
 setCommandNextTick = false
@@ -85,6 +87,7 @@ function onTick()
 
     -- [BRS] - Start the master reply to the requesting vehicle.
     if setCommandNextTick ~= false then
+        g_BRIO_results = {}
         BrioSetMasterCommand(g_BRIOMasterData, g_masterCommands, setCommandNextTick)
         setCommandNextTick = false
     end
@@ -102,6 +105,7 @@ function onTick()
     end
 
     output.setBool(31, antennaTransmit)
+    output.setBool(32, g_BRIOMasterData[c_BusInIndex] ~= 0 or g_BRIOMasterData[c_BusOutIndex] ~= 0)
     output.setNumber(32, g_ticksTaken)
 end
 
@@ -143,11 +147,11 @@ function ReceivedStatusChangeRequest()
         -- [BRS] - This manager handles this access ID!
         access = g_Accesses[savedAccessID]
         accessPassword = access[2]
-        if accessPassword ~= nil then
+        if accessPassword ~= nil and accessPassword ~= "" then
             -- [BRS] - That access has a password!
             if accessPassword ~= savedPassword then
                 -- [BRS] - But the one provided is wrong... rip.
-                message = "Incorrect password"
+                message = "Incorrect password: "..savedPassword
                 error = true
                 StartBRIOReply(-4101, c_brasIncorrectPassword)
             else
@@ -173,11 +177,15 @@ function ReceivedPasswordChangeRequest()
         -- [BRS] - This manager handles this access ID!
         access = g_Accesses[savedAccessID]
         accessPassword = access[2]
-        if accessPassword ~= nil then
+        if accessPassword ~= nil and accessPassword ~= "" then
             -- [BRS] - That access has a password!
             if accessPassword ~= savedPassword then
+                message = "Incorrect password: "..savedPassword
+                error = true
                 StartBRIOReply(-4102, c_brasIncorrectPassword)
             else
+                message = "Acess "..access[1].." Password changed!"
+                access[2] = savedNewPassword
                 StartBRIOReply(-4102, c_brasSuccess)
             end
         else
@@ -258,7 +266,7 @@ function FinishedReplying()
 end
 
 function Reset()
-    message = "initiated"
+    message = "awaiting"
     g_ticksTaken = 0
     antennaTransmit = false
     error = false
