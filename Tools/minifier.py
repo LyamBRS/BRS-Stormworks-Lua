@@ -5,7 +5,7 @@ import sys
 import pathlib
 from collections import Counter
 from Utils.debug import *
-from Utils.CharactersAnalysis.analyzer import analyze_character_usage
+from Utils.CharactersAnalysis.analyzer import character_counter
 
 #=====================================================#
 # region Minifier Header
@@ -144,22 +144,6 @@ def manage_arguments():
 
     args = parser.parse_args()
     return args
-
-def character_counter(bundled_code):
-    Debug.Step("Analyzing character count.")
-    amount_of_characters = len(bundled_code)
-
-    color = Debug.GREEN
-    if amount_of_characters > 7000:
-        color = Debug.YELLOW
-    if amount_of_characters > 8192:
-        color = Debug.RED
-
-    Debug.Note("===================================")
-    Debug.Info(f"Characters used: {color}{amount_of_characters}/8192")
-    Debug.Note("===================================")
-    analyze_character_usage(bundled_code)
-    Debug.Note("===================================")
 
 # Example usage:
 if __name__ == "__main__":
