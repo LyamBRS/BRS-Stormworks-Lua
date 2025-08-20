@@ -5,7 +5,7 @@ import sys
 import pathlib
 from collections import Counter
 from ..Utils.debug import *
-
+from ..Utils.CharactersAnalysis.analyzer import character_counter
 
 #=====================================================#
 # region Debugs
@@ -40,58 +40,7 @@ def Step_Header() -> bool:
 # Regular expression to match the import directive
 IMPORT_PATTERN = re.compile(r'require\s*\(\s*["\']([\w\.]+)["\']\s*\)')
 EMPTY_LINE_PATTERN = r'^\s*$'
-STRING_PATTERN = r'''
-(?:
-    " (?:\\.|[^"\\])* "    # double-quoted strings
-  | ' (?:\\.|[^'\\])* '    # single-quoted strings
-)
-'''
 
-#=====================================================#
-# Code character analysis.
-#=====================================================#
-def analyze_character_usage(full_code):
-    analyze_constants(full_code)
-    analyze_strings(full_code)
-
-def remove_strings_and_comments(code):
-    pattern = r"""
-        (?:--\[\[.*?\]\])           # multi-line comment
-        | (?:--[^\n]*)              # single-line comment
-        | (?:"(?:\\.|[^"\\])*")     # double-quoted string
-        | (?:'(?:\\.|[^'\\])*')     # single-quoted string
-    """
-    return re.sub(pattern, '', code, flags=re.DOTALL | re.VERBOSE)
-
-def analyze_strings(full_code):
-    strings = re.findall(STRING_PATTERN, full_code, re.VERBOSE)
-    character_used_by_strings = sum(len(s) for s in strings)
-    unique_strings = set(strings)
-    amount_of_unique = len(unique_strings)
-    duplicates = [s for s, count in Counter(strings).items() if count > 1]
-
-    if len(strings) == 0:
-        Debug.Note(f"{Debug.GREEN}0{Debug.GREY} characters are used by strings definitions.")
-    else:
-        percentage = (character_used_by_strings / len(full_code))*100
-        Debug.Note(f"{Debug.YELLOW}{character_used_by_strings}{Debug.GREY} ({Debug.YELLOW}{int(percentage)}%{Debug.GREY}) characters are used by defining {Debug.YELLOW}{amount_of_unique}{Debug.GREY} unique strings {Debug.YELLOW}{len(strings)}{Debug.GREY} times.")
-        Debug.Note("\t" + str(unique_strings))
-        if duplicates:
-            Debug.Warning("You have duplicate string definitions! Create a constant to avoid wasting characters like this.")
-
-def analyze_constants(full_code):
-    # Cleaning it for the regex to work better.
-    cleaned_code = remove_strings_and_comments(full_code)
-    constants = re.findall(r'\bc_[a-zA-Z0-9_]*\b', cleaned_code)
-    unique_constants = set(constants)
-    amount_of_unique_constants = len(unique_constants)
-    character_used_by_constants = sum(len(s) for s in constants)
-
-    if len(constants) == 0:
-        Debug.Note(f"{Debug.GREEN}0{Debug.GREY} characters are used by constants.")
-    else:
-        percentage = (character_used_by_constants / len(full_code))*100
-        Debug.Note(f"{Debug.YELLOW}{character_used_by_constants}{Debug.GREY} ({Debug.YELLOW}{int(percentage)}%{Debug.GREY}) characters are used by calling {Debug.YELLOW}{amount_of_unique_constants}{Debug.GREY} unique constants {Debug.YELLOW}{len(constants)}{Debug.GREY} times.")
 #=====================================================#
 # region Debug definitions
 #=====================================================#
@@ -208,22 +157,6 @@ def manage_arguments():
     args = parser.parse_args()
     return args
 
-def character_counter(bundled_code):
-    Debug.Step("Analyzing character count.")
-    amount_of_characters = len(bundled_code)
-
-    color = Debug.GREEN
-    if amount_of_characters > 7000:
-        color = Debug.YELLOW
-    if amount_of_characters > 8192:
-        color = Debug.RED
-
-    Debug.Note("===================================")
-    Debug.Info(f"Characters used: {color}{amount_of_characters}/8192")
-    Debug.Note("===================================")
-    analyze_character_usage(bundled_code)
-    Debug.Note("===================================")
-
 # Example usage:
 if __name__ == "__main__":
     Step_Header()
@@ -256,5 +189,3 @@ if __name__ == "__main__":
         f.write(bundled_code)
 
     character_counter(bundled_code)
-
-    # print("Bundled file written to bundled_output.lua")
