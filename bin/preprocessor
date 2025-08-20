@@ -1,2 +1,2 @@
 #!/bin/bash
-python Tools/Preprocessor/BRpreprocessor.py --entry "$@"
+python -m Tools.Preprocessor.BRpreprocessor --entry "$@"
