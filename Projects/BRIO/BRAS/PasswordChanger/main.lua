@@ -77,13 +77,6 @@ function onTick()
         end
     end
 
-    -- [BRS] - Initiating the command transmittion
-    if updatePassword and not g_onGoing then
-        Reset()
-        g_masterCommands[-3102][2][2][1] = selectedAccessID
-        BrioSetMasterCommand(g_BRIOMasterData, g_masterCommands, -3102)
-    end
-
     -- [BRS] - Debug message management.
     if oldOngoing ~= g_onGoing then -- the communication started or stopped.
         oldOngoing = g_onGoing
@@ -106,7 +99,7 @@ function onTick()
             message = handshakeAnswer == c_brasUnlocked and "ANS ERR: unlocked?" or message
             message = handshakeAnswer == 0 and "ANS ERR: is 0" or message
             message = handshakeAnswer == c_brasUnsupported and "Operation unsupported" or message
-            message = handshakeAnswer == c_brasIncorrectPassword and "Wrong password" or message
+            message = handshakeAnswer == c_brasIncorrectPassword and oldPassword or message
             message = handshakeAnswer == c_brasLocked and "Failed. Locked" or message
             message = handshakeAnswer == c_brasSuccess and "Password changed" or message
 
@@ -120,6 +113,14 @@ function onTick()
 
     -- [BRS] - [[ BRIO ]] --
     require("Projects.BRIO.BRAS.PasswordChanger.brio")
+
+    -- [BRS] - Initiating the command transmittion
+    if updatePassword and not g_onGoing then
+        Reset()
+        g_masterCommands[-3102][2][2][1] = selectedAccessID
+        antennaTransmit = true
+        BrioSetMasterCommand(g_BRIOMasterData, g_masterCommands, -3102)
+    end
 
     -- [BRS] - [[ Outputs ]] --
     output.setBool(1, antennaTransmit)
@@ -159,7 +160,7 @@ end
 function HandshakeSuccess()
     handshakeSuccess = true
     receivedAccessID = g_BRIO_results[-3102][9]
-    receivedAnswer = g_BRIO_results[-3102][10]
+    handshakeAnswer = g_BRIO_results[-3102][10]
     g_BRIO_results[-3102] = nil
 end
 
@@ -176,7 +177,7 @@ function Reset()
     handshakeAnswer = 0
     g_ticksTaken = 0
     selectedAccessID = currentAccessID
-    antennaTransmit = true
+    antennaTransmit = false
     handshakeSuccess = false
     receivedAnswer = false
     receivedAccessID = 0
