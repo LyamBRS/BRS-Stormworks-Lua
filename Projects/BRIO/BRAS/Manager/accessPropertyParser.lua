@@ -8,7 +8,7 @@ if currentAccess then
     accessProperty = "Access" .. currentAccess
 
     id = property.getNumber(accessProperty .. ".id")
-    if id == nil then
+    if id == nil or id == 0 then
         -- [BRS] - There's no more accesses.
         currentAccess = false
     else
@@ -16,5 +16,6 @@ if currentAccess then
         -- [BRS] - Initialized to [id] = {door number, access password, closed, locked}
         g_Accesses[id] = {currentAccess, password, c_brasClosed, false}
         currentAccess = currentAccess + 1
+        amountOfAccesses = amountOfAccesses + 1
     end
 end
