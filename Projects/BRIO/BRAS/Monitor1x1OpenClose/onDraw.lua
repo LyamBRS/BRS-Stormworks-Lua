@@ -56,7 +56,14 @@ function onDraw()
     screen.drawTextBox(1,5,30,11,message,0,0)
 
     -- [BRS] - Selected access ID
-    screen.drawTextBox(4,18,25,5,selectedAccess,0,0)
+    _, access = GetAccessFromNumber(selectedAccess)
+    accessName = selectedAccess
+    if access ~= nil then
+        if access[5] ~= "" and access[5] ~= nil then
+            accessName = access[5]
+        end
+    end
+    screen.drawTextBox(4,18,25,5,accessName,0,0)
 
     --------------------------------
     -- [BRS] - Message timer bar

@@ -23,14 +23,9 @@
         Reset()
 
         -- [BRS] - Find the access with the proper access number.
-        password = ""
         selectedAccessID = -2
-        for key, value in pairs(g_Accesses) do
-            if value[1] == selectedAccess then
-                password = value[2]
-                selectedAccessID = key
-            end
-        end
+        selectedAccessID, access = GetAccessFromNumber(selectedAccess)
+        password = access[2]
 
         g_masterCommands[-3101][2][2][1] = selectedAccessID
         g_masterCommands[-3101][3][2][1] = wantedStatus
