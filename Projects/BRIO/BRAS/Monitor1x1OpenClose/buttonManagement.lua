@@ -1,18 +1,4 @@
-    -- [BRS] - Ensure we don't bust the amount of accesses we got.
-    if pressingLeftArrow ~= oldLeftArrow then
-        oldLeftArrow = pressingLeftArrow
-        if selectedAccess > 1 and pressingLeftArrow then
-            selectedAccess = selectedAccess - 1
-        end
-    end
-
-    -- [BRS] - Ensure we don't bust the amount of accesses we got.
-    if pressingRightArrow ~= oldRightArrow then
-        oldRightArrow = pressingRightArrow
-        if selectedAccess < amountOfAccesses and pressingRightArrow then
-            selectedAccess = selectedAccess + 1
-        end
-    end
+    require("Projects.BRIO.BRAS.Monitor1x1.ButtonManagement.arrowButtons")
 
     if pressingOpen then wantedStatus = c_brasOpened end
     if pressingClose then wantedStatus = c_brasClosed end

@@ -2,27 +2,15 @@ function onDraw()
     --------------------------------
     -- [BRS] - Background elements
     --------------------------------
-    SetColor(background)
-    screen.drawClear()
+    require("Projects.BRIO.BRAS.Monitor1x1.drawing.background")
 
     -- [BRS] - Cards
-    SetColor(cards)
-    screen.drawRect(0,0,31,3)
-    screen.drawRectF(1,17,30,1)
-    screen.drawRectF(0,18,32,14)
+    require("Projects.BRIO.BRAS.Monitor1x1.drawing.cards")
 
     --------------------------------
     -- [BRS] - Buttons
     --------------------------------
-    -- [BRS] - Left arrow
-    SetColor(leftArrow)
-    screen.drawRectF(1,20,1,1)
-    screen.drawRectF(2,19,1,3)
-
-    -- [BRS] - Right arrow
-    SetColor(rightArrow)
-    screen.drawRectF(30,20,1,1)
-    screen.drawRectF(29,19,1,3)
+    require("Projects.BRIO.BRAS.Monitor1x1.drawing.arrowButtons")
 
     -- [BRS] - Open button
     SetColor(openButton)
@@ -52,28 +40,14 @@ function onDraw()
     -- [BRS] - Messages
     --------------------------------
     -- [BRS] - BRIO messages
-    SetColor(text)
-    screen.drawTextBox(1,5,30,11,message,0,0)
+    require("Projects.BRIO.BRAS.Monitor1x1.drawing.messages")
 
     -- [BRS] - Selected access ID
-    _, access = GetAccessFromNumber(selectedAccess)
-    accessName = selectedAccess
-    if access ~= nil then
-        if access[5] ~= "" and access[5] ~= nil then
-            accessName = access[5]
-        end
-    end
-    screen.drawTextBox(4,18,25,5,accessName,0,0)
+    require("Projects.BRIO.BRAS.Monitor1x1.drawing.accessID")
 
     --------------------------------
     -- [BRS] - Message timer bar
     --------------------------------
     -- [BRS] - The bar
     screen.drawRectF(1,1,(resetTimer/200)*30,2)
-
-    -- if pressingLeftArrow then
-    --     screen.setColor(255,255,255,30)
-    -- else
-    --     screen.setColor(0,255,0,30)
-    -- end
 end

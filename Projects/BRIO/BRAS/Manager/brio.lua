@@ -22,7 +22,7 @@
             },
             -- [BRS] - Reply to access status request.
             [-4103] = {
-                {BrioSendNumber, {-4102}},
+                {BrioSendNumber, {-4103}},
                 {BrioSendNumber, {savedAccessID}},
                 {BrioSendNumber, {savedWantedStatus}},
                 {BrioSendNumber, {c_BRIO_end}, FinishedReplying},

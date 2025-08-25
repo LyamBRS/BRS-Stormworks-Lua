@@ -1,0 +1,2 @@
+    SetColor(background)
+    screen.drawClear()

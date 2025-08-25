@@ -14,6 +14,12 @@ if currentAccess then
     else
         password = property.getText(accessProperty .. ".password")
         name = property.getText(accessProperty .. ".name")
+
+        if name == nil or name == "" then
+            -- [BRS] - The user specified no special name for it. It'll thus be the access number.
+            name = currentAccess
+        end
+
         autoClose = property.getNumber(accessProperty .. ".closeTime")
         -- [BRS] - Initialized to [id] = {door number, access password, closed, locked, name, autoCloseTimer, timeLeftOpen}
         --                                1,           2,               3,      4,      5,    6,              7

@@ -47,7 +47,7 @@ error = false
 resetTimer = 0
 g_Accesses = {}
 
-receivedAnswer = false
+receivedAnswer = false 
 handshakeAnswer = 0
 receivedAccessID = 0
 currentAccess = 1
@@ -61,7 +61,7 @@ communicationAnimationTicks = 0
 loadingDotsAnimation = 1
 
 -- [BRS] - Button data
-require("Projects.BRIO.BRAS.Monitor1x1OpenClose.drawingData")
+require("Projects.BRIO.BRAS.Monitor1x1StatusPing.drawingData")
 
 -- [BRS] - [[   mains   ]] --
 function onTick()
@@ -78,7 +78,6 @@ function onTick()
 
     -- [BRS] - Automated message clearing
     require("Projects.BRIO.BRAS.Utils.OnTick.resetTimer")
-
 
     -- [BRS] - Debug message management.
     if oldOngoing ~= g_onGoing then -- the communication started or stopped.
@@ -103,26 +102,13 @@ function onTick()
             message = handshakeAnswer == c_brasUnsupported and "op not valid" or message
             message = handshakeAnswer == c_brasIncorrectPassword and " Wrong  pass" or message
             message = handshakeAnswer == c_brasSuccess and "ERR: Success" or message
-            message = receivedAccessID ~= selectedAccessID and "ERR: ID" or message
-
-            --[BRS] - Putting handshakeAnswer conditions into variables to reuse the boolean results.
-            ansIsLocked = handshakeAnswer == c_brasLocked
-            ansIsClosed = handshakeAnswer == c_brasClosed
-            ansIsOpened = handshakeAnswer == c_brasOpened
-            ansIsUnlocked = handshakeAnswer == c_brasUnlocked
-
-            --[BRS] - Your command failed because the status doesnt match what you should receive.
-            message = (ansIsLocked and wantedStatus ~= c_brasLocked) and "Locked" or message
-            -- message = (ansIsClosed and wantedStatus ~= c_brasClosed) and "ANS ERR: Closed?" or message
-            -- message = (ansIsOpened and wantedStatus ~= c_brasOpened) and "ANS ERR: Opened?" or message
-            -- message = (ansIsUnlocked and wantedStatus ~= c_brasUnlocked) and "ANS ERR: Unlocked?" or message
-
-            -- message = (ansIsLocked and wantedStatus == c_brasLocked) and "Success: Locked" or message
-            message = (ansIsClosed and wantedStatus == c_brasClosed) and "Closed" or message
-            message = (ansIsOpened and wantedStatus == c_brasOpened) and "Opened" or message
-            -- message = (ansIsUnlocked and wantedStatus == c_brasUnlocked) and "Success: Unlocked" or message
             
-            -- [BRS] - there's an error if Success isn't part of the received answer.
+            message = (handshakeAnswer == c_brasLocked) and "Locked" or message
+            message = (handshakeAnswer == c_brasClosed) and "Closed" or message
+            message = (handshakeAnswer == c_brasOpened) and "Opened" or message
+            
+            message = receivedAccessID ~= selectedAccessID and "ERR: ID" or message
+            -- [BRS] - Puts it red if its not closed or opened, to indicate an error or that its locked.
             if message ~= "Closed" and message ~= "Opened" then
                 error = true
             end
@@ -130,24 +116,24 @@ function onTick()
     end
 
     -- [BRS] - [[ BRIO ]] --
-    require("Projects.BRIO.BRAS.StatusChanger.brio")
-    require("Projects.BRIO.BRAS.Monitor1x1OpenClose.monitorManagement")
-    require("Projects.BRIO.BRAS.Monitor1x1OpenClose.buttonManagement")
+    require("Projects.BRIO.BRAS.Monitor1x1StatusPing.brio")
+    require("Projects.BRIO.BRAS.Monitor1x1StatusPing.monitorManagement")
+    require("Projects.BRIO.BRAS.Monitor1x1StatusPing.buttonManagement")
 
     -- [BRS] - [[ Outputs ]] --
     output.setBool(1, antennaTransmit)
 end
 
-require("Projects.BRIO.BRAS.Monitor1x1OpenClose.onDraw")
+require("Projects.BRIO.BRAS.Monitor1x1StatusPing.onDraw")
 
 -- [BRS] - [[   Functions   ]] --
 -- Called when the whole password update exchange successfully occured.
 -- This doesn't mean that the password changed, but that the handshake was right!
 function HandshakeSuccess()
     handshakeSuccess = true
-    receivedAccessID = g_BRIO_results[-3101][8]
-    handshakeAnswer = g_BRIO_results[-3101][9]
-    g_BRIO_results[-3101] = nil
+    receivedAccessID = g_BRIO_results[-3103][6]
+    handshakeAnswer = g_BRIO_results[-3103][7]
+    g_BRIO_results[-3103] = nil
 end
 
 function StopTransmitting()

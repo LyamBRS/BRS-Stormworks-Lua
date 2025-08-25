@@ -76,12 +76,7 @@ function onTick()
     end
 
     -- [BRS] - Automated message clearing
-    if resetTimer > 0 then
-        resetTimer = resetTimer - 1
-        if resetTimer == 0 then
-            Reset()
-        end
-    end
+    require("Projects.BRIO.BRAS.Utils.OnTick.resetTimer")
 
     -- [BRS] - Debug message management.
     if oldOngoing ~= g_onGoing then -- the communication started or stopped.
