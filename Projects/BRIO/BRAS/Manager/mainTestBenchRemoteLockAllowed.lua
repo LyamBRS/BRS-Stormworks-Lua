@@ -269,7 +269,12 @@ function ReceivedStatusRequest()
     savedAccessID = stages[1]
 
     if g_Accesses[savedAccessID] ~= nil then
-        StartBRIOReply(-4103, g_Accesses[savedAccessID][3])
+        access = g_Accesses[savedAccessID]
+        accessStatus = access[3]
+        if access[4] then -- its locked, not closed.
+            accessStatus = c_brasLocked
+        end
+        StartBRIOReply(-4103, accessStatus)
     else
         message = "Access id unsupported"
         error = true
