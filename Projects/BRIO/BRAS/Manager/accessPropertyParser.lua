@@ -14,9 +14,10 @@ if currentAccess then
     else
         password = property.getText(accessProperty .. ".password")
         name = property.getText(accessProperty .. ".name")
-        autoClose = property.getText(accessProperty .. ".closeTime")
-        -- [BRS] - Initialized to [id] = {door number, access password, closed, locked, name, autoCloseTimer}
-        g_Accesses[id] = {currentAccess, password, c_brasClosed, false, name, autoClose}
+        autoClose = property.getNumber(accessProperty .. ".closeTime")
+        -- [BRS] - Initialized to [id] = {door number, access password, closed, locked, name, autoCloseTimer, timeLeftOpen}
+        --                                1,           2,               3,      4,      5,    6,              7
+        g_Accesses[id] = {currentAccess, password, c_brasClosed, false, name, autoClose, 0}
         currentAccess = currentAccess + 1
         amountOfAccesses = amountOfAccesses + 1
     end

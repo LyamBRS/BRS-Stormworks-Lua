@@ -107,7 +107,7 @@ function onTick()
     -- [BRS] - Outputs every door's status on their respective composite channel, as well as if they are locked or not.
     for id, access in pairs(g_Accesses) do
         accessNumber = access[1]
-
+        closeTimer = access[6]
         -- [BRS] - Handle local access status overwrites
         localStatus = input.getNumber(accessNumber)
 
@@ -118,26 +118,40 @@ function onTick()
         localStatus = keepAllOpened and c_brasOpened or localStatus
         localStatus = keepAllLocked and c_brasLocked or localStatus
 
+        -- [BRS] - Handle the automatic closing of accesses that supports it.
+        if access[7] > 0 then
+            -- [BRS] - decreases until it reaches 0. At 0 the door closes.
+            access[7] = access[7] - 1
+            if access[7] == 0 then
+                -- [BRS] - At 0, the door closes.
+                localStatus = c_brasClosed
+            end
+        end
+
         g_LocalAccessStatus[accessNumber] = localStatus
         if localStatus ~= 0 then
             -- [BRS] - An overwrite is set and thus this access must follow it.
             if localStatus == c_brasUnlocked then
                 access[3] = c_brasClosed
+                access[7] = 0
                 access[4] = false
             end
 
             if localStatus == c_brasOpened then
                 access[3] = localStatus
+                access[7] = closeTimer
                 access[4] = false
             end
 
             if localStatus == c_brasClosed then
                 access[3] = localStatus
+                access[7] = 0
                 access[4] = false
             end
 
             if localStatus == c_brasLocked then
                 access[3] = c_brasClosed
+                access[7] = 0
                 access[4] = true
             end
         end
@@ -282,18 +296,22 @@ function ParseNewStatus(access, newStatus)
     -- According to the received status.
     number = access[1]
     accessLocked = access[4]
+    autoCloseTimer = access[6]
+    hasAutoClose = autoCloseTimer > 0
     repliedStatus = c_brasUnsupported
     message = "ERR: None"
 
     if newStatus == c_brasUnlocked and accessLocked then
         -- [BRS] - it gets unlocked
         access[3] = c_brasClosed
+        access[7] = 0
         access[4] = false
         repliedStatus = c_brasUnlocked
         message = "Unlocked access "..number
     elseif newStatus == c_brasLocked and not accessLocked then
         -- [BRS] - Locking the access.
         access[3] = c_brasClosed
+        access[7] = 0
         access[4] = true
         repliedStatus = c_brasLocked
         message = "Locked access "..number
@@ -307,6 +325,13 @@ function ParseNewStatus(access, newStatus)
         -- There's no point in wasting code to indicate you're
         -- trying to open a door that's already open and stuff.
         message = "Access "..number.." status: (" .. access[3] .. " -> ".. newStatus..")"
+
+        -- [BRS] - Set the auto close timer so the door automatically closes, if supported.
+        -- [BRS] - Everytime you open the door, it gets reset.
+        if hasAutoClose then
+            access[7] = autoCloseTimer
+        end
+
         access[3] = newStatus
         repliedStatus = newStatus
     end
