@@ -8,6 +8,6 @@ closePressedColor = {120,32,32}
 openButton = {openColor, {16,83,16}}
 closeButton = {closeColor, {83,16,16}}
 
-require("Projects.BRIO.BRAS.Monitor1x1.DrawingData.arrowButtons")
-require("Projects.BRIO.BRAS.Monitor1x1.DrawingData.layout")
-require("Projects.BRIO.BRAS.Monitor1x1.DrawingData.loadingAnimation")
+require("Projects.BRIO.BRAS.Utils.Monitor1x1.DrawingData.arrowButtons")
+require("Projects.BRIO.BRAS.Utils.Monitor1x1.DrawingData.layout")
+require("Projects.BRIO.BRAS.Utils.Monitor1x1.DrawingData.loadingAnimation")

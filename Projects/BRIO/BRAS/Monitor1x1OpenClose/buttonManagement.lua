@@ -1,4 +1,4 @@
-    require("Projects.BRIO.BRAS.Monitor1x1.ButtonManagement.arrowButtons")
+    require("Projects.BRIO.BRAS.Utils.Monitor1x1.ButtonManagement.arrowButtons")
 
     if pressingOpen then wantedStatus = c_brasOpened end
     if pressingClose then wantedStatus = c_brasClosed end

@@ -2,7 +2,7 @@
     require("Functions.Monitor.onTickVariableGetting")
 
     -- [BRS] - Arrow buttons.
-    require("Projects.BRIO.BRAS.Monitor1x1.MonitorManagement.arrowButtons")
+    require("Projects.BRIO.BRAS.Utils.Monitor1x1.MonitorManagement.arrowButtons")
 
     -- [BRS] - Button press detection
     pressingOpen = PressingInRectangle(0,24,14,8) and not g_onGoing
@@ -19,7 +19,7 @@
     closeButton[1] = g_onGoing and disabledColor or closeButton[1]
 
     -- [BRS] - Text and background colors
-    require("Projects.BRIO.BRAS.Monitor1x1.MonitorManagement.layout")
+    require("Projects.BRIO.BRAS.Utils.Monitor1x1.MonitorManagement.layout")
 
     -- [BRS] - Lerping the colors towards the wanted ones.
     ColorTableLerp(openButton, .2)

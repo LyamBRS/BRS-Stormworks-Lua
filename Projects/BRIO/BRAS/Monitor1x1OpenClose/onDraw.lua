@@ -2,15 +2,15 @@ function onDraw()
     --------------------------------
     -- [BRS] - Background elements
     --------------------------------
-    require("Projects.BRIO.BRAS.Monitor1x1.drawing.background")
+    require("Projects.BRIO.BRAS.Utils.Monitor1x1.drawing.background")
 
     -- [BRS] - Cards
-    require("Projects.BRIO.BRAS.Monitor1x1.drawing.cards")
+    require("Projects.BRIO.BRAS.Utils.Monitor1x1.drawing.cards")
 
     --------------------------------
     -- [BRS] - Buttons
     --------------------------------
-    require("Projects.BRIO.BRAS.Monitor1x1.drawing.arrowButtons")
+    require("Projects.BRIO.BRAS.Utils.Monitor1x1.drawing.arrowButtons")
 
     -- [BRS] - Open button
     SetColor(openButton)
@@ -40,10 +40,10 @@ function onDraw()
     -- [BRS] - Messages
     --------------------------------
     -- [BRS] - BRIO messages
-    require("Projects.BRIO.BRAS.Monitor1x1.drawing.messages")
+    require("Projects.BRIO.BRAS.Utils.Monitor1x1.drawing.messages")
 
     -- [BRS] - Selected access ID
-    require("Projects.BRIO.BRAS.Monitor1x1.drawing.accessID")
+    require("Projects.BRIO.BRAS.Utils.Monitor1x1.drawing.accessID")
 
     --------------------------------
     -- [BRS] - Message timer bar
