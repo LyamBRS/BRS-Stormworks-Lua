@@ -55,6 +55,9 @@ savedWantedStatus = 0
 currentAccess = 1
 g_Accesses = {}
 
+-- Stores what the access' instrument panels is telling us. if we should keep it closed, opened, locked, name it.
+g_LocalAccessStatus = {}
+
 amountOfAccesses = 1
 
 -- [BRS] - If we transmit at the same tick that the command gets 
@@ -64,8 +67,13 @@ setCommandNextTick = false
 -- [BRS] - [[   mains   ]] --
 function onTick()
     -- [BRS] - [[ Inputs ]] --
-    -- Boolean 31 locks all doors.
-    -- All numerical output, except 31, indicate if a door is opened or closed. 1: opened, 2: closed.
+    -- All numerical output, except 31 and 32, indicate if a door is opened or closed. 1: opened, 2: closed.
+    openAllClosed = input.getBool(1)
+    closeAllOpened = input.getBool(2)
+    lockAllUnlocked = input.getBool(4)
+    unlockAllLocked = input.getBool(5)
+    keepAllOpened = input.getBool(3) or openAllClosed
+    keepAllLocked = input.getBool(6) or lockAllUnlocked
 
     -- [BRS] - Creating the access status table.
     require("Projects.BRIO.BRAS.Manager.accessPropertyParser")
@@ -98,10 +106,44 @@ function onTick()
     -- [BRS] - [[ Outputs ]] --
     -- [BRS] - Outputs every door's status on their respective composite channel, as well as if they are locked or not.
     for id, access in pairs(g_Accesses) do
-        status = access[3]
         accessNumber = access[1]
+
+        -- [BRS] - Handle local access status overwrites
+        localStatus = input.getNumber(accessNumber)
+
+        -- [BRS] - Change the local status to the master ones if any.
+        -- This is a quick hack that allows all localStatus to be overwritten easily.
+        localStatus = closeAllOpened and c_brasClosed or localStatus
+        localStatus = unlockAllLocked and c_brasUnlocked or localStatus
+        localStatus = keepAllOpened and c_brasOpened or localStatus
+        localStatus = keepAllLocked and c_brasLocked or localStatus
+
+        g_LocalAccessStatus[accessNumber] = localStatus
+        if localStatus ~= 0 then
+            -- [BRS] - An overwrite is set and thus this access must follow it.
+            if localStatus == c_brasUnlocked then
+                access[3] = c_brasClosed
+                access[4] = false
+            end
+
+            if localStatus == c_brasOpened then
+                access[3] = localStatus
+                access[4] = false
+            end
+
+            if localStatus == c_brasClosed then
+                access[3] = localStatus
+                access[4] = false
+            end
+
+            if localStatus == c_brasLocked then
+                access[3] = c_brasClosed
+                access[4] = true
+            end
+        end
+
         output.setBool(accessNumber, access[4])
-        output.setNumber(accessNumber, status)
+        output.setNumber(accessNumber, access[3])
     end
 
     output.setBool(31, antennaTransmit)
@@ -147,19 +189,30 @@ function ReceivedStatusChangeRequest()
         -- [BRS] - This manager handles this access ID!
         access = g_Accesses[savedAccessID]
         accessPassword = access[2]
-        if accessPassword ~= nil and accessPassword ~= "" then
-            -- [BRS] - That access has a password!
-            if accessPassword ~= savedPassword then
-                -- [BRS] - But the one provided is wrong... rip.
-                message = "Incorrect password: "..savedPassword
-                error = true
-                StartBRIOReply(-4101, c_brasIncorrectPassword)
+        localStatus = g_LocalAccessStatus[access[1]]
+        if localStatus ~= 0 then
+            message = "Can't. Access locally overwritten"
+            error = true
+            reply = c_brasUnsupported
+            if localStatus == c_brasLocked and (savedWantedStatus == c_brasClosed or savedWantedStatus == c_brasOpened)  then
+                reply = c_brasLocked
+            end
+            StartBRIOReply(-4101, reply)
+        else
+            if accessPassword ~= nil and accessPassword ~= "" then
+                -- [BRS] - That access has a password!
+                if accessPassword ~= savedPassword then
+                    -- [BRS] - But the one provided is wrong... rip.
+                    message = "Incorrect password: "..savedPassword
+                    error = true
+                    StartBRIOReply(-4101, c_brasIncorrectPassword)
+                else
+                    ParseNewStatus(access, savedWantedStatus)
+                end
             else
+                -- [BRS] - The access has no password, so any works.
                 ParseNewStatus(access, savedWantedStatus)
             end
-        else
-            -- [BRS] - The access has no password, so any works.
-            ParseNewStatus(access, savedWantedStatus)
         end
     else
         message = "Access id unsupported"
