@@ -66,6 +66,28 @@ require("Projects.BRIO.BRAS.Monitor1x1OpenClose.drawingData")
 -- [BRS] - [[   mains   ]] --
 function onTick()
     -- [BRS] - [[ Inputs ]] --
+    if not input.getBool(2) then
+        -- [BRS] - Complete resync of all potential desynced variables when off.
+        Reset()
+        cards = {cardsColor, {0,0,0}}
+        background = {backgroundColor, {0,0,0}}
+        text = {textColor, {0,0,0}}
+        leftArrow = {arrowNormal, {0,0,0}}
+        rightArrow = {arrowNormal, {0,0,0}}
+        openButton = {openColor, {0,0,0}}
+        closeButton = {closeColor, {0,0,0}}
+        selectedAccess = 1
+        currentAccess = 1
+        g_Accesses = {}
+        amountOfAccesses = 0
+        g_BRIO_results = {}
+        oldOngoing = false
+        g_BRIOMasterData = {0, 0, false, 0, 0, 0, 0}
+
+        -- [BRS] - Stops transmitting.
+        output.setBool(1, false)
+        return
+    end
 
     -- [BRS] - Populate the accesses array from property values.
     require("Projects.BRIO.BRAS.Manager.accessPropertyParser")
