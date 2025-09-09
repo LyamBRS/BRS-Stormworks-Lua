@@ -1,6 +1,6 @@
 require("Projects.Prosty.MainController.variables")
 -- [BRS] - [[ Information ]] --
--- `25/08/14`
+-- `25/09/09`
 -- ## Generic info:
 -- #### MC : `Microcontroller ID`
 -- #### SN : `Script number
@@ -26,19 +26,15 @@ require("Projects.Prosty.MainController.variables")
     if seatLR ~= previousLR then
     	previousLR = seatLR
 
-    	if seatLR == 1 then
-    		if selectedBlinker == blinkRight then
-    			selectedBlinker = off
-    		else
-    			selectedBlinker = blinkRight
-    		end
-    	end
+		-- [BRS] - Executes only when the driver seat's left and right arrow value changed to be pressed.
+    	if seatLR ~= 0 then
+			-- [BRS] If the player is pressing right, it wants to perform actions for a right blinker, otherwise its automatically associated with the left one.
+			-- [BRS] That's because at this point you're sure the arrow key are pressed.
+    		wanted = seatLR > 0 and blinkRight or blinkLeft
 
-    	if seatLR == -1 then
-    		if selectedBlinker == blinkLeft then
-    			selectedBlinker = off
-    		else
-    			selectedBlinker = blinkLeft
-    		end
+			-- [BRS] - If the current blinker is the same as the one wanted by the arrow key,
+			-- [BRS] - It means that the player pressed the same arrow associated with the ongoing blinker... it must thus be turned off.
+			-- [BRS] - Otherwise, it means that the wanted blinker isnt the same as the current one, it should thus update to that one.
+    		selectedBlinker = selectedBlinker == wanted and off or wanted
     	end
     end
