@@ -12,12 +12,10 @@ require("Projects.Prosty.MainController.variables")
     -- [BRS] - Hazards management. From the driver seat.
     if seatHazard ~= previousHazards then
     	previousHazards = seatHazard
+		-- [BRS] - Executes only when the hazards become pressed.
     	if seatHazard then
-    		if selectedBlinker == blinkBoth then
-    			selectedBlinker = off
-    		else
-    			selectedBlinker = blinkBoth
-    		end
+			-- [BRS] - Hazards turn on if they were off and you pressed the button. Otherwise they turn off.
+    		selectedBlinker = selectedBlinker == blinkBoth and off or blinkBoth
     	end
     end
 
