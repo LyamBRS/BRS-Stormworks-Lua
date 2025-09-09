@@ -54,8 +54,8 @@ hoodPressed = {}
 trunkPressed = {}
 closeAllPressed = {}
 
-driverDoorPivot = 0
-passengerDoorPivot = 0
+driverDoorPivot = -1
+passengerDoorPivot = -1
 trunkPivot = 0
 hoodPivot = 0
 
