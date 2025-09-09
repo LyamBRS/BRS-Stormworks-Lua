@@ -13,7 +13,7 @@ require("Projects.Prosty.MainController.variables")
     	driverDoorPressed[2] = driverDoorPressed[1]
 
 		if driverDoorPressed[1] then
-	        driverDoorPivot = (driverDoorPivot == 0) and 0.9 or 0
+	        driverDoorPivot = (driverDoorPivot == -1) and -.2 or -1
 	    end
     end
 
@@ -21,7 +21,7 @@ require("Projects.Prosty.MainController.variables")
     	passengerDoorPressed[2] = passengerDoorPressed[1]
 
     	if passengerDoorPressed[1] then
-    		passengerDoorPivot = (passengerDoorPivot == 0) and 0.9 or 0
+    		passengerDoorPivot = (passengerDoorPivot == -1) and -.2 or -1
     	end
     end
 
