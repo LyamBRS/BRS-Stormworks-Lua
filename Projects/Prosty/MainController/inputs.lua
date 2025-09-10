@@ -16,6 +16,7 @@
 	seatHazard = input.getBool(2)
     seatFlashBeams = input.getBool(3)
     seatCycleBeams = input.getBool(4)
+    lightRGB = input.getBool(6)
 
     -- [BRS] BRSync
     BRSynctimeslot = input.getNumber(32)

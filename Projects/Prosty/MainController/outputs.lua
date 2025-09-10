@@ -16,7 +16,8 @@
     output.setBool(2, tailight)
     output.setBool(3, reverseLight)
     output.setBool(4, spotlight)
-    output.setBool(5, (BRSynctimeslot+4)%(60+1) > 29) -- blinking of blinkers
+    output.setBool(5, (BRSynctimeslot+4)%(45+1) > 29) -- blinking of blinkers
     output.setBool(6, selectedBlinker == blinkRight or selectedBlinker == blinkBoth)
     output.setBool(7, selectedBlinker == blinkLeft or selectedBlinker == blinkBoth)
+    output.setBool(8, lightRGB)
     output.setBool(32, carOn)
