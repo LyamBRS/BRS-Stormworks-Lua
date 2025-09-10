@@ -29,16 +29,10 @@ function Ackermann(steering, wheelbase, trackWidth, side)
     )
 
     -- [BRS] depending on the side being steered, we want the minimum or maximum value between the computed and the raw steering.
-    if side == 1 then
-        -- [BRS] you're steering right, you must then check if x is bigger than the computed one.
-        minOrMax = math.max
-    else
-        -- [BRS] you're steering left, you must then check if x is less than the computed one.
-        minOrMax = math.min
-    end
+    -- [BRS] - Steeering on the right needs math.max and the left needs math.min... because positive and negative values yk.
+    minOrMax =  side == 1 and math.max or math.min
 
-    -- [BRS] - idk what the fuck ass math does... or how i would even name this...
-    -- [BRS] - That's my issue with math... cool formula bro, why do you do it? no clue! here's "a" and "b" for ur variables.
+    -- [BRS] - Multiplied by the wheel's steering direction to invert it for the proper wheel.
     return side * minOrMax(computed, steering)
 end
 
