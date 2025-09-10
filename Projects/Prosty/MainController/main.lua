@@ -18,3 +18,5 @@ function onTick()
 	-- [BRS] - All the outputs of this Lua script are there.
 	require("Projects.Prosty.MainController.outputs")
 end
+
+require("Functions.Vehicles.Cars.Steering.ackerman")

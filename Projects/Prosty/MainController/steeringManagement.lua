@@ -9,5 +9,5 @@ require("Projects.Prosty.MainController.variables")
 -- ## Where is this used?
 -- Prosty main.lua
     -- [BRS] - Needs to account for vehicle speeds and do ackerman.
-    steeringLeft = -seatAD
-    steeringRight = seatAD
+    steeringLeft = Ackermann(seatAD, 11, 9, -1)
+    steeringRight = Ackermann(seatAD, 11, 9, 1)
