@@ -1,5 +1,3 @@
-require("stuff")
-
 -- [BRS] - [[ Information ]] --
 -- `25/09/09`
 -- ### Description
@@ -33,17 +31,15 @@ function Ackermann(steering, wheelbase, trackWidth, side)
     -- [BRS] depending on the side being steered, we want the minimum or maximum value between the computed and the raw steering.
     if side == 1 then
         -- [BRS] you're steering right, you must then check if x is bigger than the computed one.
-        computed = steering > computed and steering or computed
-        fuckAssMaths = (1 - side) * steering
+        minOrMax = math.max
     else
         -- [BRS] you're steering left, you must then check if x is less than the computed one.
-        computed = steering < computed and steering or computed
-        fuckAssMaths = -(1 - side) * steering
+        minOrMax = math.min
     end
 
     -- [BRS] - idk what the fuck ass math does... or how i would even name this...
     -- [BRS] - That's my issue with math... cool formula bro, why do you do it? no clue! here's "a" and "b" for ur variables.
-    return side * computed + fuckAssMaths
+    return side * minOrMax(computed, steering)
 end
 
 -- [BRS] - Built from ZE ackerman steering... which is based on any other ackerman steering.
