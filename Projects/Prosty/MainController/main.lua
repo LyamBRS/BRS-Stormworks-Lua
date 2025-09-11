@@ -20,3 +20,4 @@ function onTick()
 end
 
 require("Functions.Vehicles.Cars.Steering.ackerman")
+require("Functions.Vehicles.Cars.Steering.angularStabilization")

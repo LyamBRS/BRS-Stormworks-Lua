@@ -4,6 +4,7 @@
 
 	-- [BRS] - Physic sensor
 	velocity = tonumber(string.format("%.2f", input.getNumber(13))) -- Needed due to MP bullshit
+    angularSpeed = input.getNumber(11)
 
     -- [BRS] Seat
     seatOccupied = input.getBool(32)

@@ -8,6 +8,12 @@ require("Projects.Prosty.MainController.variables")
 -- Handles how the vehicle steers.
 -- ## Where is this used?
 -- Prosty main.lua
+
+    -- [BRS] - Adjust the steering output based on angular velocity values
+    stabelizedSteering = AngularStabilization(seatAD, angularSpeed, 1, 10, gear==reverse)
+
     -- [BRS] - Needs to account for vehicle speeds and do ackerman.
-    steeringLeft = Ackermann(seatAD, 11, 9, -1)
-    steeringRight = Ackermann(seatAD, 11, 9, 1)
+    steeringLeft = Ackermann(stabelizedSteering, 11, 9, -1)
+    steeringRight = Ackermann(stabelizedSteering, 11, 9, 1)
+
+
