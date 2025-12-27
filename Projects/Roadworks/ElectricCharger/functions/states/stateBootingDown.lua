@@ -1,3 +1,7 @@
+require("Projects.Roadworks.ElectricCharger.functions.states.bootingStateLogic")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingUp")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateOff")
+require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description
@@ -20,9 +24,16 @@
 -- ### @Returns
 -- None
 function stateBootingDown()
+    print("state: booting down")
     ------ Logic
+    bootingStateLogic(false)
 
     ------ State outputs
+    -- Inside of booting state logic
 
     ------ NEXT STATE HANDLING -
+    if g_subState == 3 then
+        g_subState = 0
+        g_state = g_playerSensor and stateBootingUp or stateOff
+    end
 end
