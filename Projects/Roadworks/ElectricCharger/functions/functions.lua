@@ -24,3 +24,6 @@ require("Functions.Drawing.Logo.brs_b")
 require("Functions.Drawing.Logo.brs_r")
 require("Functions.Drawing.Logo.brs_s")
 require("Functions.Drawing.Gradiants.horizontalGradiant")
+
+------- [FUNCTIONS] - Element framework
+require("Functions.Monitor.Buttons.Animated.newAnimatedRectangleGradiantButton")
