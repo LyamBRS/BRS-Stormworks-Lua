@@ -6,3 +6,11 @@ require("Projects.Roadworks.ElectricCharger.functions.background.newSegmentGoal"
 require("Projects.Roadworks.ElectricCharger.functions.background.lerpCoordinate")
 require("Projects.Roadworks.ElectricCharger.functions.background.bezierPoints")
 require("Projects.Roadworks.ElectricCharger.functions.background.drawBezier")
+require("Projects.Roadworks.ElectricCharger.functions.background.createBackgroundAnimation")
+
+require("Functions.Animations.Framework.createAnimation")
+require("Functions.Animations.Framework.setNewAnimationTarget")
+
+require("Functions.Drawing.Logo.brs_b")
+require("Functions.Drawing.Logo.brs_r")
+require("Functions.Drawing.Logo.brs_s")
