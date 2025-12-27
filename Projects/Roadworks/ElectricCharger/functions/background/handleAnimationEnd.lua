@@ -1,4 +1,5 @@
 require("Projects.Roadworks.ElectricCharger.functions.background.newBackgroundAnimation")
+require("Variables.Animations.current")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ### Description

@@ -1,0 +1,12 @@
+-- [BRS] - [[ Information ]] --
+-- 2025/12/27`
+-- ### Description
+-- Animation object's table index where the actual animation function
+-- is stored. This function must follow `bruh(start, target, ratio)`
+-- format, where `ratio` is `timeLeft/duration` a number from 0 to 1.
+-- ### Used for
+-- Animating the animation.
+-- Obtains the `c_animationCurrent`.
+-- ### Held data
+-- constant table index; `6`.
+c_animationFunction = 6

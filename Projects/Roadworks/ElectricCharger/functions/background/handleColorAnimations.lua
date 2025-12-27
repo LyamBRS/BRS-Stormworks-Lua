@@ -1,5 +1,6 @@
 require("Projects.Roadworks.ElectricCharger.functions.background.handleAnimationEnd")
 require("Functions.Animations.Framework.animate")
+require("Variables.Animations.timeLeft")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ### Description

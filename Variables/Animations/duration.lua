@@ -1,0 +1,11 @@
+-- [BRS] - [[ Information ]] --
+-- 2025/12/27`
+-- ### Description
+-- Animation object's table index where the total time in ticks that
+-- the animation should last for is located.
+-- ### Used for
+-- Knowing how long an animation is supposed to last for.
+-- Setting how long an animation will last for.
+-- ### Held data
+-- constant table index; `4`.
+c_animationDuration = 4

@@ -1,5 +1,6 @@
 require("Projects.Roadworks.ElectricCharger.functions.background.bezierPoints")
 require("Projects.Roadworks.ElectricCharger.functions.background.circleFade")
+require("Variables.Animations.current")
 
 -- [BRS] - Does the whole drawing of the random ElectricCharger curves
 function drawBezier(curve, steps)

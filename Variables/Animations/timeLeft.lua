@@ -1,0 +1,11 @@
+-- [BRS] - [[ Information ]] --
+-- 2025/12/27`
+-- ### Description
+-- Animation object's table index where the time left until 0, is held.
+-- Only in ticks if `animate()` is called every ticks.
+-- ### Used for
+-- Retrieving the time left in ticks of an animation, or setting how
+-- much time is left until 0.
+-- ### Held data
+-- constant table index; `5`.
+c_animationTimeLeft = 5

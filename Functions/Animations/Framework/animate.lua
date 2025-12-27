@@ -1,4 +1,6 @@
-require("Variables.Animations.framework")
+require("Variables.Animations.timeLeft")
+require("Variables.Animations.current")
+require("Variables.Animations.target")
 require("Functions.Animations.Framework.extract")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`

@@ -1,4 +1,9 @@
-require("Variables.Animations.framework")
+require("Variables.Animations.start")
+require("Variables.Animations.target")
+require("Variables.Animations.current")
+require("Variables.Animations.duration")
+require("Variables.Animations.timeLeft")
+require("Variables.Animations.function")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ### Description

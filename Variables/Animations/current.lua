@@ -1,0 +1,11 @@
+-- [BRS] - [[ Information ]] --
+-- 2025/12/27`
+-- ### Description
+-- Animation object's table index where the actual, current value is held.
+-- ### Used for
+-- Retrieving or setting the result of the animation.
+-- Essentially obtaining the value between `c_animationStart` and `c_animationTarget`
+-- outputed by `c_animationFunction` when there's `c_animationTimeLeft` out of `c_animationDuration`
+-- ### Held data
+-- constant table index; `3`.
+c_animationCurrent = 3

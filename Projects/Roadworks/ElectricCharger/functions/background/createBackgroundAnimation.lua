@@ -1,6 +1,9 @@
 require("Projects.Roadworks.ElectricCharger.functions.background.handleAnimationEnd")
 require("Functions.Animations.Framework.quintInOutAnimation")
 require("Functions.Animations.Framework.createAnimation")
+require("Variables.Animations.target")
+require("Variables.Animations.current")
+require("Variables.Animations.timeLeft")
 -- [BRS] - [[Information]]
 -- The goal is to create a new animation object
 -- Using random ranges
