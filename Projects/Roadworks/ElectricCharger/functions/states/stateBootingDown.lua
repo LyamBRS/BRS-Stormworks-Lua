@@ -24,7 +24,7 @@ require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightW
 -- ### @Returns
 -- None
 function stateBootingDown()
-    print("state: booting down")
+    -- print("state: booting down")
     ------ Logic
     bootingStateLogic(false)
 
