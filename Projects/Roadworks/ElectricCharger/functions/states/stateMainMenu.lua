@@ -22,6 +22,7 @@
 -- ### @Returns
 -- None
 function stateMainMenu()
+    print("state: main menu")
     ------ Logic
 
     ------ State outputs

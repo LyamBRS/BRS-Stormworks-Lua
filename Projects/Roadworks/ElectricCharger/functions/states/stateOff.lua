@@ -26,6 +26,7 @@ require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightW
 -- ### @Returns
 -- None
 function stateOff()
+    print("state: off")
     ------ Logic
     -- NONE
     ------ State outputs
