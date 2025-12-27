@@ -4,7 +4,7 @@ require("Functions.Animations.Framework.quintInOutAnimation")
 -- ### Description
 -- Creates a new animation with a set animation function and a random duration
 -- ### Used for
--- The ElectricCharger's background animations.
+-- The electric charger's background animations.
 -- ### @Input
 -- ##### - `start`  : `number` = where the animation starts at
 -- ##### - `target` : `number` = Where the animation should end at
