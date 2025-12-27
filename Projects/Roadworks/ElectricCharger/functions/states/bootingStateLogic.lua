@@ -48,8 +48,8 @@ function bootingStateLogic(direction)
         -- [BRS] - Set BRS letters to go down one by one.
         setNewAnimationTarget(brsLogoBY, 20, 50)
         setNewAnimationTarget(brsLogoSweep, 3, 30)
-        setNewAnimationTarget(topFade, wantedAlpha, 40)
-        setNewAnimationTarget(botFade, wantedAlpha, 120)
+        setNewAnimationTarget(topFade, wantedAlpha, 50)
+        setNewAnimationTarget(botFade, wantedAlpha, 80)
         g_subState = 1
     end
 
