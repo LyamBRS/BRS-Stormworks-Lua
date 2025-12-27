@@ -12,18 +12,18 @@ for curve=1, c_bezierCurveCount, 1 do
 	gradiantCurves[curve] = {
 		{},
 		{
-			newBackgroundAnimation(0,0),
-			newBackgroundAnimation(0,0),
-			newBackgroundAnimation(0,0),
-			newBackgroundAnimation(0,0),
+			createBackgroundAnimation(c_minRed, c_maxRed),
+			createBackgroundAnimation(c_minGreen, c_maxGreen),
+			createBackgroundAnimation(c_minBlue, c_maxBlue),
+			createBackgroundAnimation(c_minAlpha, c_maxAlpha),
 		},
 		{
-			newBackgroundAnimation(0,0),
-			newBackgroundAnimation(0,0),
-			newBackgroundAnimation(0,0),
-			newBackgroundAnimation(0,0),
+			createBackgroundAnimation(c_minRed, c_maxRed),
+			createBackgroundAnimation(c_minGreen, c_maxGreen),
+			createBackgroundAnimation(c_minBlue, c_maxBlue),
+			createBackgroundAnimation(c_minAlpha, c_maxAlpha),
 		},
-		newBackgroundAnimation(0,0),
+		createBackgroundAnimation(c_minSizing, c_maxSizing),
 	}
 	curve = gradiantCurves[curve]
 	
@@ -31,8 +31,8 @@ for curve=1, c_bezierCurveCount, 1 do
 		segments = curve[c_curveSegments]
 		segments[segment] = {
 			{0,0},
-			newBackgroundAnimation(0,0),
-			newBackgroundAnimation(0,0)
+			createBackgroundAnimation(c_minX, c_maxX),
+			createBackgroundAnimation(c_minY, c_maxY)
 		}
 		randomCoordinate(segments[segment][c_segmentCurrentPos])
 		newSegmentGoal(segments[segment], c_segmentXAnimation, c_minX, c_maxX)
