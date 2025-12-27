@@ -1,6 +1,7 @@
 require("Functions.Animations.Framework.createAnimation")
 require("Functions.Animations.Framework.elasticOut")
 require("Functions.Animations.Framework.lerpAnimation")
+require("Functions.Animations.Framework.quintInOutAnimation")
 require("Functions.Drawing.Logo.brs_b")
 require("Functions.Drawing.Logo.brs_r")
 require("Functions.Drawing.Logo.brs_s")
@@ -15,3 +16,7 @@ brsLogoSX = 63
 brsLogoSY = createAnimation(-20, -20, 0, elasticOutAnimation)
 
 brsLogoSweep = createAnimation(0, 0, 0, lerpAnimation)
+
+-- [BRS] - Boot fade
+bootFadeAlphaTop = createAnimation(255, 255, 0, quintInOutAnimation)
+bootFadeAlphaBot = createAnimation(255, 255, 0, quintInOutAnimation)

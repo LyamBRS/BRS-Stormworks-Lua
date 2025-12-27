@@ -48,12 +48,14 @@ function stateBootingUp()
             setNewAnimationTarget(brsLogoBY, 75, 100)
             setNewAnimationTarget(brsLogoRY, 75, 100)
             setNewAnimationTarget(brsLogoSY, 75, 100)
+            setNewAnimationTarget(bootFadeAlphaBot, 0, 20)
             g_subState = 2
         end
     elseif g_subState == 0 then
         -- [BRS] - Set BRS letters to go down one by one.
         setNewAnimationTarget(brsLogoBY, 20, 50)
         setNewAnimationTarget(brsLogoSweep, 3, 30)
+        setNewAnimationTarget(bootFadeAlphaTop, 0, 60)
         g_subState = 1
     end
 

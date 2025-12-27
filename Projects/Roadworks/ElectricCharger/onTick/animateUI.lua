@@ -7,4 +7,8 @@ if g_state ~= stateOff then
     animate(brsLogoRY)
     animate(brsLogoSY)
     animate(brsLogoSweep)
+
+    -- [BRS] - Boot monitor fade animations
+    animate(bootFadeAlphaBot)
+    animate(bootFadeAlphaTop)
 end

@@ -19,6 +19,7 @@ end
 
 function onDraw()
     require("Projects.Roadworks.ElectricCharger.onDraw.drawBackground")
+    require("Projects.Roadworks.ElectricCharger.onDraw.drawBootingFade")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawingLogo")
 end
 
