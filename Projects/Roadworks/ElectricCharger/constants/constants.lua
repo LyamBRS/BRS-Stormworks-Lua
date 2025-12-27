@@ -1,0 +1,5 @@
+require("Projects.Roadworks.ElectricCharger.constants.coordinateObject")
+require("Projects.Roadworks.ElectricCharger.constants.segmentObject")
+require("Projects.Roadworks.ElectricCharger.constants.curveObject")
+require("Variables.Animations.framework")
+require("Projects.Roadworks.ElectricCharger.constants.backgroundConfiguration")

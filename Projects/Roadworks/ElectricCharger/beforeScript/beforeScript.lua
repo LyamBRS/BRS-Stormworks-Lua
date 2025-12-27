@@ -1,0 +1,1 @@
+require("Projects.Roadworks.ElectricCharger.beforeScript.createBezierCurves")
