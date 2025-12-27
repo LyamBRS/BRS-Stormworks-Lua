@@ -14,3 +14,6 @@ require("Projects.Roadworks.ElectricCharger.beforeScript.initialState")
 ------- [BEFORE SCRIPT] -- Monitor variable initial values
 require("Variables.Monitor.Touch.coords")
 require("Variables.Monitor.Touch.pressing")
+
+------- [BEFORE SCRIPT] -- UI Elements
+require("Projects.Roadworks.ElectricCharger.beforeScript.mainMenuElements")

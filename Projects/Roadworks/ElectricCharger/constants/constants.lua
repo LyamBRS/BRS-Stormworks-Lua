@@ -2,6 +2,7 @@ require("Projects.Roadworks.ElectricCharger.constants.coordinateObject")
 require("Projects.Roadworks.ElectricCharger.constants.segmentObject")
 require("Projects.Roadworks.ElectricCharger.constants.curveObject")
 require("Projects.Roadworks.ElectricCharger.constants.backgroundConfiguration")
+require("Projects.Roadworks.ElectricCharger.constants.mainMenuElements")
 
 require("Variables.Animations.start")
 require("Variables.Animations.target")
