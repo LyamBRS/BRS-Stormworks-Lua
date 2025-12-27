@@ -25,8 +25,8 @@ require("Functions.Animations.Framework.lerpAnimation")
 -- ### @Returns
 -- None
 function horizontalGradiant(x, y, width, height, r1, g1, b1, a1, r2, g2, b2, a2)
-    for currentY=1, height do
-        ratio = currentY / height
+    for currentY=0, height-1 do
+        ratio = currentY / (height-1)
         screen.setColor(
             lerpAnimation(r1, r2, ratio),
             lerpAnimation(g1, g2, ratio),
