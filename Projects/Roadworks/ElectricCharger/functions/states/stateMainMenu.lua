@@ -27,9 +27,9 @@ function stateMainMenu()
     -- print("state: main menu")
     ------ Logic
     if g_subState == 0 then -- deploy main menu
-        setNewAnimationTarget(g_chargeButton[1][1], c_chargeButtonXShown, 30)
-        setNewAnimationTarget(g_infoButton[1][1], c_infoButtonXShown, 30)
-        setNewAnimationTarget(g_dischargeButton[1][1], c_dischargeButtonXShown, 30)
+        setNewAnimationTarget(g_chargeButton[1][1], c_chargeButtonXShown, 60)
+        setNewAnimationTarget(g_infoButton[1][1], c_infoButtonXShown, 60)
+        setNewAnimationTarget(g_dischargeButton[1][1], c_dischargeButtonXShown, 60)
         g_subState = 1
     end
 
@@ -46,8 +46,8 @@ function stateMainMenu()
     if g_playerSensor == false then
         g_state = stateBootingDown
         g_subState = 0
-        setNewAnimationTarget(g_chargeButton[1][1], c_chargeButtonXHidden, 30)
-        setNewAnimationTarget(g_infoButton[1][1], c_infoButtonXHidden, 30)
-        setNewAnimationTarget(g_dischargeButton[1][1], c_dischargeButtonXHidden, 30)
+        setNewAnimationTarget(g_chargeButton[1][1], c_chargeButtonXHidden, 60)
+        setNewAnimationTarget(g_infoButton[1][1], c_infoButtonXHidden, 60)
+        setNewAnimationTarget(g_dischargeButton[1][1], c_dischargeButtonXHidden, 60)
     end
 end

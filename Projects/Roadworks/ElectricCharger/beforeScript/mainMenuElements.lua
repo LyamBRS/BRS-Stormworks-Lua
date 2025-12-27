@@ -6,19 +6,19 @@ g_chargeButton = newAnimatedRectangleGradiantButton(
     64,9,
     128,255,0,  128,
     0,  255,128,128,
-    quintInOutAnimation
+    elasticOutAnimation
 )
 g_dischargeButton = newAnimatedRectangleGradiantButton(
     c_dischargeButtonXHidden,41,
     64,9,
     255,0,  128,128,
     255,128,0,  128,
-    quintInOutAnimation
+    elasticOutAnimation
 )
 g_infoButton = newAnimatedRectangleGradiantButton(
     c_infoButtonXHidden,52,
     64,9,
     0,  255,128,128,
     128,0,  255,128,
-    quintInOutAnimation
+    elasticOutAnimation
 )
