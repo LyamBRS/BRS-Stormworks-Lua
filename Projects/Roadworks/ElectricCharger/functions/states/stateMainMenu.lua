@@ -1,3 +1,5 @@
+require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
+require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description
@@ -22,10 +24,30 @@
 -- ### @Returns
 -- None
 function stateMainMenu()
-    print("state: main menu")
+    -- print("state: main menu")
     ------ Logic
+    if g_subState == 0 then -- deploy main menu
+        setNewAnimationTarget(g_chargeButton[1][1], c_chargeButtonXShown, 30)
+        setNewAnimationTarget(g_infoButton[1][1], c_infoButtonXShown, 30)
+        setNewAnimationTarget(g_dischargeButton[1][1], c_dischargeButtonXShown, 30)
+        g_subState = 1
+    end
 
     ------ State outputs
+    g_monitorState = true
+    g_relayCable = true
+    g_relayAntenna = true
+    g_relayCharger = false
+    g_relayDischarger = false
+    stationLightWhenInnactive()
 
     ------ NEXT STATE HANDLING -
+    -- [BRS] - Player left and did nothing. Boot off.
+    if g_playerSensor == false then
+        g_state = stateBootingDown
+        g_subState = 0
+        setNewAnimationTarget(g_chargeButton[1][1], c_chargeButtonXHidden, 30)
+        setNewAnimationTarget(g_infoButton[1][1], c_infoButtonXHidden, 30)
+        setNewAnimationTarget(g_dischargeButton[1][1], c_dischargeButtonXHidden, 30)
+    end
 end
