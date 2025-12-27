@@ -1,7 +1,8 @@
 require("Projects.Roadworks.ElectricCharger.constants.constants")
 require("Projects.Roadworks.ElectricCharger.functions.functions")
 
-state = 0
+require("Functions.Drawing.Gradiants.rounded45DegreeGradient")
+
 function onTick()
     -- Input reading
     require("Functions.Monitor.onTickVariableGetting")
@@ -19,6 +20,7 @@ end
 
 function onDraw()
     require("Projects.Roadworks.ElectricCharger.onDraw.drawBackground")
+    require("Projects.Roadworks.ElectricCharger.onDraw.drawMainMenu")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawBootingFade")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawingLogo")
 end

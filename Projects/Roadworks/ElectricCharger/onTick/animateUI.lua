@@ -11,4 +11,9 @@ if g_state ~= stateOff then
     -- [BRS] - Boot monitor fade animations
     animate(bootFadeAlphaBot)
     animate(bootFadeAlphaTop)
+
+    -- [BRS] - Main menu animations
+    animate(g_chargeButton[1][1])
+    animate(g_infoButton[1][1])
+    animate(g_dischargeButton[1][1])
 end
