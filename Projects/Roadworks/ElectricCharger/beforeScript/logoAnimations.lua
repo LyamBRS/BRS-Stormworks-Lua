@@ -5,21 +5,13 @@ require("Functions.Drawing.Logo.brs_b")
 require("Functions.Drawing.Logo.brs_r")
 require("Functions.Drawing.Logo.brs_s")
 
-brsLogo = {
-    {                                                       -- B letter
-        13,                                                     -- X
-        createAnimation(-20, 0, 0, elasticOutAnimation),          -- Y
-        logoB                                                   -- drawing function
-    },
-    {                                                       -- R letter
-        38,                                                     -- X
-        createAnimation(-20, 0, 0, elasticOutAnimation),          -- Y
-        logoR                                                   -- drawing function
-    },
-    {                                                       -- S letter
-        63,                                                     -- X
-        createAnimation(-20, 0, 0, elasticOutAnimation),          -- Y
-        logoS                                                   -- drawing function
-    },
-    createAnimation(0, 0, 0, lerpAnimation),         -- sweep motion to make each letters go down
-}
+brsLogoBX = 13
+brsLogoBY = createAnimation(-20, -20, 0, elasticOutAnimation)
+
+brsLogoRX = 38
+brsLogoRY = createAnimation(-20, -20, 0, elasticOutAnimation)
+
+brsLogoSX = 63
+brsLogoSY = createAnimation(-20, -20, 0, elasticOutAnimation)
+
+brsLogoSweep = createAnimation(0, 0, 0, lerpAnimation)
