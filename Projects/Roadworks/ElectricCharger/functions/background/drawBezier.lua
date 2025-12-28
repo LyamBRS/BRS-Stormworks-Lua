@@ -51,8 +51,6 @@ function drawBezier(curve, steps)
 		circleFade(
 			startPoint[c_xIndex],
 			startPoint[c_yIndex],
-			endPoint[c_xIndex],
-			endPoint[c_yIndex],
 			curve[c_curveStartColor],
 			curve[c_curveEndColor],
 			curve[c_curveSizing][c_animationCurrent],
