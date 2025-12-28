@@ -1,3 +1,4 @@
+require("Variables.Monitor.Elements.function")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description
@@ -9,5 +10,5 @@
 -- ### @Returns
 -- None
 function drawElement(element)
-    element[3](element)
+    element[c_elementFunction](element)
 end
