@@ -28,15 +28,10 @@ for curve=1, c_bezierCurveCount, 1 do
 	for segment=1, math.random(c_minSegmentCount, c_maxSegmentCount), 1 do
 		segments = curve[c_curveSegments]
 		segments[segment] = {
-			{0,0},
 			createBackgroundAnimation(c_minX, c_maxX),
 			createBackgroundAnimation(c_minY, c_maxY)
 		}
-		-- randomCoordinate(segments[segment][c_segmentCurrentPos])
-		segments[segment][c_segmentCurrentPos] = {
-			math.random(c_minX, c_maxX),
-			math.random(c_minY, c_maxY)
-		}
+		
 		newSegmentGoal(segments[segment], c_segmentXAnimation, c_minX, c_maxX)
 		newSegmentGoal(segments[segment], c_segmentYAnimation, c_minY, c_maxY)
 	end

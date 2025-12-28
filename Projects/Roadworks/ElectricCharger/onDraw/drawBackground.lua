@@ -18,22 +18,17 @@
     	-- Move all segments towards their targets
     	for segmentIndex=1, #segments do
     		segment = curve[c_curveSegments][segmentIndex]
-    		livePos = segment[c_segmentCurrentPos]
     		
     		-- X management
     		xAnimation = segment[c_segmentXAnimation]
     		if xAnimation[c_animationTimeLeft] == 0 then -- we need a new x goal.
     			newSegmentGoal(segment, c_segmentXAnimation, c_minX, c_maxX)
-    		else
-    			livePos[c_xIndex] = xAnimation[c_animationCurrent]
     		end
     		
     		-- Y management
     		yAnimation = segment[c_segmentYAnimation]
     		if yAnimation[c_animationTimeLeft] == 0 then -- we need a new y goal.
     			newSegmentGoal(segment, c_segmentYAnimation, c_minY, c_maxY)
-    		else
-    			livePos[c_yIndex] = yAnimation[c_animationCurrent]
     		end
     		
     		-- animate all animations

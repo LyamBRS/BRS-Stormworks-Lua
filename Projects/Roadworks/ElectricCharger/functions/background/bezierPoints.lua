@@ -1,5 +1,5 @@
 require("Functions.Animations.Framework.lerpAnimation")
-
+require("Variables.Animations.current")
 -- [BRS] - Asked ChatGPT to make me a bezier implementation in Lua.
 -- this is one of the function.
 -- Evaluate a Bezier curve at t using De Casteljau's algorithm
@@ -11,8 +11,8 @@ function bezierPoint(segments, t)
     -- Copy points
     for i = 1, #segments do
         temp[i] = {
-        	segments[i][c_segmentCurrentPos][c_xIndex],
-        	segments[i][c_segmentCurrentPos][c_yIndex]
+        	segments[i][c_segmentXAnimation][c_animationCurrent],
+        	segments[i][c_segmentYAnimation][c_animationCurrent]
         }
     end
 
