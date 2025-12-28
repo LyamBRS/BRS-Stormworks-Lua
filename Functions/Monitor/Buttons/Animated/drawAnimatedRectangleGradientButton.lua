@@ -13,16 +13,15 @@ require("Variables.Monitor.Elements.colors.alpha")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description
--- Parses the element object and draws it with its included function
+-- Function to include with rounded animated gradient button
+-- to allow them to utilize standard gradient functions for
+-- their drawing.
 -- ### Used for
 -- allowing elements to carry their own drawing functions.
 -- ### @Input
 -- ##### - `element` : `table` = gradiant button
--- ##### - `y` :     `number` = top left position of the gradiant. Inclusive.
--- ##### - `width` : `number` = width of the rectangular area in which the gradiant will be drawn. `> 0`
--- ##### - `height` : `number` = height of the rectangular area in which the gradiant will be drawn. `> 0`
 -- ### @Returns
--- ##### 1. `button` : `table` = object from the button framework
+-- None
 function drawAnimatedRectangleGradientButton(element)
     coords = element[c_elementSurface]
     colorA = element[c_elementColors][1]
