@@ -1,5 +1,6 @@
 require("Variables.Animations.timeLeft")
 require("Functions.Animations.Framework.setNewAnimationTarget")
+require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description
