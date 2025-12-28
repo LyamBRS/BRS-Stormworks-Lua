@@ -1,5 +1,4 @@
 require("Functions.Animations.Framework.quintInOutAnimation")
-require("Projects.Roadworks.ElectricCharger.functions.background.randomCoordinate")
 require("Projects.Roadworks.ElectricCharger.functions.background.newSegmentGoal")
 
 -- [BRS] - [[Information]]
@@ -33,7 +32,11 @@ for curve=1, c_bezierCurveCount, 1 do
 			createBackgroundAnimation(c_minX, c_maxX),
 			createBackgroundAnimation(c_minY, c_maxY)
 		}
-		randomCoordinate(segments[segment][c_segmentCurrentPos])
+		-- randomCoordinate(segments[segment][c_segmentCurrentPos])
+		segments[segment][c_segmentCurrentPos] = {
+			math.random(c_minX, c_maxX),
+			math.random(c_minY, c_maxY)
+		}
 		newSegmentGoal(segments[segment], c_segmentXAnimation, c_minX, c_maxX)
 		newSegmentGoal(segments[segment], c_segmentYAnimation, c_minY, c_maxY)
 	end

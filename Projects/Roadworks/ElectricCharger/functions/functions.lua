@@ -1,5 +1,4 @@
 ------- [FUNCTIONS] - Background drawing
-require("Projects.Roadworks.ElectricCharger.functions.background.randomCoordinate")
 require("Projects.Roadworks.ElectricCharger.functions.background.handleAnimationEnd")
 require("Projects.Roadworks.ElectricCharger.functions.background.handleColorAnimations")
 require("Projects.Roadworks.ElectricCharger.functions.background.newSegmentGoal")
