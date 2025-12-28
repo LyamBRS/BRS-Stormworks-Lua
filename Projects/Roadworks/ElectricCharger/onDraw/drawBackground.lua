@@ -11,7 +11,7 @@
     	
     	sizeAnimation = curve[c_curveSizing]
     	if sizeAnimation[c_animationTimeLeft] == 0 then -- we need a new y goal.
-    		curve[c_curveSizing] = handleAnimationEnd(sizeAnimation, c_minSizing, c_maxSizing)
+    		handleAnimationEnd(sizeAnimation, c_minSizing, c_maxSizing)
     	end
     	animate(sizeAnimation)
     	

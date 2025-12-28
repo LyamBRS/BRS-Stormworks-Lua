@@ -1,3 +1,4 @@
+require("Projects.Roadworks.ElectricCharger.functions.background.handleAnimationEnd")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ### Description
@@ -10,9 +11,8 @@
 -- ##### - `min`        : `number` = minimum random range
 -- ##### - `max`        : `number` = maximum random range
 function newSegmentGoal(segment, animIndex, min, max)
-	currentAnimation = segment[animIndex]
-	segment[animIndex] = handleAnimationEnd(
-		currentAnimation,
+	handleAnimationEnd(
+		segment[animIndex],
 		min,
 		max
 	)

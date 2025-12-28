@@ -1,5 +1,4 @@
-require("Projects.Roadworks.ElectricCharger.functions.background.newBackgroundAnimation")
-require("Variables.Animations.current")
+require("Functions.Animations.Framework.setNewAnimationTarget")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ### Description
@@ -11,11 +10,11 @@ require("Variables.Animations.current")
 -- ##### - `min`        : `number` = minimum random range
 -- ##### - `max`        : `number` = maximum random range
 -- ### @Returns
--- ##### 1. `animation` : `table`
--- New background animation with a random duration between min and max.
+-- None
 function handleAnimationEnd(animation, min, max)
-	return newBackgroundAnimation(
-		animation[c_animationCurrent],	-- Start from the current location
-		math.random(min, max)			-- Go to a new location
+	setNewAnimationTarget(
+		animation,
+		math.random(min, max),
+		math.random(c_minAnimationDuration, c_maxAnimationDuration)
 	)
 end

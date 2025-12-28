@@ -15,7 +15,7 @@ function handleColorAnimations(color)
 		range = colorRanges[index]
 
     	if animation[c_animationTimeLeft] == 0 then -- we need a new y goal.
-    		color[index] = handleAnimationEnd(animation, range[1], range[2])
+    		handleAnimationEnd(animation, range[1], range[2])
     	end
     	animate(animation)
 	end

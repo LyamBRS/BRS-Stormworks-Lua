@@ -11,7 +11,7 @@ require("Variables.Animations.timeLeft")
 -- ensures the screen doesn't start all dark and at 0.
 function createBackgroundAnimation(min, max)
     animation = createAnimation(0, 0, 0, quintInOutAnimation)
-    animation = handleAnimationEnd(animation, min, max)
+    handleAnimationEnd(animation, min, max)
     animation[c_animationCurrent] = animation[c_animationTarget]
     animation[c_animationTimeLeft] = 0
     return animation
