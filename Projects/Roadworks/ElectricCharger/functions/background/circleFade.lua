@@ -1,7 +1,9 @@
 require("Functions.Animations.Framework.lerpAnimation")
 require("Variables.Animations.current")
 
-function circleFade(x,y, x2, y2, startColor, endColor, sizing, startRatio, endRatio, distanceBetweenPoints, deltaX, deltaY)
+-- [BRS] - [[Minifications]]
+-- 214 characters
+function circleFade(x,y, startColor, endColor, sizing, startRatio, endRatio, distanceBetweenPoints, deltaX, deltaY)
 	drawingIncrementRatio = 1/(distanceBetweenPoints/5)
 	ratioDiff = endRatio-startRatio
 
@@ -13,16 +15,23 @@ function circleFade(x,y, x2, y2, startColor, endColor, sizing, startRatio, endRa
 		-- circleY = deltaY * position + y
 		globalRatio = ratioDiff * position + startRatio
 		
+		-- [BRS] - [[Minifications]]
+		-- Saves 18 characters to use a for loop rather than copy pasting all the lines in setColor.
+		colors = {}
+		for i=1,4 do
+			colors[i] = lerpAnimation(startColor[i][c_animationCurrent], endColor[i][c_animationCurrent], globalRatio)
+		end
+
 		-- Color management
 		-- [BRS] - Equivalent of:
 		-- `red = lerpAnimation(startColor, endColor, ratio)`
 		-- `setColor(red)`
 		-- doing it this way rather than using a bunch of variables for readability, saves `60` minified characters.
 		screen.setColor(
-			lerpAnimation(startColor[1][c_animationCurrent], endColor[1][c_animationCurrent], globalRatio),
-			lerpAnimation(startColor[2][c_animationCurrent], endColor[2][c_animationCurrent], globalRatio),
-			lerpAnimation(startColor[3][c_animationCurrent], endColor[3][c_animationCurrent], globalRatio),
-			lerpAnimation(startColor[4][c_animationCurrent], endColor[4][c_animationCurrent], globalRatio)
+			colors[1],
+			colors[2],
+			colors[3],
+			colors[4]
 		)
 		-- Calculates the size of the circle based on its position on the line.
 		-- Ensures circles are bigger at the center of the line
