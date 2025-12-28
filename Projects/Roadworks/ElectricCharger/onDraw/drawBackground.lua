@@ -1,4 +1,5 @@
-    -- [BRS] - Bezier background drawing. Does all the curves.    
+    -- [BRS] - Bezier background drawing. Does all the curves.
+	-- 244 characters used here.
     for curveIndex=1, #gradiantCurves, 1 do
     	curve = gradiantCurves[curveIndex]
     	segments = curve[c_curveSegments]
@@ -15,7 +16,7 @@
     	animate(sizeAnimation)
     	
     	-- Move all segments towards their targets
-    	for segmentIndex=1, #segments, 1 do
+    	for segmentIndex=1, #segments do
     		segment = curve[c_curveSegments][segmentIndex]
     		livePos = segment[c_segmentCurrentPos]
     		
