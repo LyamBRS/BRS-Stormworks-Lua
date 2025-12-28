@@ -1,6 +1,6 @@
 -- [BRS] - [[Minifications]]
 -- 214 characters used here.
-if g_state == stateMainMenu or g_state==stateBootingDown then
+if g_state == stateMainMenu or g_state==stateBootingDown or g_state == stateAwaitVehicleConnection then
     g_chargeButton[c_elementFunction](g_chargeButton)
     g_dischargeButton[c_elementFunction](g_dischargeButton)
     g_infoButton[c_elementFunction](g_infoButton)

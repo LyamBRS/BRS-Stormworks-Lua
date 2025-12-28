@@ -1,7 +1,13 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateAwaitVehicleConnection")
 require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+require("Functions.Animations.Framework.elasticOut")
+require("Functions.Animations.Framework.quintInOutAnimation")
 require("Variables.Monitor.Elements.surface")
 require("Variables.Monitor.Elements.surface.x")
+require("Variables.Monitor.Elements.surface.y")
+require("Variables.Monitor.Elements.touch")
+require("Variables.Monitor.Elements.touch.released")
 
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
@@ -30,10 +36,11 @@ function stateMainMenu()
     -- print("state: main menu")
     ------ Logic
     if g_subState == 0 then -- deploy main menu
-        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_chargeButtonXShown, 80)
-        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_infoButtonXShown, 80)
-        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_dischargeButtonXShown, 80)
-        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceY], c_mainMenuTextYShown, 40)
+        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_buttonXShown, 80)
+        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_buttonXShown, 80)
+        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_buttonXShown, 80)
+        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceY], c_textAreaYShown, 40)
+        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceX], c_textAreaXShown, 80)
         g_subState = 1
     end
 
@@ -46,13 +53,31 @@ function stateMainMenu()
     stationLightWhenInnactive()
 
     ------ NEXT STATE HANDLING -
-    -- [BRS] - Player left and did nothing. Boot off.
     if g_playerSensor == false then
+        -- [BRS] - Player left and did nothing. Boot off.
         g_state = stateBootingDown
         g_subState = 0
-        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_chargeButtonXHidden, 80)
-        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_infoButtonXHidden, 80)
-        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_dischargeButtonXHidden, 80)
-        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceY], c_mainMenuTextYHidden, 40)
+        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_chargeButtonXHidden, 80, elasticOutAnimation)
+        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_infoButtonXHidden, 80, elasticOutAnimation)
+        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_dischargeButtonXHidden, 80, elasticOutAnimation)
+        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceY], c_mainMenuTextYHidden, 40, elasticOutAnimation)
+    elseif g_chargeButton[c_elementTouch][c_elementTouchReleased] then
+        -- [BRS] - The player wants to charge something. Tell them to connect a vehicle or directly start the proceedure.
+        g_subState = 0
+        g_wantsToCharge = true
+        g_state = g_antennaSignalStrength > 0 and stateMainMenu or stateAwaitVehicleConnection
+        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, 80, quintInOutAnimation)
+        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, 80, quintInOutAnimation)
+        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, 80, quintInOutAnimation)
+        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceX], c_mainMenuToChargingX, 80, quintInOutAnimation)
+    elseif g_dischargeButton[c_elementTouch][c_elementTouchReleased] then
+        -- [BRS] - The player wants to discharge something. Tell them to connect a vehicle or directly start the proceedure.
+        g_subState = 0
+        g_wantsToCharge = false
+        g_state = g_antennaSignalStrength > 0 and stateMainMenu or stateAwaitVehicleConnection
+        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, 80, quintInOutAnimation)
+        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, 80, quintInOutAnimation)
+        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, 80, quintInOutAnimation)
+        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceX], c_mainMenuToDischargeX, 80, quintInOutAnimation)
     end
 end

@@ -1,12 +1,15 @@
+-- [BRS] - [[ Charge button ]]
+c_chargeButtonXHidden = -128     -- Booting off position
 
-c_chargeButtonXHidden = -96
-c_chargeButtonXShown = 16
+-- [BRS] - [[ Discharge button ]]
+c_dischargeButtonXHidden = 128  -- Booting off position
 
-c_dischargeButtonXHidden = 128
-c_dischargeButtonXShown = 16
+-- [BRS] - [[ Information button ]]
+c_infoButtonXHidden = -128       -- Booting off position
 
-c_infoButtonXHidden = -96
-c_infoButtonXShown = 16
+-- [BRS] - [[ Main menu text area ]]
+c_mainMenuTextYHidden = -32     -- Booting off position
 
-c_mainMenuTextYHidden = -32
-c_mainMenuTextYShown = 2
+-- [BRS] - [[ Menu swipe positions ]]
+c_mainMenuToChargingX = -128
+c_mainMenuToDischargeX = 128

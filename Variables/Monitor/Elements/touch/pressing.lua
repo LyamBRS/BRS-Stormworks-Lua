@@ -1,0 +1,11 @@
+-- [BRS] - [[ Information ]] --
+-- `2025/12/27`
+-- ### Description
+-- Index of the touch object table of an element, 
+-- where a boolean indicates if the element is actively pressed or
+-- not
+-- ### Used for
+-- Pressable elements
+-- ### Held data
+-- constant table index; `1`.
+c_elementTouchPressing = 1

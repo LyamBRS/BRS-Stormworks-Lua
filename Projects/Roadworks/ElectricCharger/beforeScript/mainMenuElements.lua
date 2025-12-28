@@ -1,6 +1,5 @@
 require("Functions.Monitor.Buttons.Animated.newAnimatedRectangleGradiantButton")
 require("Functions.Animations.Framework.elasticOut")
-require("Functions.Animations.Framework.quintInOutAnimation")
 require("Projects.Roadworks.ElectricCharger.constants.mainMenuElements")
 require("Variables.Monitor.Elements.surface")
 
@@ -31,7 +30,7 @@ g_mainMenuText = newAnimatedRectangleGradiantButton(
     92, 26,                         -- width, height
     0,0,0,64,                       -- r, g, b, a
     255,255,255,64,                       -- r, g, b, a
-    quintInOutAnimation             -- animation function
+    elasticOutAnimation             -- animation function
 )
 
 -- [BRS] - [[ Minifications ]]

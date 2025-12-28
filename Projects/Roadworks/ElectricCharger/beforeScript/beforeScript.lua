@@ -17,3 +17,4 @@ require("Variables.Monitor.Touch.pressing")
 
 ------- [BEFORE SCRIPT] -- UI Elements
 require("Projects.Roadworks.ElectricCharger.beforeScript.mainMenuElements")
+require("Projects.Roadworks.ElectricCharger.beforeScript.awaitVehicleConnectionElements")

@@ -40,6 +40,10 @@ function newAnimatedRectangleGradiantButton(x, y, width, height, r1, g1, b1, a1,
             }
         },
         drawAnimatedRectangleGradientButton,                            -- element drawing function
-        false,                                                          -- element currently pressed
+        {                                                               -- Touch data
+            false,
+            false,
+            false,
+        }
     }
 end

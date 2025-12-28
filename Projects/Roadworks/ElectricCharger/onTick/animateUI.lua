@@ -23,4 +23,14 @@ if g_state ~= stateOff then
     animate(g_infoButton[c_elementColors][1][c_elementColorA])
     animate(g_infoButton[c_elementColors][2][c_elementColorA])
     animate(g_mainMenuTextSurface[c_elementSurfaceY])
+    animate(g_mainMenuTextSurface[c_elementSurfaceX])
+
+    -- [BRS] - Await vehicle connection animations
+    animate(g_cancelButtonSurface[c_elementSurfaceX])
+    animate(g_cancelButton[c_elementColors][1][c_elementColorA])
+    animate(g_cancelButton[c_elementColors][2][c_elementColorA])
+    animate(g_awaitVehicleConnectionTextSurface[c_elementSurfaceX])
+    animate(g_okButtonSurface[c_elementSurfaceX])
+    animate(g_okButton[c_elementColors][1][c_elementColorA])
+    animate(g_okButton[c_elementColors][2][c_elementColorA])
 end
