@@ -13,10 +13,15 @@ require("Functions.Animations.Framework.extract")
 -- ### @Returns
 -- ##### 1. `animation` : `table`
 -- new animation with the proper setup we want.
-function setNewAnimationTarget(animation, newTarget, duration)
+function setNewAnimationTarget(animation, newTarget, duration, newAnimationFunction)
 	start,target,current,old,timeLeft,animationFunction = extractAnimation(animation)
 	newAnimation = createAnimation(current, newTarget, duration, animationFunction)
 	for i=1, 7 do
 		animation[i] = newAnimation[i]
+	end
+
+	-- [BRS] - Optionally allow you to set a new animation for that new target. 
+	if newAnimationFunction ~= nil then
+		animation[c_animationFunction] = newAnimationFunction
 	end
 end
