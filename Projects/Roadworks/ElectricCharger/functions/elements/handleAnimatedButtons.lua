@@ -24,35 +24,18 @@ function handleAnimatedButton(element)
         surface[c_elementSurfaceH][c_animationCurrent]
     )
 
-    -- [BRS] - Management on immediate press of the button
-    if not previousState and element[c_elementPressed] then
-        setNewAnimationTarget(
-            element[c_elementColors][1][c_elementColorA],
-            255,
-            1,
-            lerpAnimation
-        )
-        setNewAnimationTarget(
-            element[c_elementColors][2][c_elementColorA],
-            255,
-            1,
-            lerpAnimation
-        )
-    end
-
-    -- [BRS] - Management on immediate release of the button
-    if previousState and not element[c_elementPressed] then
-        setNewAnimationTarget(
-            element[c_elementColors][1][c_elementColorA],
-            128,
-            60,
-            elasticOutAnimation
-        )
-        setNewAnimationTarget(
-            element[c_elementColors][2][c_elementColorA],
-            128,
-            60,
-            elasticOutAnimation
-        )
+    -- [BRS] - Logic executed when the button state changes
+    if previousState ~= element[c_elementPressed] then
+        becamePressed = not previousState and element[c_elementPressed]
+        
+        -- Change alpha value of both colors of the gradient button in one go.
+        for i=1, 2 do
+            setNewAnimationTarget(
+                element[c_elementColors][i][c_elementColorA],
+                becamePressed and 255 or 128,
+                becamePressed and 1 or 60,
+                becamePressed and lerpAnimation or elasticOutAnimation
+            )
+        end
     end
 end
