@@ -6,5 +6,5 @@
 -- ### Used for
 -- Obtaining the height a monitor element
 -- ### Held data
--- constant table index; `3`.
-c_elementSurfaceH = 1
+-- constant table index; `4`.
+c_elementSurfaceH = 4

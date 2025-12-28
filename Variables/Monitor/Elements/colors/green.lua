@@ -7,4 +7,4 @@
 -- Obtaining the green value of a monitor element
 -- ### Held data
 -- constant table index; `2`.
-c_elementColorR = 2
+c_elementColorG = 2

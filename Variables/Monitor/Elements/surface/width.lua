@@ -8,4 +8,4 @@
 -- Obtaining the width a monitor element
 -- ### Held data
 -- constant table index; `3`.
-c_elementSurfaceW = 1
+c_elementSurfaceW = 3
