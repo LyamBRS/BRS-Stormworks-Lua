@@ -22,3 +22,7 @@ g_infoButton = newAnimatedRectangleGradiantButton(
     128,0,  255,128,
     elasticOutAnimation
 )
+
+g_chargeButtonSurface = g_chargeButton[c_elementSurface]
+g_dischargeButtonSurface = g_dischargeButton[c_elementSurface]
+g_infoButtonSurface = g_infoButton[c_elementSurface]

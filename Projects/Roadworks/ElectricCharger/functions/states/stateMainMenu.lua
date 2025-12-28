@@ -30,9 +30,9 @@ function stateMainMenu()
     -- print("state: main menu")
     ------ Logic
     if g_subState == 0 then -- deploy main menu
-        setNewAnimationTarget(g_chargeButton[c_elementSurface][c_elementSurfaceX], c_chargeButtonXShown, 80)
-        setNewAnimationTarget(g_infoButton[c_elementSurface][c_elementSurfaceX], c_infoButtonXShown, 80)
-        setNewAnimationTarget(g_dischargeButton[c_elementSurface][c_elementSurfaceX], c_dischargeButtonXShown, 80)
+        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_chargeButtonXShown, 80)
+        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_infoButtonXShown, 80)
+        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_dischargeButtonXShown, 80)
         g_subState = 1
     end
 
@@ -49,8 +49,8 @@ function stateMainMenu()
     if g_playerSensor == false then
         g_state = stateBootingDown
         g_subState = 0
-        setNewAnimationTarget(g_chargeButton[c_elementSurface][c_elementSurfaceX], c_chargeButtonXHidden, 80)
-        setNewAnimationTarget(g_infoButton[c_elementSurface][c_elementSurfaceX], c_infoButtonXHidden, 80)
-        setNewAnimationTarget(g_dischargeButton[c_elementSurface][c_elementSurfaceX], c_dischargeButtonXHidden, 80)
+        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_chargeButtonXHidden, 80)
+        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_infoButtonXHidden, 80)
+        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_dischargeButtonXHidden, 80)
     end
 end
