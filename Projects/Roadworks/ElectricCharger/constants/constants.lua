@@ -10,3 +10,5 @@ require("Variables.Animations.current")
 require("Variables.Animations.duration")
 require("Variables.Animations.timeLeft")
 require("Variables.Animations.function")
+
+require("Variables.Monitor.Elements.function")
