@@ -1,7 +1,6 @@
 require("Functions.Animations.Framework.quintInOutAnimation")
 require("Projects.Roadworks.ElectricCharger.functions.background.randomCoordinate")
 require("Projects.Roadworks.ElectricCharger.functions.background.newSegmentGoal")
-require("Projects.Roadworks.ElectricCharger.functions.background.newBackgroundAnimation")
 
 -- [BRS] - [[Information]]
 -- Populates randomly a set amount of bezier curves.
