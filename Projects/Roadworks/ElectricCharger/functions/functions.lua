@@ -27,3 +27,4 @@ require("Functions.Drawing.Gradiants.horizontalGradiant")
 
 ------- [FUNCTIONS] - Element framework
 require("Functions.Monitor.Buttons.Animated.newAnimatedRectangleGradiantButton")
+require("Projects.Roadworks.ElectricCharger.functions.elements.handleAnimatedButtons")

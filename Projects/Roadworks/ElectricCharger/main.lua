@@ -16,6 +16,9 @@ function onTick()
 
     -- Animations
     require("Projects.Roadworks.ElectricCharger.onTick.animateUI")
+
+    -- Buttons
+    require("Projects.Roadworks.ElectricCharger.onTick.handleButtons")
 end
 
 function onDraw()

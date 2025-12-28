@@ -13,7 +13,13 @@ if g_state ~= stateOff then
     animate(bootFadeAlphaTop)
 
     -- [BRS] - Main menu animations
-    animate(g_chargeButton[1][1])
-    animate(g_infoButton[1][1])
-    animate(g_dischargeButton[1][1])
+    animate(g_chargeButton[c_elementSurface][c_elementSurfaceX])
+    animate(g_infoButton[c_elementSurface][c_elementSurfaceX])
+    animate(g_dischargeButton[c_elementSurface][c_elementSurfaceX])
+    animate(g_chargeButton[c_elementColors][1][c_elementColorA])
+    animate(g_chargeButton[c_elementColors][2][c_elementColorA])
+    animate(g_dischargeButton[c_elementColors][1][c_elementColorA])
+    animate(g_dischargeButton[c_elementColors][2][c_elementColorA])
+    animate(g_infoButton[c_elementColors][1][c_elementColorA])
+    animate(g_infoButton[c_elementColors][2][c_elementColorA])
 end
