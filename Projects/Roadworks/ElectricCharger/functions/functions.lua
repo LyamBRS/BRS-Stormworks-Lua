@@ -4,7 +4,6 @@ require("Projects.Roadworks.ElectricCharger.functions.background.randomCoordinat
 require("Projects.Roadworks.ElectricCharger.functions.background.handleAnimationEnd")
 require("Projects.Roadworks.ElectricCharger.functions.background.handleColorAnimations")
 require("Projects.Roadworks.ElectricCharger.functions.background.newSegmentGoal")
-require("Projects.Roadworks.ElectricCharger.functions.background.lerpCoordinate")
 require("Projects.Roadworks.ElectricCharger.functions.background.bezierPoints")
 require("Projects.Roadworks.ElectricCharger.functions.background.drawBezier")
 require("Projects.Roadworks.ElectricCharger.functions.background.createBackgroundAnimation")

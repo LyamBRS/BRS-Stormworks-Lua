@@ -1,4 +1,4 @@
-require("Projects.Roadworks.ElectricCharger.functions.background.lerpCoordinate")
+require("Functions.Animations.Framework.lerpAnimation")
 
 -- [BRS] - Asked ChatGPT to make me a bezier implementation in Lua.
 -- this is one of the function.
@@ -20,7 +20,10 @@ function bezierPoint(segments, t)
     n = #temp
     while n > 1 do
         for i = 1, n - 1 do
-            temp[i] = lerpCoordinate(temp[i], temp[i + 1], t)
+            temp[i] = {
+                lerpAnimation(temp[i][c_xIndex], temp[i + 1][c_xIndex], t),
+                lerpAnimation(temp[i][c_yIndex], temp[i + 1][c_yIndex], t)
+            }
         end
         n = n - 1
     end
