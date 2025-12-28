@@ -1,23 +1,32 @@
+-- [BRS] - [[ Information ]] --
+-- `2025/12/26`
+-- ## Generic info:
+-- #### MC : `Microcontroller ID`
+-- #### SN : `1`
+-- ## What does this do?
+-- Manages a 2x3 monitor that handles a basic addon electric charger.
+-- Allows you to charge, discharge and see information about the charger.
+-- Has crazy background animations and button gradiants.
+-- ## Where is this used?
+-- On Roadworks' server, as an EV charging station.
+
+-- [BRS] - [[  imports  ]] --
 require("Projects.Roadworks.ElectricCharger.constants.constants")
 require("Projects.Roadworks.ElectricCharger.functions.functions")
 
-require("Functions.Drawing.Gradiants.rounded45DegreeGradient")
-
 function onTick()
-    -- Input reading
+    -- [BRS] - [[ Inputs ]] --
     require("Functions.Monitor.onTickVariableGetting")
     require("Projects.Roadworks.ElectricCharger.onTick.getInputs")
 
-    -- State machine execution
+    -- [BRS] - [[ State machine ]] --
     g_state()
 
-    -- Output setting
+    -- [BRS] - [[ Outputs ]] --
     require("Projects.Roadworks.ElectricCharger.onTick.setOutputs")
 
-    -- Animations
+    -- [BRS] - [[ Synchronized UI ]] --
     require("Projects.Roadworks.ElectricCharger.onTick.animateUI")
-
-    -- Buttons
     require("Projects.Roadworks.ElectricCharger.onTick.handleButtons")
 end
 
