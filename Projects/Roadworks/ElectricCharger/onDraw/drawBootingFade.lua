@@ -1,5 +1,5 @@
 -- [BRS] - The booting fade is the black gradiant behind the logo
-if g_state == stateBootingUp or g_state == stateBootingDown then
+if g_state == stateBootingUp or g_state == stateBootingDown or g_state==stateOff then
     rounded45DegreeGradient(
         -1,         -- x
         -1,         -- y
