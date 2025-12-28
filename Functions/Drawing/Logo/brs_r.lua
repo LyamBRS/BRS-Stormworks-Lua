@@ -1,3 +1,4 @@
+require("Functions.Drawing.Logo.brCommonRects")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ### Description
@@ -10,15 +11,7 @@
 -- ##### - `y` : `number` = top left corner of the R
 -- ##### - `scaling` : `number` = BRS' letter's pixel size... in monitor pixels
 function logoR(x, y, scaling)
-    -- Row 1
-    screen.drawRectF(x, y, 5*scaling, scaling)
-
-    -- Row 2
-    screen.drawRectF(x+4*scaling, y+scaling, scaling, scaling)
-
-    -- Row 3
-    screen.drawRectF(x, y+2*scaling, 2*scaling, scaling)
-    screen.drawRectF(x+3*scaling, y+2*scaling, scaling, scaling)
+    brCommonRects(x, y, scaling)
 
     -- Downward leg of the R
     screen.drawRectF(x+4*scaling, y+3*scaling, scaling, scaling*2)
