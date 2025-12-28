@@ -24,3 +24,4 @@ require("Functions.Drawing.Gradiants.rounded45DegreeGradient")
 ------- [FUNCTIONS] - Element framework
 require("Functions.Monitor.Buttons.Animated.newAnimatedRectangleGradiantButton")
 require("Projects.Roadworks.ElectricCharger.functions.elements.handleAnimatedButtons")
+require("Projects.Roadworks.ElectricCharger.functions.elements.drawTextOnSurface")
