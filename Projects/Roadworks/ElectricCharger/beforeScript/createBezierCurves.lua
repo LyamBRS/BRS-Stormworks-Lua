@@ -1,5 +1,4 @@
-require("Functions.Animations.Framework.quintInOutAnimation")
-require("Projects.Roadworks.ElectricCharger.functions.background.newSegmentGoal")
+require("Projects.Roadworks.ElectricCharger.functions.background.createBackgroundAnimation")
 
 -- [BRS] - [[Information]]
 -- Populates randomly a set amount of bezier curves.
@@ -25,14 +24,12 @@ for curve=1, c_bezierCurveCount, 1 do
 	}
 	curve = gradiantCurves[curve]
 	
-	for segment=1, math.random(c_minSegmentCount, c_maxSegmentCount), 1 do
+	-- Defines a set amount of points per bezier curve, at random coordinates
+	for segment=1, c_pointsPerCurve do
 		segments = curve[c_curveSegments]
 		segments[segment] = {
 			createBackgroundAnimation(c_minX, c_maxX),
 			createBackgroundAnimation(c_minY, c_maxY)
 		}
-		
-		newSegmentGoal(segments[segment], c_segmentXAnimation, c_minX, c_maxX)
-		newSegmentGoal(segments[segment], c_segmentYAnimation, c_minY, c_maxY)
 	end
 end

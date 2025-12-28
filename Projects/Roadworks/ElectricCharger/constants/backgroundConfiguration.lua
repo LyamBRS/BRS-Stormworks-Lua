@@ -13,11 +13,10 @@ c_bezierCurveCount = 7
 c_bezierSegmentSubsections = 10
 
 -- [BRS] - [[ Information ]] --
--- `2025/12/26`
+-- `2025/12/28`
 -- ### Description
--- Defines the range of segments each bezier curve can have at random.
-c_maxSegmentCount = 6
-c_minSegmentCount = 4
+-- Defines the amount of points each bezier curves should have
+c_pointsPerCurve = 6
 
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
@@ -41,9 +40,15 @@ c_maxAnimationDuration = 960
 -- animation. Needs to be larger than the monitor size otherwise edges won't
 -- have enough coverage.
 c_minX = -64
-c_maxX = 96+64
+c_maxX = 160 	-- 96+64
 c_minY = -64
-c_maxY = 64+64
+c_maxY = 128	-- 64+64
+
+-- [BRS] - Allow bezier drawing for loop to pick the right ranges without needing 2 functions
+g_bezierPointCoordinateRanges = {
+	{c_minX, c_maxX},
+	{c_minY, c_maxY}
+}
 
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
