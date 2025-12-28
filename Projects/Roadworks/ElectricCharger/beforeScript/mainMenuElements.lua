@@ -1,5 +1,7 @@
 require("Functions.Monitor.Buttons.Animated.newAnimatedRectangleGradiantButton")
+require("Functions.Animations.Framework.elasticOut")
 require("Projects.Roadworks.ElectricCharger.constants.mainMenuElements")
+require("Variables.Monitor.Elements.surface")
 
 g_chargeButton = newAnimatedRectangleGradiantButton(
     c_chargeButtonXHidden,30,
@@ -23,6 +25,7 @@ g_infoButton = newAnimatedRectangleGradiantButton(
     elasticOutAnimation
 )
 
+-- [BRS] - [[ Minifications ]]
 g_chargeButtonSurface = g_chargeButton[c_elementSurface]
 g_dischargeButtonSurface = g_dischargeButton[c_elementSurface]
 g_infoButtonSurface = g_infoButton[c_elementSurface]
