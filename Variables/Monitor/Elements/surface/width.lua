@@ -1,0 +1,11 @@
+-- [BRS] - [[ Information ]] --
+-- `2025/12/27`
+-- ### Description
+-- Index of the element object's surface table, 
+-- where the width is found
+-- is found.
+-- ### Used for
+-- Obtaining the width a monitor element
+-- ### Held data
+-- constant table index; `3`.
+c_elementSurfaceW = 1

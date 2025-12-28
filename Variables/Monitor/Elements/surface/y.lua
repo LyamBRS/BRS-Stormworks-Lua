@@ -1,0 +1,11 @@
+-- [BRS] - [[ Information ]] --
+-- `2025/12/27`
+-- ### Description
+-- Index of the element object's surface table, 
+-- where the y position is found
+-- is found.
+-- ### Used for
+-- Obtaining the y coordinate of a monitor element
+-- ### Held data
+-- constant table index; `2`.
+c_elementSurfaceY = 2
