@@ -1,5 +1,6 @@
 require("Functions.Monitor.Buttons.Animated.newAnimatedRectangleGradiantButton")
 require("Functions.Animations.Framework.elasticOut")
+require("Functions.Animations.Framework.quintInOutAnimation")
 require("Projects.Roadworks.ElectricCharger.constants.mainMenuElements")
 require("Variables.Monitor.Elements.surface")
 
@@ -25,7 +26,16 @@ g_infoButton = newAnimatedRectangleGradiantButton(
     elasticOutAnimation
 )
 
+g_mainMenuText = newAnimatedRectangleGradiantButton(
+    2, c_mainMenuTextYHidden,       -- x, y
+    92, 26,                         -- width, height
+    0,0,0,64,                       -- r, g, b, a
+    255,255,255,64,                       -- r, g, b, a
+    quintInOutAnimation             -- animation function
+)
+
 -- [BRS] - [[ Minifications ]]
 g_chargeButtonSurface = g_chargeButton[c_elementSurface]
 g_dischargeButtonSurface = g_dischargeButton[c_elementSurface]
 g_infoButtonSurface = g_infoButton[c_elementSurface]
+g_mainMenuTextSurface = g_mainMenuText[c_elementSurface]

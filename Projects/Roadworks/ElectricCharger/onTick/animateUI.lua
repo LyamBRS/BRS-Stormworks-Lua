@@ -22,4 +22,5 @@ if g_state ~= stateOff then
     animate(g_infoButtonSurface[c_elementSurfaceX])
     animate(g_infoButton[c_elementColors][1][c_elementColorA])
     animate(g_infoButton[c_elementColors][2][c_elementColorA])
+    animate(g_mainMenuTextSurface[c_elementSurfaceY])
 end

@@ -33,6 +33,7 @@ function stateMainMenu()
         setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_chargeButtonXShown, 80)
         setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_infoButtonXShown, 80)
         setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_dischargeButtonXShown, 80)
+        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceY], c_mainMenuTextYShown, 40)
         g_subState = 1
     end
 
@@ -52,5 +53,6 @@ function stateMainMenu()
         setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_chargeButtonXHidden, 80)
         setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_infoButtonXHidden, 80)
         setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_dischargeButtonXHidden, 80)
+        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceY], c_mainMenuTextYHidden, 40)
     end
 end

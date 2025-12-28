@@ -7,3 +7,6 @@ c_dischargeButtonXShown = 16
 
 c_infoButtonXHidden = -96
 c_infoButtonXShown = 16
+
+c_mainMenuTextYHidden = -32
+c_mainMenuTextYShown = 2
