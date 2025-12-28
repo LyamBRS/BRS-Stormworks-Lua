@@ -3,6 +3,7 @@ require("Functions.Animations.Framework.setNewAnimationTarget")
 -- `2025/12/26`
 -- ### Description
 -- Creates a new background animation with a target within a specific range.
+-- and a random duration within allowed range.
 -- ### Used for
 -- The ElectricCharger's background animations.
 -- ### @Input
