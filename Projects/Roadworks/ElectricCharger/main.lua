@@ -2,18 +2,40 @@
 -- `2025/12/26`
 -- ## Generic info:
 -- #### MC : `Microcontroller ID`
--- #### SN : `1`
+-- #### SN : `2`
 -- ## What does this do?
 -- Manages a 2x3 monitor that handles a basic addon electric charger.
 -- Allows you to charge, discharge and see information about the charger.
--- Has crazy background animations and button gradiants.
+-- Background handled seperately, in `background.lua`
 -- ## Where is this used?
 -- On Roadworks' server, as an EV charging station.
 
--- [BRS] - [[  imports  ]] --
-require("Projects.Roadworks.ElectricCharger.constants.constants")
-require("Projects.Roadworks.ElectricCharger.functions.functions")
+-- [BRS] - [[ Imports ]] --
+require("Variables.Monitor.Elements.function")
+require("Functions.Maths.mediumSignalStrengthToElectricStore")
+require("Functions.Animations.Framework.animate")
 
+-- [BRS] - [[ Constants ]] --
+require("Projects.Roadworks.ElectricCharger.constants.genericElements")
+require("Projects.Roadworks.ElectricCharger.constants.mainMenuElements")
+require("Projects.Roadworks.ElectricCharger.constants.uiConfiguration")
+
+-- [BRS] - [[ Functions ]] --
+-- [BRS] ---- Elements
+require("Projects.Roadworks.ElectricCharger.functions.elements.drawTextOnSurface")
+require("Projects.Roadworks.ElectricCharger.functions.elements.handleAnimatedButtons")
+-- [BRS] ---- States
+require("Projects.Roadworks.ElectricCharger.functions.states.stateOff")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingUp")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateCharger")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateAwaitVehicleConnection")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
+-- [BRS] ---- Utilities
+require("Projects.Roadworks.ElectricCharger.functions.states.bootingStateLogic")
+require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+
+-- [BRS] - [[ OnTick ]] --
 function onTick()
     -- [BRS] - [[ Inputs ]] --
     require("Functions.Monitor.onTickVariableGetting")
@@ -33,8 +55,8 @@ function onTick()
     require("Projects.Roadworks.ElectricCharger.onTick.handleButtons")
 end
 
+-- [BRS] - [[ OnDraw ]] --
 function onDraw()
-    require("Projects.Roadworks.ElectricCharger.onDraw.drawBackground")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawMainMenu")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawAwaitVehicleConnection")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawChargingVehicle")
@@ -45,4 +67,11 @@ function onDraw()
     screen.drawText(0,0,g_electricStore)
 end
 
-require("Projects.Roadworks.ElectricCharger.beforeScript.beforeScript")
+-- [BRS] - [[   before script   ]] --
+require("Projects.Roadworks.ElectricCharger.beforeScript.mainMenuElements")
+require("Projects.Roadworks.ElectricCharger.beforeScript.awaitVehicleConnectionElements")
+require("Projects.Roadworks.ElectricCharger.beforeScript.chargerElements")
+
+require("Projects.Roadworks.ElectricCharger.beforeScript.initialState")
+require("Projects.Roadworks.ElectricCharger.beforeScript.initialOutputs")
+require("Projects.Roadworks.ElectricCharger.beforeScript.logoAnimations")

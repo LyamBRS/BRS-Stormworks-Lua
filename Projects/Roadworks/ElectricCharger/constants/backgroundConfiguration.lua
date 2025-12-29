@@ -71,6 +71,3 @@ colorRanges = {
 	{c_minBlue, c_maxBlue},
 	{c_minAlpha, c_maxAlpha}
 }
-
--- [BRS] - An important action is going on. The player left... wait this long until booting off.
-c_timeToWaitAfterPlayer = 20
