@@ -14,6 +14,7 @@
 require("Variables.Monitor.Elements.function")
 require("Functions.Maths.mediumSignalStrengthToElectricStore")
 require("Functions.Animations.Framework.animate")
+require("Functions.Monitor.Utils.animateElement")
 
 -- [BRS] - [[ Constants ]] --
 require("Projects.Roadworks.ElectricCharger.constants.genericElements")
