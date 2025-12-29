@@ -1,8 +1,9 @@
-require("Functions.Animations.Framework.lerpAnimation")
+require("Functions.Animations.Functions.bounceOut")
+require("Functions.Animations.Functions.bounceIn")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ### Description
--- Standard web "quint in out" animation.
+-- Standard web "bounce in out" animation.
 -- ### Used for
 -- Various animation purposes, through the animation framework.
 -- ### @Input
@@ -10,11 +11,11 @@ require("Functions.Animations.Framework.lerpAnimation")
 -- ##### - `target` : `number` = Where the animation ends up, when the ratio equals 1
 -- ### @Returns
 -- ##### 1. `result` : `number` = value between `start` and `target` after the animation is applied at `ratio`
-function quintInOutAnimation(start, target, ratio)
+function bounceInOutAnimation(start, target, ratio)
+	target = target - start
 	if ratio < .5 then
-		e = 16*ratio*ratio*ratio*ratio*ratio
+		return bounceInAnimation(0, target, ratio*2)*.5 + start
 	else
-		e = 1-((-2*ratio+2)^5)/2
+		return bounceOutAnimation(0, target, ratio*2-1)*.5 + target * .5 + start
 	end
-	return lerpAnimation(start,target,e)
 end

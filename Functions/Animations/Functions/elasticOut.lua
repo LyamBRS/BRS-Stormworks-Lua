@@ -1,9 +1,8 @@
-require("Functions.Animations.Framework.bounceOut")
-require("Functions.Animations.Framework.bounceIn")
+require("Functions.Animations.Functions.lerpAnimation")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ### Description
--- Standard web "bounce in out" animation.
+-- Standard web "elastic out" animation.
 -- ### Used for
 -- Various animation purposes, through the animation framework.
 -- ### @Input
@@ -11,11 +10,8 @@ require("Functions.Animations.Framework.bounceIn")
 -- ##### - `target` : `number` = Where the animation ends up, when the ratio equals 1
 -- ### @Returns
 -- ##### 1. `result` : `number` = value between `start` and `target` after the animation is applied at `ratio`
-function bounceInOutAnimation(start, target, ratio)
-	target = target - start
-	if ratio < .5 then
-		return bounceInAnimation(0, target, ratio*2)*.5 + start
-	else
-		return bounceOutAnimation(0, target, ratio*2-1)*.5 + target * .5 + start
-	end
+function elasticOutAnimation(start, target, ratio)
+    c = (2*3.14)/3
+	e = ((2)^(-10*ratio)) * math.sin((ratio*10-.75)*c) + 1
+	return lerpAnimation(start, target, e)
 end

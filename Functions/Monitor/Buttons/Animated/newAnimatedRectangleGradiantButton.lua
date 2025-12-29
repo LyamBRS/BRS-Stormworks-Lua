@@ -19,31 +19,25 @@ require("Functions.Monitor.Buttons.Animated.drawAnimatedRectangleGradientButton"
 -- ##### 1. `button` : `table` = object from the button framework
 function newAnimatedRectangleGradiantButton(x, y, width, height, r1, g1, b1, a1, r2, g2, b2, a2, animationFunction)
     return {
-        {                                                           -- Element area
-            createAnimation(x, x, 0, animationFunction),                -- X -> c_xIndex
-            createAnimation(y, y, 0, animationFunction),                -- Y -> c_yIndex
-            createAnimation(width, width, 0, animationFunction),        -- width
-            createAnimation(height, height, 0, animationFunction)       -- height
+        createQuadAnimationTable(x, y, width, height, animationFunction),   -- Surface area
+        {                                                                   -- Color area
+            createQuadAnimationTable(r1, g1, b1, a1, animationFunction),        -- gradient start
+            createQuadAnimationTable(r2, g2, b2, a2, animationFunction),        -- gradient end
         },
-        {                                                           -- Color area
-            {                                                           -- element color / gradiant 1
-                createAnimation(r1, r1, 0, animationFunction),
-                createAnimation(g1, g1, 0, animationFunction),
-                createAnimation(b1, b1, 0, animationFunction),
-                createAnimation(a1, a1, 0, animationFunction),
-            },
-            {                                                           -- gradiant 2
-                createAnimation(r2, r2, 0, animationFunction),
-                createAnimation(g2, g2, 0, animationFunction),
-                createAnimation(b2, b2, 0, animationFunction),
-                createAnimation(a2, a2, 0, animationFunction),
-            }
-        },
-        drawAnimatedRectangleGradientButton,                            -- element drawing function
-        {                                                               -- Touch data
+        drawAnimatedRectangleGradientButton,                                -- element drawing function
+        {                                                                   -- Touch data
             false,
             false,
             false,
         }
+    }
+end
+
+function createQuadAnimationTable(a,b,c,d, animationFunction)
+    return {
+        createAnimation(a, a, 0, animationFunction),
+        createAnimation(b, b, 0, animationFunction),
+        createAnimation(c, c, 0, animationFunction),
+        createAnimation(d, d, 0, animationFunction),
     }
 end

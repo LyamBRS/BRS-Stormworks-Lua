@@ -1,4 +1,4 @@
-require("Functions.Animations.Framework.lerpAnimation")
+require("Functions.Animations.Functions.lerpAnimation")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description

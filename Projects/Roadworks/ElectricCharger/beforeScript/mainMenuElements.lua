@@ -1,5 +1,5 @@
 require("Functions.Monitor.Buttons.Animated.newAnimatedRectangleGradiantButton")
-require("Functions.Animations.Framework.elasticOut")
+require("Functions.Animations.Functions.elasticOut")
 require("Projects.Roadworks.ElectricCharger.constants.mainMenuElements")
 require("Variables.Monitor.Elements.surface")
 

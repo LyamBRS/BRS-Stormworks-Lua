@@ -1,4 +1,4 @@
-require("Functions.Animations.Framework.lerpAnimation")
+require("Functions.Animations.Functions.lerpAnimation")
 require("Variables.Animations.current")
 -- [BRS] - Asked ChatGPT to make me a bezier implementation in Lua.
 -- this is one of the function.
