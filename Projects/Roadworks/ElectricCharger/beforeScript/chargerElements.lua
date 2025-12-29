@@ -20,5 +20,5 @@ g_chargingVehicleText = newAnimatedRectangleGradiantButton(
 )
 
 -- [BRS] - [[ Minifications ]]
-g_cancelChargingButtonSurface = g_cancelChargingButton[c_elementSurface]
-g_chargingVehicleTextSurface = g_chargingVehicleText[c_elementSurface]
+g_cancelChargingButtonSurfaceX = g_cancelChargingButton[c_elementSurface][c_elementSurfaceX]
+g_chargingVehicleTextSurfaceX = g_chargingVehicleText[c_elementSurface][c_elementSurfaceX]

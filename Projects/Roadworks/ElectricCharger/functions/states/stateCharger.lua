@@ -40,14 +40,14 @@ function stateCharger()
     if g_subState == 0 then -- deploy waiting menu
         g_subState = 1
 
-        g_chargingVehicleTextSurface[c_elementSurfaceX] = createAnimation(
+        g_chargingVehicleTextSurfaceX = createAnimation(
             direction,
             c_textAreaXShown,
             c_UIShiftDuration,
             quintInOutAnimation
         )
 
-        g_cancelChargingButtonSurface[c_elementSurfaceX] = createAnimation(
+        g_cancelChargingButtonSurfaceX = createAnimation(
             direction,
             c_buttonXShown,
             c_UIShiftDuration,
@@ -69,7 +69,7 @@ function stateCharger()
     if g_cancelChargingButton[c_elementTouch][c_elementTouchReleased] then
         g_subState = 0
         g_state = stateMainMenu
-        setNewAnimationTarget(g_chargingVehicleTextSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_cancelChargingButtonSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_chargingVehicleTextSurfaceX, direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_cancelChargingButtonSurfaceX, direction, c_UIShiftDuration)
     end
 end

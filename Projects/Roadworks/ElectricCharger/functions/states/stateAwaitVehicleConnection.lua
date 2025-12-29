@@ -45,21 +45,21 @@ function stateAwaitVehicleConnection()
         g_subState = 1
         awayTimer = c_timeToWaitAfterPlayer
 
-        g_awaitVehicleConnectionTextSurface[c_elementSurfaceX] = createAnimation(
+        g_awaitVehicleConnectionTextSurfaceX = createAnimation(
             direction,
             c_textAreaXShown,
             c_UIShiftDuration,
             quintInOutAnimation
         )
 
-        g_cancelButtonSurface[c_elementSurfaceX] = createAnimation(
+        g_cancelButtonSurfaceX = createAnimation(
             direction,
             c_buttonXShown,
             c_UIShiftDuration,
             quintInOutAnimation
         )
 
-        g_okButtonSurface[c_elementSurfaceX] = createAnimation(
+        g_okButtonSurfaceX = createAnimation(
             direction,
             c_buttonXShown,
             c_UIShiftDuration,
@@ -85,9 +85,9 @@ function stateAwaitVehicleConnection()
         -- Direction is flipped, so the screen continue off in the same direction.
         g_subState = 0
         g_state = stateMainMenu
-        setNewAnimationTarget(g_awaitVehicleConnectionTextSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_cancelButtonSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_okButtonSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_awaitVehicleConnectionTextSurfaceX, direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_cancelButtonSurfaceX, direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_okButtonSurfaceX, direction, c_UIShiftDuration)
     end
     
     -- [BRS] - The player says they did connect a battery to the charger... we'll take their words for it.
@@ -95,17 +95,17 @@ function stateAwaitVehicleConnection()
         direction = g_wantsToCharge and c_mainMenuToChargingX or c_mainMenuToDischargeX
         g_subState = 0
         g_state = stateCharger
-        setNewAnimationTarget(g_awaitVehicleConnectionTextSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_cancelButtonSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_okButtonSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_awaitVehicleConnectionTextSurfaceX, direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_cancelButtonSurfaceX, direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_okButtonSurfaceX, direction, c_UIShiftDuration)
     end
 
     -- [BRS] - Player left, did nothing AND we waited long enough for them to plug in their cars.
     if awayTimer == 0 then
         g_subState = 0
         g_state = stateBootingDown
-        setNewAnimationTarget(g_awaitVehicleConnectionTextSurface[c_elementSurfaceX], direction, 20)
-        setNewAnimationTarget(g_cancelButtonSurface[c_elementSurfaceX], direction, 60)
-        setNewAnimationTarget(g_okButtonSurface[c_elementSurfaceX], direction, 40)
+        setNewAnimationTarget(g_awaitVehicleConnectionTextSurfaceX, direction, 20)
+        setNewAnimationTarget(g_cancelButtonSurfaceX, direction, 60)
+        setNewAnimationTarget(g_okButtonSurfaceX, direction, 40)
     end
 end

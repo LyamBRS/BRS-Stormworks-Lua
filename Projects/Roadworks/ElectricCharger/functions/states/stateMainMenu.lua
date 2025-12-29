@@ -37,11 +37,11 @@ function stateMainMenu()
     -- print("state: main menu")
     ------ Logic
     if g_subState == 0 then -- deploy main menu
-        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_buttonXShown, c_UIShiftDuration)
-        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_buttonXShown, c_UIShiftDuration)
-        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_buttonXShown, c_UIShiftDuration)
-        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceY], c_textAreaYShown, 40)
-        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceX], c_textAreaXShown, c_UIShiftDuration)
+        setNewAnimationTarget(g_chargeButtonSurfaceX, c_buttonXShown, c_UIShiftDuration)
+        setNewAnimationTarget(g_infoButtonSurfaceX, c_buttonXShown, c_UIShiftDuration)
+        setNewAnimationTarget(g_dischargeButtonSurfaceX, c_buttonXShown, c_UIShiftDuration)
+        setNewAnimationTarget(g_mainMenuText[c_elementSurface][c_elementSurfaceY], c_textAreaYShown, 40)
+        setNewAnimationTarget(g_mainMenuTextSurfaceX, c_textAreaXShown, c_UIShiftDuration)
         g_subState = 1
     end
 
@@ -57,27 +57,27 @@ function stateMainMenu()
         -- [BRS] - Player left and did nothing. Boot off.
         g_state = stateBootingDown
         g_subState = 0
-        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_chargeButtonXHidden, 80, elasticOutAnimation)
-        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_infoButtonXHidden, 80, elasticOutAnimation)
-        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_dischargeButtonXHidden, 80, elasticOutAnimation)
-        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceY], c_mainMenuTextYHidden, 40, elasticOutAnimation)
+        setNewAnimationTarget(g_chargeButtonSurfaceX, c_chargeButtonXHidden, 80, elasticOutAnimation)
+        setNewAnimationTarget(g_infoButtonSurfaceX, c_infoButtonXHidden, 80, elasticOutAnimation)
+        setNewAnimationTarget(g_dischargeButtonSurfaceX, c_dischargeButtonXHidden, 80, elasticOutAnimation)
+        setNewAnimationTarget(g_mainMenuText[c_elementSurface][c_elementSurfaceY], c_mainMenuTextYHidden, 40, elasticOutAnimation)
     elseif g_chargeButton[c_elementTouch][c_elementTouchReleased] then
         -- [BRS] - The player wants to charge something. Tell them to connect a vehicle or directly start the proceedure.
         g_subState = 0
         g_wantsToCharge = true
         g_state = g_antennaSignalStrength > 0 and stateCharger or stateAwaitVehicleConnection
-        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceX], c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
+        setNewAnimationTarget(g_chargeButtonSurfaceX, c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
+        setNewAnimationTarget(g_infoButtonSurfaceX, c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
+        setNewAnimationTarget(g_dischargeButtonSurfaceX, c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
+        setNewAnimationTarget(g_mainMenuTextSurfaceX, c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
     elseif g_dischargeButton[c_elementTouch][c_elementTouchReleased] then
         -- [BRS] - The player wants to discharge something. Tell them to connect a vehicle or directly start the proceedure.
         g_subState = 0
         g_wantsToCharge = false
         g_state = g_antennaSignalStrength > 0 and stateCharger  or stateAwaitVehicleConnection
-        setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_mainMenuTextSurface[c_elementSurfaceX], c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
+        setNewAnimationTarget(g_chargeButtonSurfaceX, c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
+        setNewAnimationTarget(g_infoButtonSurfaceX, c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
+        setNewAnimationTarget(g_dischargeButtonSurfaceX, c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
+        setNewAnimationTarget(g_mainMenuTextSurfaceX, c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
     end
 end

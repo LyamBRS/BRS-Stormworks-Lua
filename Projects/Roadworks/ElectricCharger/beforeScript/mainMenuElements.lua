@@ -34,7 +34,7 @@ g_mainMenuText = newAnimatedRectangleGradiantButton(
 )
 
 -- [BRS] - [[ Minifications ]]
-g_chargeButtonSurface = g_chargeButton[c_elementSurface]
-g_dischargeButtonSurface = g_dischargeButton[c_elementSurface]
-g_infoButtonSurface = g_infoButton[c_elementSurface]
-g_mainMenuTextSurface = g_mainMenuText[c_elementSurface]
+g_chargeButtonSurfaceX = g_chargeButton[c_elementSurface][c_elementSurfaceX]
+g_dischargeButtonSurfaceX = g_dischargeButton[c_elementSurface][c_elementSurfaceX]
+g_infoButtonSurfaceX = g_infoButton[c_elementSurface][c_elementSurfaceX]
+g_mainMenuTextSurfaceX = g_mainMenuText[c_elementSurface][c_elementSurfaceX]

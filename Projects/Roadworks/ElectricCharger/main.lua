@@ -61,6 +61,9 @@ function onDraw()
     require("Projects.Roadworks.ElectricCharger.onDraw.drawMainMenu")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawAwaitVehicleConnection")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawChargingVehicle")
+
+    require("Projects.Roadworks.ElectricCharger.onDraw.drawElementTexts")
+
     require("Projects.Roadworks.ElectricCharger.onDraw.drawBootingFade")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawingLogo")
 
@@ -76,3 +79,5 @@ require("Projects.Roadworks.ElectricCharger.beforeScript.chargerElements")
 require("Projects.Roadworks.ElectricCharger.beforeScript.initialState")
 require("Projects.Roadworks.ElectricCharger.beforeScript.initialOutputs")
 require("Projects.Roadworks.ElectricCharger.beforeScript.logoAnimations")
+
+require("Projects.Roadworks.ElectricCharger.beforeScript.elementTexts")
