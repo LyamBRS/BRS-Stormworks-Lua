@@ -2,6 +2,7 @@ require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateCharger")
 require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+require("Projects.Roadworks.ElectricCharger.functions.elements.createUIXAnimation")
 require("Functions.Animations.Functions.elasticOut")
 require("Functions.Animations.Functions.quintInOutAnimation")
 require("Functions.Animations.Framework.createAnimation")
@@ -45,26 +46,9 @@ function stateAwaitVehicleConnection()
         g_subState = 1
         awayTimer = c_timeToWaitAfterPlayer
 
-        g_awaitVehicleConnectionTextSurfaceX = createAnimation(
-            direction,
-            c_textAreaXShown,
-            c_UIShiftDuration,
-            quintInOutAnimation
-        )
-
-        g_cancelButtonSurfaceX = createAnimation(
-            direction,
-            c_buttonXShown,
-            c_UIShiftDuration,
-            quintInOutAnimation
-        )
-
-        g_okButtonSurfaceX = createAnimation(
-            direction,
-            c_buttonXShown,
-            c_UIShiftDuration,
-            quintInOutAnimation
-        )
+        createUIXAnimation(g_awaitVehicleConnectionText, direction, c_textAreaXShown)
+        createUIXAnimation(g_cancelButton, direction, c_buttonXShown)
+        createUIXAnimation(g_okButton, direction, c_buttonXShown)
     end
 
     -- [BRS] - Count down if no players are detected.
