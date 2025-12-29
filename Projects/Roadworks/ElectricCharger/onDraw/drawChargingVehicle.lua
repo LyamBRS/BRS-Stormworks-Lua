@@ -1,4 +1,3 @@
-if g_state ~= stateOff then
     g_cancelChargingButton[c_elementFunction](g_cancelChargingButton)
     g_chargingVehicleText[c_elementFunction](g_chargingVehicleText)
 
@@ -8,4 +7,3 @@ if g_state ~= stateOff then
 
     screen.setColor(32,32,32,240)
     drawTextOnSurface(g_cancelChargingButtonSurface, "cancel")
-end

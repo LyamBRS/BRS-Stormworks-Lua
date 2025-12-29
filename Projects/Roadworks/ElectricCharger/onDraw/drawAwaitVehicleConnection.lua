@@ -1,4 +1,3 @@
-if g_state ~= stateOff then
     g_cancelButton[c_elementFunction](g_cancelButton)
     g_awaitVehicleConnectionText[c_elementFunction](g_awaitVehicleConnectionText)
     g_okButton[c_elementFunction](g_okButton)
@@ -11,4 +10,3 @@ if g_state ~= stateOff then
 
     screen.setColor(0,64,0,240)
     drawTextOnSurface(g_okButtonSurface, "yes")
-end

@@ -1,6 +1,5 @@
 -- [BRS] - [[Minifications]]
 -- 214 characters used here.
-if g_state ~= stateOff then
     g_chargeButton[c_elementFunction](g_chargeButton)
     g_dischargeButton[c_elementFunction](g_dischargeButton)
     g_infoButton[c_elementFunction](g_infoButton)
@@ -17,4 +16,3 @@ if g_state ~= stateOff then
 
     screen.setColor(16,32,32,240)
     drawTextOnSurface(g_mainMenuTextSurface, " what do you wish to do?")
-end
