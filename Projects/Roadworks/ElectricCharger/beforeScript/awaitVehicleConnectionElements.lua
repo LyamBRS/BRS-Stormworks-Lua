@@ -26,8 +26,3 @@ g_awaitVehicleConnectionText = newAnimatedRectangleGradiantButton(
     255,0,255,64,                   -- r, g, b, a
     quintInOutAnimation             -- animation function
 )
-
--- [BRS] - [[ Minifications ]]
-g_cancelButtonSurfaceX = g_cancelButton[c_elementSurface][c_elementSurfaceX]
-g_okButtonSurfaceX = g_okButton[c_elementSurface][c_elementSurfaceX]
-g_awaitVehicleConnectionTextSurfaceX = g_awaitVehicleConnectionText[c_elementSurface][c_elementSurfaceX]

@@ -62,34 +62,24 @@ function stateAwaitVehicleConnection()
     stationLightWhenInnactive()
 
     ------ NEXT STATE HANDLING -
+    -- [BRS] - The player cancelled the operation. Back to the main menu.
+    g_state = g_cancelButton[c_elementTouch][c_elementTouchReleased] and stateMainMenu or g_state
+    -- [BRS] - The player says they did connect a battery to the charger... we'll take their words for it.
+    g_state = g_okButton[c_elementTouch][c_elementTouchReleased] and stateCharger or g_state
+    -- [BRS] - Player left, did nothing AND we waited long enough for them to plug in their cars.
+    g_state = awayTimer == 0 and stateBootingDown or g_state
     -- [BRS] - The signal strength detected something! The player connected their vehicle.
 
-    -- [BRS] - The player cancelled the operation. Back to the main menu.
-    if g_cancelButton[c_elementTouch][c_elementTouchReleased] then
-        -- Direction is flipped, so the screen continue off in the same direction.
+    if g_state ~= stateAwaitVehicleConnection then
         g_subState = 0
-        g_state = stateMainMenu
-        setNewAnimationTarget(g_awaitVehicleConnectionTextSurfaceX, direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_cancelButtonSurfaceX, direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_okButtonSurfaceX, direction, c_UIShiftDuration)
-    end
-    
-    -- [BRS] - The player says they did connect a battery to the charger... we'll take their words for it.
-    if g_okButton[c_elementTouch][c_elementTouchReleased] then
-        direction = g_wantsToCharge and c_mainMenuToChargingX or c_mainMenuToDischargeX
-        g_subState = 0
-        g_state = stateCharger
-        setNewAnimationTarget(g_awaitVehicleConnectionTextSurfaceX, direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_cancelButtonSurfaceX, direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_okButtonSurfaceX, direction, c_UIShiftDuration)
-    end
 
-    -- [BRS] - Player left, did nothing AND we waited long enough for them to plug in their cars.
-    if awayTimer == 0 then
-        g_subState = 0
-        g_state = stateBootingDown
-        setNewAnimationTarget(g_awaitVehicleConnectionTextSurfaceX, direction, 20)
-        setNewAnimationTarget(g_cancelButtonSurfaceX, direction, 60)
-        setNewAnimationTarget(g_okButtonSurfaceX, direction, 40)
+        -- if we want to charge, the UI direction is flipped.
+        if g_state == stateCharger then
+            direction = g_wantsToCharge and c_mainMenuToChargingX or c_mainMenuToDischargeX
+        end
+
+        setNewAnimationTarget(g_awaitVehicleConnectionText[c_elementSurface][c_elementSurfaceX], direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_cancelButton[c_elementSurface][c_elementSurfaceX], direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_okButton[c_elementSurface][c_elementSurfaceX], direction, c_UIShiftDuration)
     end
 end
