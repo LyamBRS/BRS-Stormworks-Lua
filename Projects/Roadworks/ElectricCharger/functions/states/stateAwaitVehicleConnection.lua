@@ -71,7 +71,6 @@ function stateAwaitVehicleConnection()
 
     ------ State outputs
     g_monitorState = true
-    g_relayCable = true
     g_relayAntenna = true
     g_relayCharger = false
     g_relayDischarger = false

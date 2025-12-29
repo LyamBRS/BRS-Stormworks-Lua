@@ -31,7 +31,6 @@ function stateOff()
     -- NONE
     ------ State outputs
     g_monitorState = false
-    g_relayCable = true
     g_relayAntenna = true
     g_relayCharger = false
     g_relayDischarger = false

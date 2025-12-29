@@ -5,7 +5,6 @@
 -- This must always be executed regardless of the current state.
 
 -- [BRS] - BOOLEAN
-output.setBool(1, g_relayCable)
 output.setBool(2, g_relayAntenna)
 output.setBool(3, g_relayCharger)
 output.setBool(4, g_relayDischarger)
