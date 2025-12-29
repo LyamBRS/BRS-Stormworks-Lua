@@ -19,7 +19,7 @@ g_chargingVehicleText = newAnimatedRectangleGradiantButton(
     quintInOutAnimation             -- animation function
 )
 
-g_batteryChargeBar = newAnimatedRectangleGradiantButton(
+g_batteryChargeBarTop = newAnimatedRectangleGradiantButton(
     c_mainMenuToDischargeX,41,
     64,9,
     128,32,32,  128,
@@ -27,11 +27,16 @@ g_batteryChargeBar = newAnimatedRectangleGradiantButton(
     quintInOutAnimation
 )
 
--- Adding 2 more colors to the charging bar
--- g_batteryChargeBar[c_elementColors][3] = {
---     create
--- }
+g_batteryChargeBarBot = newAnimatedRectangleGradiantButton(
+    c_mainMenuToDischargeX,41,
+    64,9,
+    128,32,32,  128,
+    64,64,64,128,
+    quintInOutAnimation
+)
 
 -- [BRS] - [[ Minifications ]]
 g_cancelChargingButtonSurfaceX = g_cancelChargingButton[c_elementSurface][c_elementSurfaceX]
 g_chargingVehicleTextSurfaceX = g_chargingVehicleText[c_elementSurface][c_elementSurfaceX]
+g_batteryChargeBarTopSurfaceX = g_batteryChargeBarTop[c_elementSurface][c_elementSurfaceX]
+g_batteryChargeBarBotSurfaceX = g_batteryChargeBarBot[c_elementSurface][c_elementSurfaceX]

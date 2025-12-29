@@ -26,4 +26,6 @@ if g_state ~= stateOff then
     -- -- [BRS] - Charging / discharging vehicle
     animateElement(g_cancelChargingButton)
     animateElement(g_chargingVehicleText)
+    animateElement(g_batteryChargeBarTop)
+    animateElement(g_batteryChargeBarBot)
 end
