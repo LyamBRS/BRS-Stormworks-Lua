@@ -8,20 +8,23 @@
 -- ## Where is this used?
 -- Explain
 
--- [BRS] - [[  imports  ]] --
+-- [BRS] - [[ Imports ]] --
 
--- [BRS] - [[ variables ]] --
+-- [BRS] - [[ Constants ]] --
 
--- [BRS] - [[   mains   ]] --
+-- [BRS] - [[ Functions ]] --
 
+-- [BRS] - [[ OnTick ]] --
 function onTick()
     -- [BRS] - [[ Inputs ]] --
 
     -- [BRS] - [[ Outputs ]] --
 end
 
+-- [BRS] - [[ OnDraw ]] --
 function onDraw()
 
 end
 
--- [BRS] - [[   Functions   ]] --
+-- [BRS] - [[   Before script   ]] --
+-- Execution outside of onFunctions.
