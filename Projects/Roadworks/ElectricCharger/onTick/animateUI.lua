@@ -13,30 +13,17 @@ if g_state ~= stateOff then
     animate(bootFadeAlphaTop)
 
     -- [BRS] - Main menu animations
-    animate(g_chargeButtonSurface[c_elementSurfaceX])
-    animate(g_chargeButton[c_elementColors][1][c_elementColorA])
-    animate(g_chargeButton[c_elementColors][2][c_elementColorA])
-    animate(g_dischargeButtonSurface[c_elementSurfaceX])
-    animate(g_dischargeButton[c_elementColors][1][c_elementColorA])
-    animate(g_dischargeButton[c_elementColors][2][c_elementColorA])
-    animate(g_infoButtonSurface[c_elementSurfaceX])
-    animate(g_infoButton[c_elementColors][1][c_elementColorA])
-    animate(g_infoButton[c_elementColors][2][c_elementColorA])
-    animate(g_mainMenuTextSurface[c_elementSurfaceY])
-    animate(g_mainMenuTextSurface[c_elementSurfaceX])
+    animateElement(g_chargeButton)
+    animateElement(g_dischargeButton)
+    animateElement(g_infoButton)
+    animateElement(g_mainMenuText)
 
-    -- [BRS] - Await vehicle connection animations
-    animate(g_cancelButtonSurface[c_elementSurfaceX])
-    animate(g_cancelButton[c_elementColors][1][c_elementColorA])
-    animate(g_cancelButton[c_elementColors][2][c_elementColorA])
-    animate(g_awaitVehicleConnectionTextSurface[c_elementSurfaceX])
-    animate(g_okButtonSurface[c_elementSurfaceX])
-    animate(g_okButton[c_elementColors][1][c_elementColorA])
-    animate(g_okButton[c_elementColors][2][c_elementColorA])
+    -- -- [BRS] - Await vehicle connection animations
+    animateElement(g_cancelButton)
+    animateElement(g_okButton)
+    animateElement(g_awaitVehicleConnectionText)
 
-    -- [BRS] - Charging / discharging vehicle
-    animate(g_cancelChargingButtonSurface[c_elementSurfaceX])
-    animate(g_cancelChargingButton[c_elementColors][1][c_elementColorA])
-    animate(g_cancelChargingButton[c_elementColors][2][c_elementColorA])
-    animate(g_chargingVehicleTextSurface[c_elementSurfaceX])
+    -- -- [BRS] - Charging / discharging vehicle
+    animateElement(g_cancelChargingButton)
+    animateElement(g_chargingVehicleText)
 end
