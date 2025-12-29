@@ -43,14 +43,14 @@ function stateCharger()
         g_chargingVehicleTextSurface[c_elementSurfaceX] = createAnimation(
             direction,
             c_textAreaXShown,
-            80,
+            c_UIShiftDuration,
             quintInOutAnimation
         )
 
         g_cancelChargingButtonSurface[c_elementSurfaceX] = createAnimation(
             direction,
             c_buttonXShown,
-            80,
+            c_UIShiftDuration,
             quintInOutAnimation
         )
     end
@@ -69,7 +69,7 @@ function stateCharger()
     if g_cancelChargingButton[c_elementTouch][c_elementTouchReleased] then
         g_subState = 0
         g_state = stateMainMenu
-        setNewAnimationTarget(g_chargingVehicleTextSurface[c_elementSurfaceX], direction, 80)
-        setNewAnimationTarget(g_cancelChargingButtonSurface[c_elementSurfaceX], direction, 80)
+        setNewAnimationTarget(g_chargingVehicleTextSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_cancelChargingButtonSurface[c_elementSurfaceX], direction, c_UIShiftDuration)
     end
 end
