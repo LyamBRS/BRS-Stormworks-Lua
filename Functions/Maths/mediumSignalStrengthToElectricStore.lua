@@ -14,5 +14,5 @@
 -- ### @Returns
 -- ##### 1. `electric store` : `number` = 0-1. Lowest is 0.00383 
 function mediumSignalStrengthToElectricStore(antennaSignal)
-    return .000374997 * ((1-antennaSignal)^-1) + .000008
+    return .00037517 * ((1-antennaSignal)^-0.999938)
 end
