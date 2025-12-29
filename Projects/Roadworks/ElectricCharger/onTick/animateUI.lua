@@ -33,4 +33,10 @@ if g_state ~= stateOff then
     animate(g_okButtonSurface[c_elementSurfaceX])
     animate(g_okButton[c_elementColors][1][c_elementColorA])
     animate(g_okButton[c_elementColors][2][c_elementColorA])
+
+    -- [BRS] - Charging / discharging vehicle
+    animate(g_cancelChargingButtonSurface[c_elementSurfaceX])
+    animate(g_cancelChargingButton[c_elementColors][1][c_elementColorA])
+    animate(g_cancelChargingButton[c_elementColors][2][c_elementColorA])
+    animate(g_chargingVehicleTextSurface[c_elementSurfaceX])
 end

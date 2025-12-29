@@ -1,5 +1,6 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateCharger")
 require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
 require("Functions.Animations.Framework.elasticOut")
 require("Functions.Animations.Framework.quintInOutAnimation")
@@ -81,8 +82,19 @@ function stateAwaitVehicleConnection()
 
     -- [BRS] - The player cancelled the operation. Back to the main menu.
     if g_cancelButton[c_elementTouch][c_elementTouchReleased] then
+        -- Direction is flipped, so the screen continue off in the same direction.
         g_subState = 0
         g_state = stateMainMenu
+        setNewAnimationTarget(g_awaitVehicleConnectionTextSurface[c_elementSurfaceX], direction, 80, quintInOutAnimation)
+        setNewAnimationTarget(g_cancelButtonSurface[c_elementSurfaceX], direction, 80, quintInOutAnimation)
+        setNewAnimationTarget(g_okButtonSurface[c_elementSurfaceX], direction, 80, quintInOutAnimation)
+    end
+    
+    -- [BRS] - The player says they did connect a battery to the charger... we'll take their words for it.
+    if g_okButton[c_elementTouch][c_elementTouchReleased] then
+        direction = g_wantsToCharge and c_mainMenuToChargingX or c_mainMenuToDischargeX
+        g_subState = 0
+        g_state = stateCharger
         setNewAnimationTarget(g_awaitVehicleConnectionTextSurface[c_elementSurfaceX], direction, 80, quintInOutAnimation)
         setNewAnimationTarget(g_cancelButtonSurface[c_elementSurfaceX], direction, 80, quintInOutAnimation)
         setNewAnimationTarget(g_okButtonSurface[c_elementSurfaceX], direction, 80, quintInOutAnimation)

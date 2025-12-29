@@ -1,4 +1,4 @@
-if g_state == stateMainMenu or g_state == stateAwaitVehicleConnection or g_state == stateBootingDown then
+if g_state ~= stateOff then
     g_cancelButton[c_elementFunction](g_cancelButton)
     g_awaitVehicleConnectionText[c_elementFunction](g_awaitVehicleConnectionText)
     g_okButton[c_elementFunction](g_okButton)

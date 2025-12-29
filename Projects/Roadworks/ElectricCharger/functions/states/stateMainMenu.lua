@@ -1,5 +1,6 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateAwaitVehicleConnection")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateCharger")
 require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
 require("Functions.Animations.Framework.elasticOut")
 require("Functions.Animations.Framework.quintInOutAnimation")
@@ -64,7 +65,7 @@ function stateMainMenu()
         -- [BRS] - The player wants to charge something. Tell them to connect a vehicle or directly start the proceedure.
         g_subState = 0
         g_wantsToCharge = true
-        g_state = g_antennaSignalStrength > 0 and stateMainMenu or stateAwaitVehicleConnection
+        g_state = g_antennaSignalStrength > 0 and stateCharger or stateAwaitVehicleConnection
         setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, 80, quintInOutAnimation)
         setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, 80, quintInOutAnimation)
         setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_mainMenuToChargingX, 80, quintInOutAnimation)
@@ -73,7 +74,7 @@ function stateMainMenu()
         -- [BRS] - The player wants to discharge something. Tell them to connect a vehicle or directly start the proceedure.
         g_subState = 0
         g_wantsToCharge = false
-        g_state = g_antennaSignalStrength > 0 and stateMainMenu or stateAwaitVehicleConnection
+        g_state = g_antennaSignalStrength > 0 and stateCharger  or stateAwaitVehicleConnection
         setNewAnimationTarget(g_chargeButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, 80, quintInOutAnimation)
         setNewAnimationTarget(g_infoButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, 80, quintInOutAnimation)
         setNewAnimationTarget(g_dischargeButtonSurface[c_elementSurfaceX], c_mainMenuToDischargeX, 80, quintInOutAnimation)

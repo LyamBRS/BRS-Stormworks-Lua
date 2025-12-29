@@ -9,6 +9,7 @@ require("Projects.Roadworks.ElectricCharger.functions.background.createBackgroun
 require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
 
 ------- [FUNCTIONS] - Charger's state machine's States
+require("Functions.Maths.mediumSignalStrengthToElectricStore")
 require("Projects.Roadworks.ElectricCharger.functions.states.states")
 
 ------- [FUNCTIONS] - Animation framework

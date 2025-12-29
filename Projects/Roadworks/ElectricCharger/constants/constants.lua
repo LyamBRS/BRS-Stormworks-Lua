@@ -15,3 +15,4 @@ require("Variables.Animations.function")
 require("Variables.Monitor.Elements.function")
 
 g_wantsToCharge = false
+g_electricStore = 0

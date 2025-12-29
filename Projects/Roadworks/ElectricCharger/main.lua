@@ -25,6 +25,9 @@ function onTick()
     -- [BRS] - [[ Outputs ]] --
     require("Projects.Roadworks.ElectricCharger.onTick.setOutputs")
 
+    -- Calculating electric store from inputs
+    g_electricStore = mediumSignalStrengthToElectricStore(g_antennaSignalStrength)
+
     -- [BRS] - [[ Synchronized UI ]] --
     require("Projects.Roadworks.ElectricCharger.onTick.animateUI")
     require("Projects.Roadworks.ElectricCharger.onTick.handleButtons")
@@ -34,8 +37,12 @@ function onDraw()
     require("Projects.Roadworks.ElectricCharger.onDraw.drawBackground")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawMainMenu")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawAwaitVehicleConnection")
+    require("Projects.Roadworks.ElectricCharger.onDraw.drawChargingVehicle")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawBootingFade")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawingLogo")
+
+    screen.setColor(255,255,255)
+    screen.drawText(0,0,g_electricStore)
 end
 
 require("Projects.Roadworks.ElectricCharger.beforeScript.beforeScript")
