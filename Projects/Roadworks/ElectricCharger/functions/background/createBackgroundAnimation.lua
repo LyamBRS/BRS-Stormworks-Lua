@@ -1,4 +1,4 @@
-require("Functions.Animations.Framework.quintInOutAnimation")
+require("Functions.Animations.Functions.quintInOutAnimation")
 require("Functions.Animations.Framework.createAnimation")
 -- [BRS] - [[Information]]
 -- The goal is to create a new animation object

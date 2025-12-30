@@ -66,9 +66,6 @@ function onDraw()
 
     require("Projects.Roadworks.ElectricCharger.onDraw.drawBootingFade")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawingLogo")
-
-    screen.setColor(255,255,255)
-    screen.drawText(0,0,g_electricStore)
 end
 
 -- [BRS] - [[   before script   ]] --

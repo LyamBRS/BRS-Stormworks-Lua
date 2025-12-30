@@ -14,29 +14,27 @@ g_cancelChargingButton = newAnimatedRectangleGradiantButton(
 g_chargingVehicleText = newAnimatedRectangleGradiantButton(
     c_mainMenuToDischargeX, c_textAreaYShown,       -- x, y
     92, 26,                         -- width, height
-    255,255,0,64,                   -- r, g, b, a
-    255,0,255,64,                   -- r, g, b, a
+    0,0,0,0,                   -- r, g, b, a
+    0,0,0,0,                   -- r, g, b, a
     quintInOutAnimation             -- animation function
-)
-
-g_batteryChargeBarTop = newAnimatedRectangleGradiantButton(
-    c_mainMenuToDischargeX,41,
-    64,9,
-    128,32,32,  128,
-    64,64,64,128,
-    quintInOutAnimation
 )
 
 g_batteryChargeBarBot = newAnimatedRectangleGradiantButton(
     c_mainMenuToDischargeX,41,
     64,9,
-    128,32,32,  128,
-    64,64,64,128,
+    32,32,32,32,
+    32,32,32,32,
     quintInOutAnimation
 )
 
--- [BRS] - [[ Minifications ]]
-g_cancelChargingButtonSurfaceX = g_cancelChargingButton[c_elementSurface][c_elementSurfaceX]
-g_chargingVehicleTextSurfaceX = g_chargingVehicleText[c_elementSurface][c_elementSurfaceX]
-g_batteryChargeBarTopSurfaceX = g_batteryChargeBarTop[c_elementSurface][c_elementSurfaceX]
-g_batteryChargeBarBotSurfaceX = g_batteryChargeBarBot[c_elementSurface][c_elementSurfaceX]
+g_batteryChargeBarTop = newAnimatedRectangleGradiantButton(
+    c_mainMenuToDischargeX+1,42,
+    62,7,
+    32,32,32,255,
+    32,32,32,255,
+    quintInOutAnimation
+)
+
+g_previousElectricStore = 0
+g_electricCounter = 0
+g_currentSessionTimer = 0
