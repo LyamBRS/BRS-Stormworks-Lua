@@ -26,12 +26,21 @@ function drawAnimatedRectangleGradientButton(element)
     coords = element[c_elementSurface]
     colorA = element[c_elementColors][1]
     colorB = element[c_elementColors][2]
+
+    x = coords[c_elementSurfaceX][c_animationCurrent]
+    y = coords[c_elementSurfaceY][c_animationCurrent]
+    w = coords[c_elementSurfaceW][c_animationCurrent]
+    h = coords[c_elementSurfaceH][c_animationCurrent]
+
+    if x > 96 or y > 64 or x<-w or y<-h then
+        return
+    end
     
     rounded45DegreeGradient(
-        coords[c_elementSurfaceX][c_animationCurrent],
-        coords[c_elementSurfaceY][c_animationCurrent],
-        coords[c_elementSurfaceW][c_animationCurrent],
-        coords[c_elementSurfaceH][c_animationCurrent],
+        x,
+        y,
+        w,
+        h,
         colorA[c_elementColorR][c_animationCurrent],
         colorA[c_elementColorG][c_animationCurrent],
         colorA[c_elementColorB][c_animationCurrent],
