@@ -47,8 +47,8 @@ function stateAwaitVehicleConnection()
         awayTimer = c_timeToWaitAfterPlayer
 
         createUIXAnimation(g_awaitVehicleConnectionText, direction, c_textAreaXShown)
-        createUIXAnimation(g_cancelButton, direction, c_buttonXShown)
-        createUIXAnimation(g_okButton, direction, c_buttonXShown)
+        createUIXAnimation(g_noButton, direction, c_buttonXShown)
+        createUIXAnimation(g_yesButton, direction, c_buttonXShown)
     end
 
     -- [BRS] - Count down if no players are detected.
@@ -63,9 +63,9 @@ function stateAwaitVehicleConnection()
 
     ------ NEXT STATE HANDLING -
     -- [BRS] - The player cancelled the operation. Back to the main menu.
-    g_state = g_cancelButton[c_elementTouch][c_elementTouchReleased] and stateMainMenu or g_state
+    g_state = g_noButton[c_elementTouch][c_elementTouchReleased] and stateMainMenu or g_state
     -- [BRS] - The player says they did connect a battery to the charger... we'll take their words for it.
-    g_state = g_okButton[c_elementTouch][c_elementTouchReleased] and stateCharger or g_state
+    g_state = g_yesButton[c_elementTouch][c_elementTouchReleased] and stateCharger or g_state
     -- [BRS] - Player left, did nothing AND we waited long enough for them to plug in their cars.
     g_state = awayTimer == 0 and stateBootingDown or g_state
 
@@ -78,7 +78,7 @@ function stateAwaitVehicleConnection()
         end
 
         setNewAnimationTarget(g_awaitVehicleConnectionText[c_elementSurface][c_elementSurfaceX], direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_cancelButton[c_elementSurface][c_elementSurfaceX], direction, c_UIShiftDuration)
-        setNewAnimationTarget(g_okButton[c_elementSurface][c_elementSurfaceX], direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_noButton[c_elementSurface][c_elementSurfaceX], direction, c_UIShiftDuration)
+        setNewAnimationTarget(g_yesButton[c_elementSurface][c_elementSurfaceX], direction, c_UIShiftDuration)
     end
 end

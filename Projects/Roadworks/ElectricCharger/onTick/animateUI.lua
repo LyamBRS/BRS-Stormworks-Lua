@@ -19,8 +19,8 @@ if g_state ~= stateOff then
     animateElement(g_mainMenuText)
 
     -- [BRS] - Await vehicle connection animations
-    animateElement(g_cancelButton)
-    animateElement(g_okButton)
+    animateElement(g_noButton)
+    animateElement(g_yesButton)
     animateElement(g_awaitVehicleConnectionText)
 
     -- [BRS] - Charging / discharging vehicle

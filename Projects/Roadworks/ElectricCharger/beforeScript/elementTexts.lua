@@ -6,13 +6,13 @@ elementTexts = {
         " no battery found   Did you connect one?"
     },
     {
-       32,32,32,240,
-        g_cancelButton,
-        "cancel"
+       32,0,0,240,
+        g_noButton,
+        "nah"
     },
     {
         0,64,0,240,
-        g_okButton,
+        g_yesButton,
         "yes"
     },
     {
