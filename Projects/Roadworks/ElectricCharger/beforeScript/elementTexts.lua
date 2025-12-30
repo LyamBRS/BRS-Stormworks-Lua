@@ -21,17 +21,17 @@ elementTexts = {
         "cancel"
     },
     {
-        0,32,0,240,
+        0,64,0,240,
         g_chargeButton,
         "charge"
     },
     {
-        32,0,0,240,
+        64,0,0,240,
         g_dischargeButton,
         "discharge"
     },
     {
-        0,0,32,240,
+        0,0,64,240,
         g_infoButton,
         "information"
     },
