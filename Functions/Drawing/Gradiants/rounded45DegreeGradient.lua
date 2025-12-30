@@ -27,6 +27,12 @@ require("Functions.Animations.Functions.lerpAnimation")
 -- ### @Returns
 -- None
 function rounded45DegreeGradient(x, y, w, h, r1, g1, b1, a1, r2, g2, b2, a2)
+
+    x=math.floor(x)
+    y=math.floor(y)
+    w=math.floor(w)
+    h=math.floor(h)
+
     h = h-1
     w = w-1
     max = w + h
