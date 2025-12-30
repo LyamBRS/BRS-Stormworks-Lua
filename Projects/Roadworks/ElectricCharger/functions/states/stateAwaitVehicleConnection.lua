@@ -68,7 +68,6 @@ function stateAwaitVehicleConnection()
     g_state = g_okButton[c_elementTouch][c_elementTouchReleased] and stateCharger or g_state
     -- [BRS] - Player left, did nothing AND we waited long enough for them to plug in their cars.
     g_state = awayTimer == 0 and stateBootingDown or g_state
-    -- [BRS] - The signal strength detected something! The player connected their vehicle.
 
     if g_state ~= stateAwaitVehicleConnection then
         g_subState = 0

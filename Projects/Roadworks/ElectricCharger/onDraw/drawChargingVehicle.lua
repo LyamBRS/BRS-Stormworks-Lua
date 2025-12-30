@@ -11,9 +11,9 @@
     suffix = g_wantsToCharge and "charging" or "    discharging  "
     drawTextOnSurface(g_chargingVehicleText[c_elementSurface], suffix.." vehicle")
 
-    green = g_electricStore * 255
-    red = 255 - green
-    screen.setColor(red, green, 0, 128)
+    green = g_electricStore * 64
+    red = 64 - green
+    screen.setColor(red, green, 0, 200)
     drawTextOnSurface(g_batteryChargeBarBotSurface, string.format("%.2f", g_electricStore*100).."%")
 
     -- Session timer

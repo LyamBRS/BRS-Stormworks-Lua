@@ -121,6 +121,15 @@ function stateCharger()
         setNewAnimationTarget(textColorB, wantedColor, colorBSpeed)
     end
 
+    -- Right gradient color for the top of the progress bar.
+    -- This is done by lerping it like a gradient, but with the end where
+    -- it actually currently is.
+    rightRed = lerpAnimation(255, 0, g_electricStore)
+    rightGreen = lerpAnimation(0, 255, g_electricStore)
+
+    setNewAnimationTarget(progressTopColors[2][c_elementColorR], rightRed, 0)
+    setNewAnimationTarget(progressTopColors[2][c_elementColorG], rightGreen, 0)
+
     -- Session timer management
     g_currentSessionTimer = startProceedure and g_currentSessionTimer+1 or g_currentSessionTimer
 
