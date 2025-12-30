@@ -40,4 +40,9 @@ elementTexts = {
         g_mainMenuText,
         " what do you wish to do?"
     },
+    {
+        0,64,0,240,
+        g_okFinishedSessionButton,
+        "ok"
+    },
 }

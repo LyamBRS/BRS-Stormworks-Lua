@@ -21,13 +21,15 @@
     minutes = math.floor(totalSeconds / 60)
     seconds = totalSeconds % 60
 
+    timerText = string.format("%02d:%02d", minutes, seconds)
+
     screen.setColor(128,0,255,128)
     screen.drawTextBox(
         g_batteryChargeBarBotSurface[c_elementSurfaceX][c_animationCurrent],
         g_batteryChargeBarBotSurface[c_elementSurfaceY][c_animationCurrent] - 11,
         g_batteryChargeBarBotSurface[c_elementSurfaceW][c_animationCurrent],
         g_batteryChargeBarBotSurface[c_elementSurfaceH][c_animationCurrent],
-        string.format("%02d:%02d", minutes, seconds),
+        timerText,
         0,
         0
     )

@@ -1,4 +1,5 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateFinishedSession")
 require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
 require("Projects.Roadworks.ElectricCharger.functions.elements.createUIXAnimation")
 require("Variables.Monitor.Elements.surface")
@@ -57,7 +58,7 @@ function stateCharger()
             -- [BRS] - It stopped moving!
             if itMoved then
                 -- [BRS] - it did stop moving and it did move before!
-                g_state = stateOff
+                g_state = stateFinishedSession
             else
                 -- [BRS] - ok... it did stop moving but it never really ever did.
                 g_state = stateAwaitVehicleConnection

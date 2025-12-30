@@ -14,7 +14,7 @@ g_okButton = newAnimatedRectangleGradiantButton(
 g_cancelButton = newAnimatedRectangleGradiantButton(
     c_mainMenuToDischargeX,52,
     64,9,
-    128,32,32,  128,
+    128,16,16,128,
     64,64,64,128,
     quintInOutAnimation
 )

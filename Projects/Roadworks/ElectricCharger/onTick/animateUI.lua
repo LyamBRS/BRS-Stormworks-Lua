@@ -18,14 +18,19 @@ if g_state ~= stateOff then
     animateElement(g_infoButton)
     animateElement(g_mainMenuText)
 
-    -- -- [BRS] - Await vehicle connection animations
+    -- [BRS] - Await vehicle connection animations
     animateElement(g_cancelButton)
     animateElement(g_okButton)
     animateElement(g_awaitVehicleConnectionText)
 
-    -- -- [BRS] - Charging / discharging vehicle
+    -- [BRS] - Charging / discharging vehicle
     animateElement(g_cancelChargingButton)
     animateElement(g_chargingVehicleText)
     animateElement(g_batteryChargeBarTop)
     animateElement(g_batteryChargeBarBot)
+
+    -- [BRS] - Finished session
+    animateElement(g_okFinishedSessionButton)
+    animateElement(g_finishedSessionText)
+    animateElement(g_finishedSessionTime)
 end

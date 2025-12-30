@@ -6,7 +6,7 @@ require("Variables.Monitor.Elements.surface")
 g_cancelChargingButton = newAnimatedRectangleGradiantButton(
     c_mainMenuToDischargeX,52,
     64,9,
-    128,32,32,  128,
+    128,16,16,128,
     64,64,64,128,
     quintInOutAnimation
 )
@@ -35,6 +35,9 @@ g_batteryChargeBarTop = newAnimatedRectangleGradiantButton(
     quintInOutAnimation
 )
 
+-- [BRS] - Used to identify if a battery charges or not.
 g_previousElectricStore = 0
+-- [BRS] - Counts how long the electric store stayed the same
 g_electricCounter = 0
+-- [BRS] - Counts how long the charging session lasted for.
 g_currentSessionTimer = 0
