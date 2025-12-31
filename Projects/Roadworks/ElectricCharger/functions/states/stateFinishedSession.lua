@@ -2,7 +2,7 @@ require("Projects.Roadworks.ElectricCharger.functions.states.stateInfElectric")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
 require("Projects.Roadworks.ElectricCharger.functions.states.bootingStateLogic")
-require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 require("Variables.Monitor.Elements.touch")
 require("Variables.Monitor.Elements.touch.released")
 -- [BRS] - [[ Information ]] --
@@ -49,11 +49,7 @@ function stateFinishedSession()
     g_timeBeforeBootOff = g_playerSensor and c_timeToWaitAfterPlayer or g_timeBeforeBootOff-1
 
     ------ State outputs
-    g_monitorState = true
-    g_relayAntenna = true
-    g_relayCharger = false
-    g_relayDischarger = false
-    stationLightWhenInnactive()
+    innactiveStation()
 
     ------ NEXT STATE HANDLING -
     g_state = g_okFinishedSessionButton[c_elementTouch][c_elementTouchReleased] and stateMainMenu or g_state

@@ -7,11 +7,6 @@
 -- `false` turns off the monitor and stops onDraw()
 g_monitorState = false
 
--- [BRS] - Controls the charging station's electric detection antenna's relay.
--- `true` will connect it to the station's grid, allowing you to get `electric store` value approximations.
--- `false` will disconnect it from the station's grid.
-g_relayAntenna = true
-
 -- [BRS] - Controls the charging station's charger's relay.
 -- `true` will connect it to the station's grid, allowing charging of vehicles
 -- `false` will disconnect it from the station's grid.

@@ -1,6 +1,6 @@
 require("Variables.Animations.timeLeft")
 require("Functions.Animations.Framework.setNewAnimationTarget")
-require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description
@@ -55,9 +55,5 @@ function bootingStateLogic(direction)
     end
 
     ------ State outputs
-    g_monitorState = true
-    g_relayAntenna = true
-    g_relayCharger = false
-    g_relayDischarger = false
-    stationLightWhenInnactive()
+    innactiveStation()
 end

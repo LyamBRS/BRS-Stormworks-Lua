@@ -1,7 +1,7 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateCharger")
-require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 require("Projects.Roadworks.ElectricCharger.functions.elements.createUIXAnimation")
 require("Functions.Animations.Functions.elasticOut")
 require("Functions.Animations.Functions.quintInOutAnimation")
@@ -55,11 +55,7 @@ function stateAwaitVehicleConnection()
     awayTimer = g_playerSensor and c_timeToWaitAfterPlayer or awayTimer-1
 
     ------ State outputs
-    g_monitorState = true
-    g_relayAntenna = true
-    g_relayCharger = false
-    g_relayDischarger = false
-    stationLightWhenInnactive()
+    innactiveStation()
 
     ------ NEXT STATE HANDLING -
     -- [BRS] - The player cancelled the operation. Back to the main menu.

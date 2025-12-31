@@ -12,7 +12,7 @@
 -- None
 -- ### @Returns
 -- None
-function stationLightWhenInnactive()
+function innactiveStation()
     if g_antennaSignalStrength > 0 then 
         -- [BRS] - vehicle is connected. Don't show green. Station taken
         g_stationLight = {1, 1, 0}
@@ -25,4 +25,8 @@ function stationLightWhenInnactive()
         -- [BRS] - Station is unavailable when infinite electric is on.
         g_stationLight = {1, 0, 0}
     end
+
+    g_monitorState = true
+    g_relayCharger = false
+    g_relayDischarger = false
 end

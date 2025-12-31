@@ -136,10 +136,9 @@ function stateCharger()
 
     ------ State outputs
     g_monitorState = true
-    g_relayAntenna = true
     g_relayCharger = g_wantsToCharge and startProceedure
     g_relayDischarger = not g_wantsToCharge and startProceedure
-    stationLightWhenInnactive()
+    innactiveStation()
 
     ------ NEXT STATE HANDLING -
     -- [BRS] - The signal strength detected something! The player connected their vehicle.

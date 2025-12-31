@@ -35,7 +35,7 @@ require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateFinishedSession")
 -- [BRS] ---- Utilities
 require("Projects.Roadworks.ElectricCharger.functions.states.bootingStateLogic")
-require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 
 -- [BRS] - [[ OnTick ]] --
 function onTick()

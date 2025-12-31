@@ -1,5 +1,5 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingUp")
-require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description
@@ -30,11 +30,7 @@ function stateOff()
     ------ Logic
     -- NONE
     ------ State outputs
-    g_monitorState = false
-    g_relayAntenna = true
-    g_relayCharger = false
-    g_relayDischarger = false
-    stationLightWhenInnactive()
+    innactiveStation()
 
     ------ NEXT STATE HANDLING -
     if g_playerSensor then

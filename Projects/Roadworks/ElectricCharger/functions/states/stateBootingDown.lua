@@ -1,7 +1,6 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.bootingStateLogic")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingUp")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateOff")
-require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
 -- ### Description
