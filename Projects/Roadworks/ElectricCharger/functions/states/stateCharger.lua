@@ -1,5 +1,6 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateFinishedSession")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateInfElectric")
 require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 require("Projects.Roadworks.ElectricCharger.functions.elements.createUIXAnimation")
 require("Variables.Monitor.Elements.surface")
@@ -138,11 +139,13 @@ function stateCharger()
     g_monitorState = true
     g_relayCharger = g_wantsToCharge and startProceedure
     g_relayDischarger = not g_wantsToCharge and startProceedure
-    innactiveStation()
+    g_stationLight = g_antennaSignalStrength > 0 and {0,1,1} or {0,1,0}
 
     ------ NEXT STATE HANDLING -
     -- [BRS] - The signal strength detected something! The player connected their vehicle.
     g_state = g_cancelChargingButton[c_elementTouch][c_elementTouchReleased] and stateMainMenu or g_state
+    -- [BRS] - Someone turned on inf electric
+    g_state = g_infElectric and stateInfElectric or g_state
 
     -- [BRS] - The player cancelled the operation. Back to the main menu.
     if g_state ~= stateCharger then

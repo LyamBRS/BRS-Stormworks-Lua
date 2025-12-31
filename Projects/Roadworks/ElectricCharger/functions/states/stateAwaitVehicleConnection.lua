@@ -1,6 +1,7 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateCharger")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateInfElectric")
 require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 require("Projects.Roadworks.ElectricCharger.functions.elements.createUIXAnimation")
 require("Functions.Animations.Functions.elasticOut")
@@ -64,6 +65,8 @@ function stateAwaitVehicleConnection()
     g_state = g_yesButton[c_elementTouch][c_elementTouchReleased] and stateCharger or g_state
     -- [BRS] - Player left, did nothing AND we waited long enough for them to plug in their cars.
     g_state = awayTimer == 0 and stateBootingDown or g_state
+    -- [BRS] - Someone turned on inf electric
+    g_state = g_infElectric and stateInfElectric or g_state
 
     if g_state ~= stateAwaitVehicleConnection then
         g_subState = 0

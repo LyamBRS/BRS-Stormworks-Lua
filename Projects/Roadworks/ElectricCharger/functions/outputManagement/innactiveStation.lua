@@ -13,18 +13,10 @@
 -- ### @Returns
 -- None
 function innactiveStation()
-    if g_antennaSignalStrength > 0 then 
-        -- [BRS] - vehicle is connected. Don't show green. Station taken
-        g_stationLight = {1, 1, 0}
-    else 
-        -- [BRS] - there's no vehicle connected. Station is available.
-        g_stationLight = {0, 1, 0}
-    end
-
-    if g_infElectric then
-        -- [BRS] - Station is unavailable when infinite electric is on.
-        g_stationLight = {1, 0, 0}
-    end
+    -- [BRS] - Yellow when someone is connected and the station isnt doing anything. green if nothing is connected
+    g_stationLight = g_antennaSignalStrength > 0 and {1,1,0} or {0,1,0}
+    -- [BRS] - Red if inf electric is on.
+    g_stationLight = g_infElectric and {1,0,0} or g_stationLight
 
     g_monitorState = true
     g_relayCharger = false

@@ -1,6 +1,7 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateInfElectric")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateBootingDown")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateInfElectric")
 require("Projects.Roadworks.ElectricCharger.functions.states.bootingStateLogic")
 require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 require("Variables.Monitor.Elements.touch")
@@ -54,6 +55,8 @@ function stateFinishedSession()
     ------ NEXT STATE HANDLING -
     g_state = g_okFinishedSessionButton[c_elementTouch][c_elementTouchReleased] and stateMainMenu or g_state
     g_state = g_timeBeforeBootOff==0 and stateBootingDown or g_state
+    -- [BRS] - Someone turned on inf electric
+    g_state = g_infElectric and stateInfElectric or g_state
 
     if g_state ~= stateFinishedSession then
         g_subState = 0
