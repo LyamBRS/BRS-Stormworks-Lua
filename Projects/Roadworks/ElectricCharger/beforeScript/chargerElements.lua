@@ -6,8 +6,8 @@ require("Variables.Monitor.Elements.surface")
 g_cancelChargingButton = newAnimatedRectangleGradiantButton(
     c_mainMenuToDischargeX,52,
     64,9,
-    128,16,16,128,
-    64,64,64,128,
+    128,8,16,128,
+    64,64,8,128,
     quintInOutAnimation
 )
 

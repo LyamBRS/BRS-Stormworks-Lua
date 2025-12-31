@@ -16,7 +16,7 @@ elementTexts = {
         "yes"
     },
     {
-        32,32,32,240,
+        64,16,32,240,
         g_cancelChargingButton,
         "cancel"
     },
