@@ -1,6 +1,6 @@
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateFinishedSession")
-require("Projects.Roadworks.ElectricCharger.functions.stationLight.stationLightWhenInnactive")
+require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
 require("Projects.Roadworks.ElectricCharger.functions.elements.createUIXAnimation")
 require("Variables.Monitor.Elements.surface")
 require("Variables.Monitor.Elements.surface.x")
@@ -86,8 +86,8 @@ function stateCharger()
         createUIXAnimation(g_batteryChargeBarBot, direction, c_buttonXShown)
 
         -- Hard reset progress bar colors
-        progressTopColors[1] = createQuadAnimationTable(16, 16, 16, 255, quintInOutAnimation)
-        progressTopColors[2] = createQuadAnimationTable(16, 16, 16, 255, quintInOutAnimation)
+        progressTopColors[1] = createQuadAnimationTable(16, 16, 16, 200, quintInOutAnimation)
+        progressTopColors[2] = createQuadAnimationTable(16, 16, 16, 200, quintInOutAnimation)
         progressBotColors[1] = createQuadAnimationTable(16, 16, 16, 128, quintInOutAnimation)
         progressBotColors[2] = createQuadAnimationTable(16, 16, 16, 128, quintInOutAnimation)
         textAreaColors[1] = createQuadAnimationTable(16, 16, 16, 128, quintInOutAnimation)

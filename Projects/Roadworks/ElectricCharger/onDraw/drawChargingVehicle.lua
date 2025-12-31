@@ -13,7 +13,7 @@
 
     green = g_electricStore * 64
     red = 64 - green
-    screen.setColor(red, green, 0, 200)
+    screen.setColor(red, green, 0, 240)
     drawTextOnSurface(g_batteryChargeBarBotSurface, string.format("%.2f", g_electricStore*100).."%")
 
     -- Session timer
