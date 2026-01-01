@@ -30,10 +30,12 @@ function stateInfElectric()
     innactiveStation()
 
     ------ NEXT STATE HANDLING -
-    if g_infElectric == false then
-        -- [BRS] - infinite electric got turned off
+    -- [BRS] - infinite electric got turned off
+    g_state = g_infElectric and stateInfElectric or stateMainMenu
+    g_state = g_playerSensor and g_state or stateBootingDown
+
+    if g_state ~= stateInfElectric then
         g_subState = 0
-        g_state = stateMainMenu
         setNewAnimationTarget(g_infElectricText[c_elementSurface][c_elementSurfaceY], -128, c_UIShiftDuration)
     end
 end
