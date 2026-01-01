@@ -1,7 +1,5 @@
 require("Functions.Monitor.Buttons.Animated.newAnimatedRectangleGradiantButton")
 require("Functions.Animations.Functions.quintInOutAnimation")
-require("Projects.Roadworks.ElectricCharger.constants.mainMenuElements")
-require("Variables.Monitor.Elements.surface")
 
 g_yesButton = newAnimatedRectangleGradiantButton(
     c_mainMenuToDischargeX,41,

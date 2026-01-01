@@ -1,0 +1,1 @@
+    g_infElectricText[c_elementFunction](g_infElectricText)

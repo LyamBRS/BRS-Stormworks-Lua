@@ -33,6 +33,7 @@ require("Projects.Roadworks.ElectricCharger.functions.states.stateCharger")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateAwaitVehicleConnection")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateMainMenu")
 require("Projects.Roadworks.ElectricCharger.functions.states.stateFinishedSession")
+require("Projects.Roadworks.ElectricCharger.functions.states.stateInfElectric")
 -- [BRS] ---- Utilities
 require("Projects.Roadworks.ElectricCharger.functions.states.bootingStateLogic")
 require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactiveStation")
@@ -63,6 +64,7 @@ function onDraw()
     require("Projects.Roadworks.ElectricCharger.onDraw.drawAwaitVehicleConnection")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawChargingVehicle")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawFinishedSession")
+    require("Projects.Roadworks.ElectricCharger.onDraw.drawInfElectric")
 
     require("Projects.Roadworks.ElectricCharger.onDraw.drawElementTexts")
 
@@ -75,6 +77,7 @@ require("Projects.Roadworks.ElectricCharger.beforeScript.mainMenuElements")
 require("Projects.Roadworks.ElectricCharger.beforeScript.awaitVehicleConnectionElements")
 require("Projects.Roadworks.ElectricCharger.beforeScript.chargerElements")
 require("Projects.Roadworks.ElectricCharger.beforeScript.finishedSessionElements")
+require("Projects.Roadworks.ElectricCharger.beforeScript.infElectricElements")
 
 require("Projects.Roadworks.ElectricCharger.beforeScript.initialState")
 require("Projects.Roadworks.ElectricCharger.beforeScript.initialOutputs")

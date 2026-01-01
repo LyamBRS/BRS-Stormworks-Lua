@@ -45,4 +45,9 @@ elementTexts = {
         g_okFinishedSessionButton,
         "ok"
     },
+    {
+        0,64,0,240,
+        g_infElectricText,
+        "infinite electric is on"
+    },
 }

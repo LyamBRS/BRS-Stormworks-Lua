@@ -45,35 +45,39 @@ function stateMainMenu()
         g_subState = 1
     end
 
+    chargedPressed = g_chargeButton[c_elementTouch][c_elementTouchReleased]
+    dischargePressed = g_dischargeButton[c_elementTouch][c_elementTouchReleased]
+
     ------ State outputs
     innactiveStation()
 
     ------ NEXT STATE HANDLING -
-    if g_playerSensor == false then
-        -- [BRS] - Player left and did nothing. Boot off.
-        g_state = stateBootingDown
+    -- [BRS] - Player left and did nothing. Boot off.
+    g_state = g_playerSensor and g_state or stateBootingDown
+    -- [BRS] - Player pressed a charge button. If something is connected, directly go to it.
+    g_state = (chargedPressed or dischargePressed) and (
+        g_antennaSignalStrength > 0 and stateCharger or stateAwaitVehicleConnection
+    ) or g_state
+    -- [BRS] - inf electric got turned on, fuck right off to the menu
+    g_state = g_infElectric and stateInfElectric or g_state
+
+    if g_state ~= stateMainMenu then
         g_subState = 0
-        setNewAnimationTarget(g_chargeButtonSurfaceX, c_chargeButtonXHidden, 80, elasticOutAnimation)
-        setNewAnimationTarget(g_infoButtonSurfaceX, c_infoButtonXHidden, 80, elasticOutAnimation)
-        setNewAnimationTarget(g_dischargeButtonSurfaceX, c_dischargeButtonXHidden, 80, elasticOutAnimation)
-        setNewAnimationTarget(g_mainMenuText[c_elementSurface][c_elementSurfaceY], c_mainMenuTextYHidden, 40, elasticOutAnimation)
-    elseif g_chargeButton[c_elementTouch][c_elementTouchReleased] then
-        -- [BRS] - The player wants to charge something. Tell them to connect a vehicle or directly start the proceedure.
-        g_subState = 0
-        g_wantsToCharge = true
-        g_state = g_antennaSignalStrength > 0 and stateCharger or stateAwaitVehicleConnection
-        setNewAnimationTarget(g_chargeButtonSurfaceX, c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_infoButtonSurfaceX, c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_dischargeButtonSurfaceX, c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_mainMenuTextSurfaceX, c_mainMenuToChargingX, c_UIShiftDuration, quintInOutAnimation)
-    elseif g_dischargeButton[c_elementTouch][c_elementTouchReleased] then
-        -- [BRS] - The player wants to discharge something. Tell them to connect a vehicle or directly start the proceedure.
-        g_subState = 0
-        g_wantsToCharge = false
-        g_state = g_antennaSignalStrength > 0 and stateCharger  or stateAwaitVehicleConnection
-        setNewAnimationTarget(g_chargeButtonSurfaceX, c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_infoButtonSurfaceX, c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_dischargeButtonSurfaceX, c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
-        setNewAnimationTarget(g_mainMenuTextSurfaceX, c_mainMenuToDischargeX, c_UIShiftDuration, quintInOutAnimation)
+        -- [BRS] - If we want to charge, slide the UI this way, otherwise the other way.
+        direction = chargedPressed and c_mainMenuToChargingX or c_mainMenuToDischargeX
+        g_wantsToCharge = chargedPressed
+
+        -- [BRS] - UI animations are different if you boot off
+        if g_playerSensor then -- standard ui shift animations
+            setNewAnimationTarget(g_chargeButtonSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
+            setNewAnimationTarget(g_infoButtonSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
+            setNewAnimationTarget(g_dischargeButtonSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
+            setNewAnimationTarget(g_mainMenuTextSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
+        else -- boot off animations
+            setNewAnimationTarget(g_chargeButtonSurfaceX, c_chargeButtonXHidden, c_UIShiftDuration, elasticOutAnimation)
+            setNewAnimationTarget(g_infoButtonSurfaceX, c_infoButtonXHidden, c_UIShiftDuration, elasticOutAnimation)
+            setNewAnimationTarget(g_dischargeButtonSurfaceX, c_dischargeButtonXHidden, c_UIShiftDuration, elasticOutAnimation)
+            setNewAnimationTarget(g_mainMenuText[c_elementSurface][c_elementSurfaceY], c_mainMenuTextYHidden, c_UIShiftDuration, elasticOutAnimation)
+        end
     end
 end

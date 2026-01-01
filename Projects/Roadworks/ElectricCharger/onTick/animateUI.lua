@@ -33,4 +33,7 @@ if g_state ~= stateOff then
     animateElement(g_okFinishedSessionButton)
     animateElement(g_finishedSessionText)
     animateElement(g_finishedSessionTime)
+
+    -- [BRS] - Infinite electric
+    animateElement(g_infElectricText)
 end
