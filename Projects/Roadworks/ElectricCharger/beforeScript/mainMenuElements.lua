@@ -4,14 +4,14 @@ require("Projects.Roadworks.ElectricCharger.constants.mainMenuElements")
 require("Variables.Monitor.Elements.surface")
 
 g_chargeButton = newAnimatedRectangleGradiantButton(
-    c_chargeButtonXHidden,30,
+    c_chargeButtonXHidden,41,
     64,9,
     0,255,0,  150,
     0,64,64,128,
     elasticOutAnimation
 )
 g_dischargeButton = newAnimatedRectangleGradiantButton(
-    c_dischargeButtonXHidden,41,
+    c_dischargeButtonXHidden,52,
     64,9,
     255,0,  128,128,
     255,128,0,  128,
