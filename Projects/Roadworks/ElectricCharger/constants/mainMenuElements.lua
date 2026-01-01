@@ -5,7 +5,7 @@ c_chargeButtonXHidden = -128     -- Booting off position
 c_dischargeButtonXHidden = 128  -- Booting off position
 
 -- [BRS] - [[ Information button ]]
-c_infoButtonXHidden = -128       -- Booting off position
+-- c_infoButtonXHidden = -128       -- Booting off position
 
 -- [BRS] - [[ Main menu text area ]]
 c_mainMenuTextYHidden = -32     -- Booting off position

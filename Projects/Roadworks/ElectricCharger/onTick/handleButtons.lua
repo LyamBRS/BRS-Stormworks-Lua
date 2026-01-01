@@ -1,6 +1,6 @@
 handleAnimatedButton(g_chargeButton)
 handleAnimatedButton(g_dischargeButton)
-handleAnimatedButton(g_infoButton)
+-- handleAnimatedButton(g_infoButton)
 handleAnimatedButton(g_noButton)
 handleAnimatedButton(g_yesButton)
 handleAnimatedButton(g_cancelChargingButton)

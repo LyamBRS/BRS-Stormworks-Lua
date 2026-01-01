@@ -15,7 +15,7 @@ if g_state ~= stateOff then
     -- [BRS] - Main menu animations
     animateElement(g_chargeButton)
     animateElement(g_dischargeButton)
-    animateElement(g_infoButton)
+    -- animateElement(g_infoButton)
     animateElement(g_mainMenuText)
 
     -- [BRS] - Await vehicle connection animations

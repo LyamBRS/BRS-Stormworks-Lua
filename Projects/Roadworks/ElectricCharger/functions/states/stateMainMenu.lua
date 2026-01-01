@@ -38,7 +38,7 @@ function stateMainMenu()
     ------ Logic
     if g_subState == 0 then -- deploy main menu
         setNewAnimationTarget(g_chargeButtonSurfaceX, c_buttonXShown, c_UIShiftDuration)
-        setNewAnimationTarget(g_infoButtonSurfaceX, c_buttonXShown, c_UIShiftDuration)
+        -- setNewAnimationTarget(g_infoButtonSurfaceX, c_buttonXShown, c_UIShiftDuration)
         setNewAnimationTarget(g_dischargeButtonSurfaceX, c_buttonXShown, c_UIShiftDuration)
         setNewAnimationTarget(g_mainMenuText[c_elementSurface][c_elementSurfaceY], c_textAreaYShown, 40)
         setNewAnimationTarget(g_mainMenuTextSurfaceX, c_textAreaXShown, c_UIShiftDuration)
@@ -70,12 +70,12 @@ function stateMainMenu()
         -- [BRS] - UI animations are different if you boot off
         if g_playerSensor then -- standard ui shift animations
             setNewAnimationTarget(g_chargeButtonSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
-            setNewAnimationTarget(g_infoButtonSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
+            -- setNewAnimationTarget(g_infoButtonSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
             setNewAnimationTarget(g_dischargeButtonSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
             setNewAnimationTarget(g_mainMenuTextSurfaceX, direction, c_UIShiftDuration, quintInOutAnimation)
         else -- boot off animations
             setNewAnimationTarget(g_chargeButtonSurfaceX, c_chargeButtonXHidden, c_UIShiftDuration, elasticOutAnimation)
-            setNewAnimationTarget(g_infoButtonSurfaceX, c_infoButtonXHidden, c_UIShiftDuration, elasticOutAnimation)
+            -- setNewAnimationTarget(g_infoButtonSurfaceX, c_infoButtonXHidden, c_UIShiftDuration, elasticOutAnimation)
             setNewAnimationTarget(g_dischargeButtonSurfaceX, c_dischargeButtonXHidden, c_UIShiftDuration, elasticOutAnimation)
             setNewAnimationTarget(g_mainMenuText[c_elementSurface][c_elementSurfaceY], c_mainMenuTextYHidden, c_UIShiftDuration, elasticOutAnimation)
         end

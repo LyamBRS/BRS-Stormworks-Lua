@@ -17,13 +17,13 @@ g_dischargeButton = newAnimatedRectangleGradiantButton(
     255,128,0,  128,
     elasticOutAnimation
 )
-g_infoButton = newAnimatedRectangleGradiantButton(
-    c_infoButtonXHidden,52,
-    64,9,
-    0,  255,128,128,
-    128,0,  255,128,
-    elasticOutAnimation
-)
+-- g_infoButton = newAnimatedRectangleGradiantButton(
+--     c_infoButtonXHidden,52,
+--     64,9,
+--     0,  255,128,128,
+--     128,0,  255,128,
+--     elasticOutAnimation
+-- )
 
 g_mainMenuText = newAnimatedRectangleGradiantButton(
     2, c_mainMenuTextYHidden,       -- x, y
@@ -36,5 +36,5 @@ g_mainMenuText = newAnimatedRectangleGradiantButton(
 -- [BRS] - [[ Minifications ]]
 g_chargeButtonSurfaceX = g_chargeButton[c_elementSurface][c_elementSurfaceX]
 g_dischargeButtonSurfaceX = g_dischargeButton[c_elementSurface][c_elementSurfaceX]
-g_infoButtonSurfaceX = g_infoButton[c_elementSurface][c_elementSurfaceX]
+-- g_infoButtonSurfaceX = g_infoButton[c_elementSurface][c_elementSurfaceX]
 g_mainMenuTextSurfaceX = g_mainMenuText[c_elementSurface][c_elementSurfaceX]

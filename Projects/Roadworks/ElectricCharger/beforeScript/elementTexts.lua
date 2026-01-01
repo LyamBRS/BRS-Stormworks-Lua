@@ -30,11 +30,11 @@ elementTexts = {
         g_dischargeButton,
         "discharge"
     },
-    {
-        0,0,64,240,
-        g_infoButton,
-        "information"
-    },
+    -- {
+    --     0,0,64,240,
+    --     g_infoButton,
+    --     "information"
+    -- },
     {
         16,32,32,240,
         g_mainMenuText,
