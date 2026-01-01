@@ -15,6 +15,9 @@ require("Projects.Roadworks.ElectricCharger.functions.outputManagement.innactive
 -- ### @Returns
 -- None
 function bootingStateLogic(direction)
+    sound1 = direction and 3 or 1
+    sound2 = 2
+    sound3 = direction and 1 or 3
     wantedAlpha = direction and 0 or 255
     finalLetterPosition = direction and 75 or -31
     topFade = direction and bootFadeAlphaTop or bootFadeAlphaBot
@@ -25,17 +28,20 @@ function bootingStateLogic(direction)
         if brsLogoSY[c_animationTimeLeft] < 75 then
             -- [BRS] - Last letter finished. Ready for main menu
             g_subState = 3
+            g_currentBootSound = 0
         end
     elseif g_subState == 1 then
         -- [BRS] - Wait for the last letter to finish animating.
         if brsLogoSweep[c_animationTimeLeft] == 20 then
             -- [BRS] - Last letter finished. Set them to dissapear
             setNewAnimationTarget(brsLogoRY, 20, 50)
+            g_currentBootSound = sound2
         end
 
         if brsLogoSweep[c_animationTimeLeft] == 10 then
             -- [BRS] - Last letter finished. Set them to dissapear
             setNewAnimationTarget(brsLogoSY, 20, 50)
+            g_currentBootSound = sound3
         end
 
         if brsLogoSY[c_animationTimeLeft] < 15 and brsLogoSweep[c_animationTimeLeft] == 0 then
@@ -52,6 +58,7 @@ function bootingStateLogic(direction)
         setNewAnimationTarget(topFade, wantedAlpha, 50)
         setNewAnimationTarget(botFade, wantedAlpha, 80)
         g_subState = 1
+        g_currentBootSound = sound1
     end
 
     ------ State outputs

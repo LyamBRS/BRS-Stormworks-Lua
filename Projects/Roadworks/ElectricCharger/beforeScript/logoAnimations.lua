@@ -20,3 +20,6 @@ brsLogoSweep = createAnimation(0, 0, 0, lerpAnimation)
 -- [BRS] - Boot fade
 bootFadeAlphaTop = createAnimation(255, 255, 0, quintInOutAnimation)
 bootFadeAlphaBot = createAnimation(255, 255, 0, quintInOutAnimation)
+
+-- [BRS] - booting sounds
+g_currentBootSound = 0
