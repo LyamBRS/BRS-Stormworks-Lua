@@ -46,8 +46,8 @@ elementTexts = {
         "ok"
     },
     {
-        0,64,0,240,
+        80,30,0,240,
         g_infElectricText,
-        "infinite electric is on"
+        " infinite  electric is on"
     },
 }
