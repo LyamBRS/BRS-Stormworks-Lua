@@ -60,6 +60,10 @@ end
 
 -- [BRS] - [[ OnDraw ]] --
 function onDraw()
+    if g_state == stateOff then
+        return
+    end
+
     require("Projects.Roadworks.ElectricCharger.onDraw.drawMainMenu")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawAwaitVehicleConnection")
     require("Projects.Roadworks.ElectricCharger.onDraw.drawChargingVehicle")
