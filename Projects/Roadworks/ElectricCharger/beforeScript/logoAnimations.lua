@@ -23,3 +23,8 @@ bootFadeAlphaBot = createAnimation(255, 255, 0, quintInOutAnimation)
 
 -- [BRS] - booting sounds
 g_currentBootSound = 0
+
+-- [BRS] - Small tick delay when we boot on or off to keep the screen black for.
+-- Without this, the screen flickers during booting.
+-- Why? because the monitor signal takes a few ticks to reach the monitor.
+g_monitorDelayCounter = 0

@@ -27,6 +27,7 @@ output.setBool(5, g_monitorState)
 output.setBool(6, g_currentBootSound==1)
 output.setBool(7, g_currentBootSound==2)
 output.setBool(8, g_currentBootSound==3)
+output.setBool(9, g_state==stateOff)
 
 -- [BRS] - NUMERICAL
 output.setNumber(1, g_stationLight[1])

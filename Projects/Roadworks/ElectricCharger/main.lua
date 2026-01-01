@@ -60,7 +60,7 @@ end
 
 -- [BRS] - [[ OnDraw ]] --
 function onDraw()
-    if g_state == stateOff then
+    if g_monitorDelayCounter == 10 then
         return
     end
 

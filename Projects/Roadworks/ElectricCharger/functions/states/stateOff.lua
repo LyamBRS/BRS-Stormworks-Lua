@@ -31,10 +31,17 @@ function stateOff()
     -- NONE
     ------ State outputs
     innactiveStation()
+    g_monitorState = false
 
     ------ NEXT STATE HANDLING -
     if g_playerSensor then
         g_subState = 0
+        g_monitorDelayCounter = 0
         g_state = stateBootingUp
+    else
+        g_monitorDelayCounter = g_monitorDelayCounter + 1
+        if g_monitorDelayCounter > 10 then
+            g_monitorDelayCounter = 10
+        end
     end
 end
