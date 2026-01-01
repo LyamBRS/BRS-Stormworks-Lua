@@ -1,7 +1,7 @@
 -- [BRS] - [[ Information ]] --
 -- `2025/12/29`
 -- ## Generic info:
--- #### MC : `Microcontroller ID`
+-- #### MC : `MCU4I11O5W3H-T85KGG`
 -- #### SN : `1`
 -- ## What does this do?
 -- Handles the bezier curve background of the 3x2 monitor.

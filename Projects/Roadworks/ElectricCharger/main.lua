@@ -1,7 +1,7 @@
 -- [BRS] - [[ Information ]] --
 -- `2025/12/26`
 -- ## Generic info:
--- #### MC : `Microcontroller ID`
+-- #### MC : `MCU4I11O5W3H-T85KGG`
 -- #### SN : `2`
 -- ## What does this do?
 -- Manages a 2x3 monitor that handles a basic addon electric charger.
