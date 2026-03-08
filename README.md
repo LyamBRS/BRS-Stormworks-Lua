@@ -24,3 +24,10 @@ Some of this code was probably written by AI at some point. After all it writes 
 ## Contacting
 ### Discord
 https://discord.gg/HCYFEt2FUB
+
+## Preprocessor usage reminder
+- In a terminal within the dev container, at the root:
+```
+preprocessor "./Projects/Roadworks/ElectricCharger/main.lua"
+```
+- Path must not have spaces to work.
