@@ -9,6 +9,8 @@
 -- Any BRS vehicles that need a simple dashboard.
 
 -- [BRS] - [[ Imports ]] --
+require("Functions.Monitor.Utils.liveColorCorrection")
+require("Functions.Drawing.Gradiants.horizontalGradiant")
 
 -- [BRS] - [[ Constants ]] --
 
@@ -17,13 +19,14 @@
 -- [BRS] - [[ OnTick ]] --
 function onTick()
     -- [BRS] - [[ Inputs ]] --
+    require("Projects.Microprocessors.Dashboard.onTick.getInputs")
 
     -- [BRS] - [[ Outputs ]] --
 end
 
 -- [BRS] - [[ OnDraw ]] --
 function onDraw()
-
+    require("Projects.Microprocessors.Dashboard.onDraw.background")
 end
 
 -- [BRS] - [[   Before script   ]] --
