@@ -28,5 +28,5 @@ function setCorrectedColor(red, green, blue, alpha)
 end
 
 function _correctColor(color)
-    return Clamp((((251 - math.max(color,251)) / 478830) ^ -.576) - 79, 0, 255)
+    return Clamp((((251 - math.min(color,251)) / 478830) ^ -.576) - 79, 0, 255)
 end
