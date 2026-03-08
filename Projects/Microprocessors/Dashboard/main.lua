@@ -11,6 +11,7 @@
 -- [BRS] - [[ Imports ]] --
 require("Functions.Monitor.Utils.liveColorCorrection")
 require("Functions.Drawing.Gradiants.horizontalGradiant")
+require("Functions.Drawing.Circles.fullControlCircleOutline")
 
 -- [BRS] - [[ Constants ]] --
 
@@ -27,6 +28,9 @@ end
 -- [BRS] - [[ OnDraw ]] --
 function onDraw()
     require("Projects.Microprocessors.Dashboard.onDraw.background")
+
+    screen.setColor(68,66,62)
+    complexCircleOutline(48,16, 10, -.8, 3.94)
 end
 
 -- [BRS] - [[   Before script   ]] --
