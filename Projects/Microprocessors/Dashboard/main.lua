@@ -16,6 +16,7 @@ require("Functions.Drawing.Circles.fullControlCircleOutline")
 -- [BRS] - [[ Constants ]] --
 
 -- [BRS] - [[ Functions ]] --
+require("Functions.Drawing.Debug.grid_position")
 
 -- [BRS] - [[ OnTick ]] --
 function onTick()
@@ -23,14 +24,27 @@ function onTick()
     require("Projects.Microprocessors.Dashboard.onTick.getInputs")
 
     -- [BRS] - [[ Outputs ]] --
+    circleX = input.getNumber(1)
+    circleY = input.getNumber(2)
+    circleR = input.getNumber(3)
+    endCircle = input.getNumber(4)
+    startCircle = input.getNumber(5)
 end
 
 -- [BRS] - [[ OnDraw ]] --
 function onDraw()
     require("Projects.Microprocessors.Dashboard.onDraw.background")
+    require("Projects.Microprocessors.Dashboard.onDraw.speedUnit")
+
+    screen.setColor(55,54,51)
+    complexCircleOutline(47, 19, 10.3, -.82, 3.96)
 
     screen.setColor(68,66,62)
-    complexCircleOutline(48,16, 10, -.8, 3.94)
+    complexCircleOutline(47, 19, 11.25, -.82, 3.96)
+
+    screen.setColor(150,150,150)
+    screen.drawText(41,16, "888")
+    -- DEBUG_GridPosition(8, 8, 0,255,0, 255,0,255)
 end
 
 -- [BRS] - [[   Before script   ]] --
