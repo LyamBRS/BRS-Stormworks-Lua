@@ -19,6 +19,7 @@ require("Functions.Maths.clamp")
 -- ### @Returns
 -- Nothing
 function setCorrectedColor(red, green, blue, alpha)
+    alpha = alpha==nil and 255 or alpha
     screen.setColor(
         _correctColor(red),
         _correctColor(green),
