@@ -1,4 +1,4 @@
-require("Functions.Maths.clamp")
+require("Functions.Monitor.Utils.thattiguyColorCorrection")
 
 -- [BRS] - [[ Information ]] --
 -- `26/03/07`
@@ -21,13 +21,9 @@ require("Functions.Maths.clamp")
 function setCorrectedColor(red, green, blue, alpha)
     alpha = alpha==nil and 255 or alpha
     screen.setColor(
-        _correctColor(red),
-        _correctColor(green),
-        _correctColor(blue),
+        correctColor(red),
+        correctColor(green),
+        correctColor(blue),
         alpha
     )
-end
-
-function _correctColor(color)
-    return Clamp((((251 - math.min(color,251)) / 478830) ^ -.576) - 79, 0, 255)
 end
