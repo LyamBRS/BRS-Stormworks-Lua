@@ -29,7 +29,7 @@ g_alarmActive       = input.getBool(27)
 g_alarmTriggered    = input.getBool(28)
 
 g_playerInSeat      = input.getBool(29)
-g_playerNear        = input.getBool(30)
+g_playerSensor      = input.getBool(30)
 g_charging          = input.getBool(31)
 
 -- Tick perfect synchronisation of blinking elements for the entire vehicle.
