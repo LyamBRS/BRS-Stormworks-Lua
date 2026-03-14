@@ -152,3 +152,113 @@ AAA@A:AAFBAEFBABBBEBBBADBBEDBBBCDB
 ```lua
 AAA@A:AAFBABBBACFBEDBC
 ```
+
+### Special characters
+#### <
+```lua
+AAA@A:CADBCEDBACCB
+```
+#### >
+```lua
+AAA@A:AADBAEDBDCCB
+```
+#### +
+```lua
+AAA@A:CABCCDBCACCBDCCB
+```
+#### -
+```lua
+AAA@A:ACFB
+```
+#### !
+```lua
+AAA@A:CABDCEBB
+```
+#### ?
+```lua
+AAA@A:AAFBEBBBCCCBCEBB
+```
+#### ^
+```lua
+AAA@A:CABBBBBBDBBB
+```
+#### *
+```lua
+AAA@A:BABBDABBCBBBBCBBDCBB
+```
+#### %
+```lua
+AAA@A:AEBBBDBBDBBBEABBAACBABBBDECBEDBB
+```
+#### ~
+```lua
+AAA@A:ACBCEBBCBBBBDDBBCCBB
+```
+#### /
+```lua
+AAA@A:AEBBBDBBCCBBDBBBEABB
+```
+#### \
+```lua
+AAA@A:AABBBBBBCCBBDDBBEEBB
+```
+#### |
+```lua
+AAA@A:CABF
+```
+#### #
+```lua
+AAA@A:ABFBADFBBABBDABBBCBBDCBBBEBBDEBB
+```
+#### :
+```lua
+AAA@A:CBBBCDBB
+```
+#### ;
+```lua
+AAA@A:CBBBCDBCBEBB
+```
+#### (
+```lua
+AAA@A:CACBCECBBBBD
+```
+#### )
+```lua
+AAA@A:BACBBECBDBBD
+```
+#### [
+```lua
+AAA@A:BADBBEDBBBBBBDBB
+```
+#### ]
+```lua
+AAA@A:BADBBEDBDBBBDDBB
+```
+#### =
+```lua
+AAA@A:ABFBADFB
+```
+#### division
+```lua
+AAA@A:CABBACFBCEBB
+```
+#### $
+```lua
+AAA@A:BABBABBCBCBBDACBAECBDCCBEDBBDEBB
+```
+#### &
+```lua
+AAA@A:BACBABBBDBBBBCCBADBBAEDBDDBBEEBBECBB
+```
+#### .
+```lua
+AAA@A:CEBB
+```
+#### ,
+```lua
+AAA@A:CDBCBEBB
+```
+#### "
+```lua
+AAA@A:BABCDABC
+```
