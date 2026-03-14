@@ -1,194 +1,112 @@
 # What is this?
 This is all BRS alphabet as base64 images. Each are 5x5
-They were generated from the `drawImage.lua` by doing rectangles.
+They were generated from the `encodeImages.lua` by doing rectangles.
+Everything is drawn with 0,0,0 colors, you're supposed to set it in game.
 
-## The alphabet
-### A
-#### BRIO BASE64
-```
+## The 5x5 alphabet
+Use `decodeImage.lua` to retrieve the drawRectF patterns if you want to modify these.
+### Letters
+#### A
+```lua
     AAA@A:AAFBACFBADBCEDBC
 ```
-#### Code used in `drawImage.lua`
+#### B
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,5,1)
-    drawRectF(0,2,5,1)
-    drawRectF(0,3,1,2)
-    drawRectF(4,3,1,2)
-```
-
-### B
-#### BRIO BASE64
-```
     AAA@A:AAFBAEFBACCBDCBBEBBBEDBB
 ```
-#### Code used in `drawImage.lua`
+#### C
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,5,1)
-    drawRectF(0,4,5,1)
-    drawRectF(0,2,2,1)
-    drawRectF(3,2,1,1)
-    drawRectF(4,1,1,1)
-    drawRectF(4,3,1,1)
-```
-
-### C
-#### BRIO BASE64
-```
     AAA@A:AAFBBEEBACBC
 ```
-#### Code used in `drawImage.lua`
+#### D
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,5,1)
-    drawRectF(1,4,4,1)
-    drawRectF(0,2,1,2)
-```
-
-### D
-#### BRIO BASE64
-```
     AAA@A:AAEBAEEBACCBEBBD
 ```
-#### Code used in `drawImage.lua`
+#### E
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,4,1)
-    drawRectF(0,4,4,1)
-    drawRectF(0,2,2,1)
-    drawRectF(4,1,1,3)
-```
-
-### E
-#### BRIO BASE64
-```
     AAA@A:AAFBAEFBACEB
 ```
-#### Code used in `drawImage.lua`
+#### F
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,5,1)
-    drawRectF(0,4,5,1)
-    drawRectF(0,2,4,1)
-```
-
-### F
-#### BRIO BASE64
-```
     AAA@A:AAFBADBCACFB
 ```
-#### Code used in `drawImage.lua`
+#### G
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,5,1)
-    drawRectF(0,3,1,2)
-    drawRectF(0,2,5,1)
-```
-
-### G
-#### BRIO BASE64
-```
     AAA@A:BAEBABBEBEDBECBCCCCB
 ```
-#### Code used in `drawImage.lua`
+#### H
 ```lua
-    setColor(0,0,0)
-    drawRectF(1,0,4,1)
-    drawRectF(0,1,1,4)
-    drawRectF(1,4,3,1)
-    drawRectF(4,2,1,2)
-    drawRectF(2,2,2,1)
-```
-
-### H
-#### BRIO BASE64
-```
     AAA@A:AABFEABFBCBBDCBB
 ```
-#### Code used in `drawImage.lua`
+#### I
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,1,5)
-    drawRectF(4,0,1,5)
-    drawRectF(1,2,1,1)
-    drawRectF(3,2,1,1)
-```
-
-### I
-#### BRIO BASE64
-```
     AAA@A:AAFBAEFBCCBC
 ```
-#### Code used in `drawImage.lua`
+#### J
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,5,1)
-    drawRectF(0,4,5,1)
-    drawRectF(2,2,1,2)
-```
-
-### J
-#### BRIO BASE64
-```
     AAA@A:AAFBAECBCCBC
 ```
-#### Code used in `drawImage.lua`
+#### K
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,5,1)
-    drawRectF(0,4,2,1)
-    drawRectF(2,2,1,2)
-```
-
-### K
-#### BRIO BASE64
-```
     AAA@A:AABFBCCBDACBDECB
 ```
-#### Code used in `drawImage.lua`
+#### L
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,1,5)
-    drawRectF(1,2,2,1)
-    drawRectF(3,0,2,1)
-    drawRectF(3,4,2,1)
-```
-
-### L
-#### BRIO BASE64
-```
     AAA@A:AABDAEFB
 ```
-#### Code used in `drawImage.lua`
+#### M
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,1,3)
-    drawRectF(0,4,5,1)
-```
-
-### M
-#### BRIO BASE64
-```
     AAA@A:AABFEABFCBBC
 ```
-#### Code used in `drawImage.lua`
+#### N
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,1,5)
-    drawRectF(4,0,1,5)
-    drawRectF(2,1,1,2)
+    AAA@A:AABFEABCBBBBCCBBDDBBEEBB
 ```
-
-### N
-#### BRIO BASE64
-```
-    AAA@A:AABFEABFCBBC
-```
-#### Code used in `drawImage.lua`
+#### O
 ```lua
-    setColor(0,0,0)
-    drawRectF(0,0,1,5)
-    drawRectF(4,0,1,5)
-    drawRectF(2,1,1,2)
+    AAA@A:AAEBBEEBACBCEBBC
+```
+#### P
+```lua
+    AAA@A:AAFBEBBBACFBADBC
+```
+#### Q
+```lua
+    AAA@A:BADBABBDEBBBBEBBDDBBEEBB
+```
+#### R
+```lua
+    AAA@A:AAFBAECBACCBDCBBEBBBEDBC
+```
+#### S
+```lua
+    AAA@A:BAEBABBBACFBEDBBAEEB
+```
+#### T
+```lua
+    AAA@A:AAFBCCBD
+```
+#### U
+```lua
+    AAA@A:AABDEABDAEFB
+```
+#### V
+```lua
+    AAA@A:AABCEABCBDBBDDBBCEBB
+```
+#### W
+```lua
+    AAA@A:AABCEABCBDBBDDBBCEBB
+```
+#### X
+```lua
+    AAA@A:AABBBBBBEEBBDDBBEABBDBBBAEBBBDBB
+```
+#### Y
+```lua
+    AAA@A:AABCEABCCCBD
+```
+#### Z
+```lua
+    AAA@A:AAFBAEFBBCDBEBBBADBB
 ```
