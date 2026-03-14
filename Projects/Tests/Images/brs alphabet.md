@@ -110,3 +110,45 @@ Use `decodeImage.lua` to retrieve the drawRectF patterns if you want to modify t
 ```lua
     AAA@A:AAFBAEFBBCDBEBBBADBB
 ```
+
+### Numbers
+#### 0
+```lua
+AAA@A:BADBABBDBEDBEBBDBBBBDDBBCCBB
+```
+#### 1
+```lua
+AAA@A:CABFBBBB
+```
+#### 2
+```lua
+AAA@A:AAEBEBBBACFBADBBAEFB
+```
+#### 3
+```lua
+AAA@A:AAFBEBBBCCCBEDBBAEFB
+```
+#### 4
+```lua
+AAA@A:AABBEABBACFBEDBC
+```
+#### 5
+```lua
+AAA@A:AAFBABBBACFBEDBBAEEB
+```
+#### 6
+```lua
+AAA@A:BAEBABBEBEDBBCEBEDBB
+```
+#### 7
+```lua
+AAA@A:AAFBECBD
+```
+#### 8
+```lua
+AAA@A:AAFBAEFBABBBEBBBADBBEDBBBCDB
+```
+#### 9
+```lua
+AAA@A:AAFBABBBACFBEDBC
+```
