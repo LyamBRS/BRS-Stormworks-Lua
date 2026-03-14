@@ -12,17 +12,19 @@
 -- ##### - `start` :  `float` = where to start in radians
 -- ##### - `ending` : `float` = where to end in radian
 -- ### @Returns
--- ##### 1. `NAME` : `type`
--- Long description
--- ##### 2. `NAME` : `type` = short description
+-- nothing
 function complexCircleOutline(x, y, radius, start, ending)
-    -- [BRS] - I am using this to not do too many useless for loop iterations.
-    perimeter = 6.5 * radius -- 2 * pi * radius
+	arc = math.abs(ending - start)
+    length = arc * radius
 
-    for radian=start, ending, math.abs((start - ending) / perimeter) do
+    segments = math.max(1, math.floor(length)) -- ~1 pixel per step
+    step = arc / (segments)
+
+    for i = 0, segments do
+        radian = start + i * step
         screen.drawRectF(
             x + radius * math.cos(radian),
-            y + radius * -math.sin(radian), 
+            y - radius * math.sin(radian),
             1,
             1
         )
