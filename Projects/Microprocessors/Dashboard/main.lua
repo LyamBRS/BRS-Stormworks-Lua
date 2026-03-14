@@ -12,40 +12,47 @@
 require("Functions.Monitor.Utils.liveColorCorrection")
 require("Functions.Drawing.Gradiants.horizontalGradiant")
 require("Functions.Drawing.Circles.fullControlCircleOutline")
+require("Functions.Base64.Images.drawAnimatedUnicoloredImage")
+require("Functions.Monitor.Utils.animateElement")
+require("Variables.Monitor.Elements.function")
 
 -- [BRS] - [[ Constants ]] --
+require("Projects.Microprocessors.Dashboard.constants.speedDial")
+g_base64 = property.getText("base64")
 
 -- [BRS] - [[ Functions ]] --
-require("Functions.Drawing.Debug.grid_position")
+-- require("Functions.Drawing.Debug.grid_position")
 
 -- [BRS] - [[ OnTick ]] --
 function onTick()
     -- [BRS] - [[ Inputs ]] --
     require("Projects.Microprocessors.Dashboard.onTick.getInputs")
 
+    -- [BRS] - [[ States ]] --
+    g_state()
+
+    require("Projects.Microprocessors.Dashboard.onTick.animateUI")
+
     -- [BRS] - [[ Outputs ]] --
-    circleX = input.getNumber(1)
-    circleY = input.getNumber(2)
-    circleR = input.getNumber(3)
-    endCircle = input.getNumber(4)
-    startCircle = input.getNumber(5)
+    radius = input.getNumber(3)
 end
 
 -- [BRS] - [[ OnDraw ]] --
 function onDraw()
-    require("Projects.Microprocessors.Dashboard.onDraw.background")
+    -- require("Projects.Microprocessors.Dashboard.onDraw.background")
     require("Projects.Microprocessors.Dashboard.onDraw.speedUnit")
 
-    screen.setColor(55,54,51)
-    complexCircleOutline(47, 19, 10.3, -.82, 3.96)
+    screen.setColor(55,54,51, g_circleOpacity[c_animationCurrent])
+    complexCircleOutline(47, 19, 11.25, g_circleStartAnimation[c_animationCurrent], g_circleEndAnimation[c_animationCurrent])
 
-    screen.setColor(68,66,62)
-    complexCircleOutline(47, 19, 11.25, -.82, 3.96)
+    screen.setColor(68,66,62, g_circleOpacity[c_animationCurrent])
+    complexCircleOutline(47, 18, 11.25, g_circleStartAnimation[c_animationCurrent], g_circleEndAnimation[c_animationCurrent])
 
-    screen.setColor(150,150,150)
-    screen.drawText(41,16, "888")
+    screen.setColor(150,150,150, g_circleOpacity[c_animationCurrent])
+    screen.drawText(41,15, "888")
     -- DEBUG_GridPosition(8, 8, 0,255,0, 255,0,255)
 end
 
 -- [BRS] - [[   Before script   ]] --
--- Execution outside of onFunctions.
+require("Projects.Microprocessors.Dashboard.beforeScript.elements")
+require("Projects.Microprocessors.Dashboard.beforeScript.initialState")

@@ -1,16 +1,3 @@
-x = 41
-y = 22
-
-screen.setColor(49, 47, 44)
-
-screen.drawRectF(x,y,1,3)
-screen.drawRectF(x,y+1,3,1)
-screen.drawRectF(x+3,y,1,1)
-screen.drawRectF(x+3,y+2,1,1)
-
-screen.drawRectF(x+5,y,4,2)
-screen.drawRectF(x+5,y+2,1,1)
-
-screen.drawRectF(x+10,y,1,3)
-screen.drawRectF(x+10,y+1,4,1)
-screen.drawRectF(x+13,y,1,3)
+g_speedUnitLetter1[c_elementFunction](g_speedUnitLetter1)
+g_speedUnitLetter2[c_elementFunction](g_speedUnitLetter2)
+g_speedUnitLetter3[c_elementFunction](g_speedUnitLetter3)
