@@ -21,3 +21,22 @@ Inspirations were taken from Lucid Motors dashboard.
 └── onTick/
     └── Executed steps of onTick
 ```
+
+## BRIO Base64 images.
+### Speed unit
+#### K
+```lua
+CCB@A:AABDBBCBDABBDCBB
+```
+#### P
+```lua
+CCB@A:AAECACBB
+```
+#### H
+```lua
+CCB@A:AABDDABDBBCB
+```
+#### KPH in one
+```lua
+CCB@A:AABDBBCBDABBDCBBFAECFCBBKABDNABDLBCB
+```
