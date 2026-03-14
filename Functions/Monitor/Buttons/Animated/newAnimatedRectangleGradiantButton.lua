@@ -1,4 +1,5 @@
 require("Functions.Animations.Framework.createAnimation")
+require("Functions.Animations.Framework.createQuadAnimationTable")
 require("Functions.Monitor.Buttons.Animated.drawAnimatedRectangleGradientButton")
 -- [BRS] - [[ Information ]] --
 -- `2025/12/27`
@@ -30,14 +31,5 @@ function newAnimatedRectangleGradiantButton(x, y, width, height, r1, g1, b1, a1,
             false,
             false,
         }
-    }
-end
-
-function createQuadAnimationTable(a,b,c,d, animationFunction)
-    return {
-        createAnimation(a, a, 0, animationFunction),
-        createAnimation(b, b, 0, animationFunction),
-        createAnimation(c, c, 0, animationFunction),
-        createAnimation(d, d, 0, animationFunction),
     }
 end
