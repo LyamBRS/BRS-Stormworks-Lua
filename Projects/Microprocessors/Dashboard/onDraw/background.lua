@@ -4,6 +4,6 @@ screen.drawClear()
 
 horizontalGradiant(
     0,0,96,32,
-    62,54,41,255,
-    62,54,41,0
+    g_backgroundR[c_animationCurrent],g_backgroundG[c_animationCurrent],g_backgroundB[c_animationCurrent],g_backgroundTop[c_animationCurrent],
+    g_backgroundR[c_animationCurrent],g_backgroundG[c_animationCurrent],g_backgroundB[c_animationCurrent],g_backgroundBot[c_animationCurrent]
 )
