@@ -1,0 +1,27 @@
+screen.setColor(
+    g_fullColorAnimationR[c_animationCurrent],
+    g_fullColorAnimationG[c_animationCurrent],
+    g_fullColorAnimationB[c_animationCurrent],
+    g_fullColorAnimationA[c_animationCurrent]
+)
+screen.drawRectF(
+    g_positionAnimationX[c_animationCurrent],
+    g_positionAnimationY[c_animationCurrent],
+    g_positionAnimationW[c_animationCurrent],
+    g_positionAnimationH[c_animationCurrent]
+)
+
+horizontalGradiant(
+    g_positionAnimationX[c_animationCurrent],
+    g_positionAnimationY[c_animationCurrent],
+    g_positionAnimationW[c_animationCurrent],
+    g_positionAnimationH[c_animationCurrent],
+    g_topColorAnimationR[c_animationCurrent],
+    g_topColorAnimationG[c_animationCurrent],
+    g_topColorAnimationB[c_animationCurrent],
+    g_topColorAnimationA[c_animationCurrent],
+    g_botColorAnimationR[c_animationCurrent],
+    g_botColorAnimationG[c_animationCurrent],
+    g_botColorAnimationB[c_animationCurrent],
+    g_botColorAnimationA[c_animationCurrent]
+)
