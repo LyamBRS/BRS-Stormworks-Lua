@@ -13,7 +13,7 @@
 -- [BRS] - [[ Constants ]] --
 require("Projects.Microprocessors.Dashboard.manager.constants.inputsChannels")
 require("Projects.Microprocessors.Dashboard.manager.constants.outputChannels")
-require("Projects.Microprocessors.Dashboard.manager.constants.states")
+require("Projects.Microprocessors.Dashboard.global.constants.managerStates")
 
 -- [BRS] - [[ Functions ]] --
 
