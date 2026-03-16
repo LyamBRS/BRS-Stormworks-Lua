@@ -22,6 +22,7 @@ require("Projects.Microprocessors.Dashboard.background.constants.inputsChannels"
 require("Projects.Microprocessors.Dashboard.background.constants.animationDurations")
 require("Projects.Microprocessors.Dashboard.global.constants.colors.background")
 require("Projects.Microprocessors.Dashboard.global.constants.managerStates")
+require("Projects.Microprocessors.Dashboard.global.constants.positions.monitor")
 
 -- [BRS] - [[ Functions ]] --
 

@@ -107,7 +107,7 @@ if g_managerState ~= g_previousState then
 
         setNewQuadAnimationTarget(
             g_positionAnimation,
-            0,0,96,32,
+            0,0,c_monitorWidth,c_monitorHeight,
             c_durationToOff
         )
     end
