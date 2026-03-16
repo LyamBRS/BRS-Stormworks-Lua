@@ -20,7 +20,7 @@ require("Projects.Microprocessors.Dashboard.global.constants.managerStates")
 -- [BRS] - [[ OnTick ]] --
 function onTick()
     -- [BRS] - [[ Inputs ]] --
-    require("Microprocessors.Dashboard.manager.onTick.getInputs")
+    require("Projects.Microprocessors.Dashboard.manager.onTick.getInputs")
 
     -- [BRS] - [[ Logic ]] --
     require("Projects.Microprocessors.Dashboard.manager.onTick.manage")
