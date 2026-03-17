@@ -9,6 +9,7 @@
 -- In BRS Dashboard v2
 
 -- [BRS] - [[ Imports ]] --
+require("Functions.Monitor.Utils.liveColorCorrection")
 require("Functions.Animations.Framework.animate")
 require("Functions.Drawing.Circles.fullControlCircleOutline")
 require("Functions.Animations.Framework.setNewQuadAnimationTarget")

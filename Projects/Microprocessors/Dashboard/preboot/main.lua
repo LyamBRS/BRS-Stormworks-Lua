@@ -9,6 +9,7 @@
 -- In BRS Lua dashboard v2
 
 -- [BRS] - [[ Imports ]] --
+require("Functions.Monitor.Utils.liveColorCorrection")
 require("Functions.Monitor.Utils.animateElement")
 require("Functions.Animations.Framework.setNewQuadAnimationTarget")
 require("Variables.Monitor.Elements.function")

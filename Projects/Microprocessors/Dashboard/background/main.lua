@@ -10,6 +10,7 @@
 -- In the dashboard microcontroller, so that scripts dont require the functions needed to show the background around.
 
 -- [BRS] - [[ Imports ]] --
+require("Functions.Monitor.Utils.liveColorCorrection")
 require("Functions.Drawing.Gradiants.horizontalGradiant")
 require("Functions.Animations.Framework.createQuadAnimationTable")
 require("Functions.Animations.Framework.setNewQuadAnimationTarget")
