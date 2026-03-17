@@ -1,0 +1,3 @@
+g_speedUnitLetter1[c_elementFunction](g_speedUnitLetter1)
+g_speedUnitLetter2[c_elementFunction](g_speedUnitLetter2)
+g_speedUnitLetter3[c_elementFunction](g_speedUnitLetter3)
