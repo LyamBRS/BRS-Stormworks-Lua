@@ -3,6 +3,7 @@ if g_showUI ~= g_previousShowUI then
     g_previousShowUI = g_showUI
 
     if g_managerState == c_stateGoToBooted then
+        setNewAnimationTarget(g_uiShownAnimation, 0, c_animationDurationLongest)
         i = 0
         for _,v in pairs(g_vehicleNameElements) do
             setNewQuadAnimationTarget(
@@ -20,7 +21,8 @@ if g_showUI ~= g_previousShowUI then
                 c_colorVehicleNameBootedG,
                 c_colorVehicleNameBootedB,
                 c_colorVehicleNameBootedA,
-                i * c_durationVehicleNameLetter + c_durationBaseVehicleNameLetterBooted
+                i * c_durationVehicleNameLetter + c_durationBaseVehicleNameLetterBooted,
+                lerpAnimation
             )
 
             i=i+1
@@ -28,6 +30,7 @@ if g_showUI ~= g_previousShowUI then
     end
 
     if g_managerState == c_stateGoToPreboot or g_managerState == c_stateOnlyPreboot then
+        setNewAnimationTarget(g_uiShownAnimation, 1, c_animationDurationLongest)
         i = 0
         for _,v in pairs(g_vehicleNameElements) do
             setNewQuadAnimationTarget(
@@ -45,7 +48,8 @@ if g_showUI ~= g_previousShowUI then
                 c_colorVehicleNameShownG,
                 c_colorVehicleNameShownB,
                 c_colorVehicleNameShownA,
-                i * c_durationVehicleNameLetter + c_durationBaseVehicleNameLetterPreBoot
+                i * c_durationVehicleNameLetter + c_durationBaseVehicleNameLetterPreBoot,
+                lerpAnimation
             )
 
             i=i+1
@@ -53,6 +57,7 @@ if g_showUI ~= g_previousShowUI then
     end
 
     if g_managerState == c_stateOff then
+        setNewAnimationTarget(g_uiShownAnimation, 0, c_animationDurationLongest)
         i = 0
         for _,v in pairs(g_vehicleNameElements) do
             setNewQuadAnimationTarget(
@@ -70,7 +75,8 @@ if g_showUI ~= g_previousShowUI then
                 c_colorVehicleNameOffG,
                 c_colorVehicleNameOffB,
                 c_colorVehicleNameOffA,
-                i * c_durationVehicleNameLetter + c_durationBaseVehicleNameLetterOff
+                i * c_durationVehicleNameLetter + c_durationBaseVehicleNameLetterOff,
+                lerpAnimation
             )
 
             i=i+1

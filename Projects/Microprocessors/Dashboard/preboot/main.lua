@@ -32,13 +32,14 @@ require("Projects.Microprocessors.Dashboard.global.constants.positions.monitor")
 function onTick()
     -- [BRS] - [[ Inputs ]] --
     require("Projects.Microprocessors.Dashboard.preboot.onTick.getInputs")
+    output.setNumber(1, g_uiShownAnimation[c_animationCurrent])
 
     if not g_scriptsOn or g_managerState == c_stateBooted then
         return
     end
     require("Projects.Microprocessors.Dashboard.preboot.onTick.animateUI")
     require("Projects.Microprocessors.Dashboard.preboot.onTick.manage")
-
+    require("Projects.Microprocessors.Dashboard.preboot.onTick.showingManager")
     -- [BRS] - [[ Outputs ]] --
     require("Projects.Microprocessors.Dashboard.preboot.onTick.setOutputs")
 end

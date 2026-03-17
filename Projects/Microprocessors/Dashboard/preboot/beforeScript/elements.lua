@@ -5,6 +5,9 @@ require("Functions.Base64.Animated.newAnimatedBase64UnicolorImage")
 -- [BRS] - [[ INFORMATIONS ]] -
 -- This file contains the global definitions of all animated elements used in the script.
 
+-- [BRS] - Easy management of animation to tell the manager we're done or not.
+g_uiShownAnimation = createAnimation(0,0,0,lerpAnimation)
+
 -- [BRS] - Vehicle name
 -- WARNING this assumes you have the right property text values for each letter of the alphabet from which your vehicle
 -- name is made of. For example, prosty needs brsp brsr brso brss brst brsy.
