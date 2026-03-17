@@ -9,7 +9,7 @@
 -- In BRS Dashboard v2
 
 -- [BRS] - [[ Imports ]] --
-require("Functions.Monitor.Utils.animateElement")
+require("Functions.Animations.Framework.animate")
 require("Functions.Drawing.Circles.fullControlCircleOutline")
 require("Functions.Animations.Framework.setNewQuadAnimationTarget")
 require("Variables.Monitor.Elements.surface")
@@ -17,6 +17,7 @@ require("Variables.Monitor.Elements.colors")
 require("Variables.Monitor.Elements.function")
 
 -- [BRS] - [[ Constants ]] --
+require("Projects.Microprocessors.Dashboard.global.variables.base64")
 require("Projects.Microprocessors.Dashboard.global.constants.controls.gears")
 require("Projects.Microprocessors.Dashboard.global.constants.controls.lightSettings")
 require("Projects.Microprocessors.Dashboard.booted.constants.animationPositions")

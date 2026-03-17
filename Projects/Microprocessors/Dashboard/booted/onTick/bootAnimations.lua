@@ -12,24 +12,44 @@ if g_showUI ~= g_previousShowUI then
             c_circleEndShown,
             0,
             0,
-            c_durationSpeedDialColorsBooted
+            c_durationSpeedDialRadianBooted
         )
 
         setNewQuadAnimationTarget(
             g_speedDialInnerColorAnimations,
-            c_circleStartShown,
-            c_circleEndShown,
-            0,
-            0,
+            c_colorSpeedDialRegularBotR,
+            c_colorSpeedDialRegularBotG,
+            c_colorSpeedDialRegularBotB,
+            c_colorSpeedDialRegularBotA,
+            c_durationSpeedDialColorsBooted
+        )
+
+        setNewQuadAnimationTarget(
+            g_speedDialOuterColorAnimations,
+            c_colorSpeedDialRegularTopR,
+            c_colorSpeedDialRegularTopG,
+            c_colorSpeedDialRegularTopB,
+            c_colorSpeedDialRegularTopA,
             c_durationSpeedDialColorsBooted
         )
     else
+        setNewQuadAnimationTarget(
+            g_speedDialRadiansAnimations,
+            c_circleStartHidden,
+            c_circleEndHidden,
+            0,
+            0,
+            c_durationSpeedDialRadianPreBoot
+        )
 
+        setNewQuadAnimationTarget(
+            g_speedDialInnerColorAnimations,0,0,0,0,
+            c_durationSpeedDialColorsPreBoot
+        )
+
+        setNewQuadAnimationTarget(
+            g_speedDialOuterColorAnimations,0,0,0,0,
+            c_durationSpeedDialColorsPreBoot
+        )
     end
 end
-
-
-c_circleEndShown = 3.93
-c_circleStartShown = -.79
-c_circleEndHidden = -.79
-c_circleStartHidden = -2.79
