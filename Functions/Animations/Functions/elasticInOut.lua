@@ -10,7 +10,7 @@ require("Functions.Animations.Functions.lerpAnimation")
 -- ##### - `target` : `number` = Where the animation ends up, when the ratio equals 1
 -- ### @Returns
 -- ##### 1. `result` : `number` = value between `start` and `target` after the animation is applied at `ratio`
-function elasticOutAnimation(start, target, ratio)
+function elasticInOutAnimation(start, target, ratio)
 	c = (2*3.14)/4.5
 	if ratio < .5 then
 		e = -(2^(20*ratio-10)) * math.sin((ratio*20-11.125)*c)/2
