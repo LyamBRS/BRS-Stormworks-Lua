@@ -7,7 +7,7 @@ if g_showUI ~= g_previousShowUI then
         for _,v in pairs(g_vehicleNameElements) do
             setNewQuadAnimationTarget(
                 v[c_elementSurface],
-                i * c_companyFontFullWidth + g_centeredVehicleNameX,
+                i * c_monitorWidth/#g_vehicleName,
                 c_positionVehicleNameBootedY,
                 c_companyFontWidth,
                 c_companyFontHeight,
@@ -57,7 +57,7 @@ if g_showUI ~= g_previousShowUI then
         for _,v in pairs(g_vehicleNameElements) do
             setNewQuadAnimationTarget(
                 v[c_elementSurface],
-                i * c_companyFontFullWidth + g_centeredVehicleNameX,
+                i * c_monitorWidth/#g_vehicleName,
                 c_positionVehicleNameOffY,
                 c_companyFontWidth,
                 c_companyFontHeight,
