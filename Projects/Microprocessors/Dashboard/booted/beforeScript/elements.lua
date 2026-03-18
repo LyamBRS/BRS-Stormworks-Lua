@@ -2,6 +2,9 @@ require("Functions.Animations.Functions.quintInOutAnimation")
 require("Functions.Base64.Animated.newAnimatedBase64UnicolorImage")
 require("Projects.Microprocessors.Dashboard.global.constants.positions.speedUnit")
 
+-- [BRS] - Easy management of animation to tell the manager we're done or not.
+g_uiShownAnimation = createAnimation(0,0,0,lerpAnimation)
+
 -- [BRS] - Speed unit elements
 g_speedUnitLetter1 = newAnimatedBase64UnicolorImage(
     c_letter1X, 64, 1,

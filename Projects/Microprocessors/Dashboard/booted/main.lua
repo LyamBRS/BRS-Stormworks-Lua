@@ -38,6 +38,7 @@ function onTick()
     end
     require("Projects.Microprocessors.Dashboard.booted.onTick.animate")
     require("Projects.Microprocessors.Dashboard.booted.onTick.bootAnimations")
+    require("Projects.Microprocessors.Dashboard.booted.onTick.showingManager")
 
     -- [BRS] - [[ Outputs ]] --
     require("Projects.Microprocessors.Dashboard.booted.onTick.setOutputs")

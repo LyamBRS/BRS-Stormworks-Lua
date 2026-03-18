@@ -32,6 +32,7 @@ if g_showUI ~= g_previousShowUI then
             c_colorSpeedDialRegularTopA,
             c_durationSpeedDialColorsBooted
         )
+        setNewAnimationTarget(g_uiShownAnimation, 1, c_animationDurationLongest)
     else
         setNewQuadAnimationTarget(
             g_speedDialRadiansAnimations,
@@ -51,5 +52,6 @@ if g_showUI ~= g_previousShowUI then
             g_speedDialOuterColorAnimations,0,0,0,0,
             c_durationSpeedDialColorsPreBoot
         )
+        setNewAnimationTarget(g_uiShownAnimation, 0, c_animationDurationLongest)
     end
 end
