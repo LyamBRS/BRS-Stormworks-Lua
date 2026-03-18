@@ -26,6 +26,7 @@ require("Projects.Microprocessors.Dashboard.booted.constants.animationDurations"
 require("Projects.Microprocessors.Dashboard.booted.constants.inputChannels")
 require("Projects.Microprocessors.Dashboard.booted.constants.outputChannels")
 require("Projects.Microprocessors.Dashboard.global.constants.colors.speedDial")
+require("Projects.Microprocessors.Dashboard.global.constants.colors.generic")
 
 -- [BRS] - [[ Functions ]] --
 
@@ -40,6 +41,8 @@ function onTick()
     require("Projects.Microprocessors.Dashboard.booted.onTick.bootAnimations")
     require("Projects.Microprocessors.Dashboard.booted.onTick.showingManager")
 
+    require("Projects.Microprocessors.Dashboard.booted.onTick.blinkers")
+
     -- [BRS] - [[ Outputs ]] --
     require("Projects.Microprocessors.Dashboard.booted.onTick.setOutputs")
 end
@@ -51,6 +54,7 @@ function onDraw()
     end
     require("Projects.Microprocessors.Dashboard.booted.onDraw.speedDial")
     require("Projects.Microprocessors.Dashboard.booted.onDraw.speedUnit")
+    require("Projects.Microprocessors.Dashboard.booted.onDraw.blinkers")
 end
 
 -- [BRS] - [[   Before script   ]] --

@@ -34,6 +34,23 @@ g_speedUnitLetter1Positions = g_speedUnitLetter1[c_elementSurface]
 g_speedUnitLetter2Positions = g_speedUnitLetter2[c_elementSurface]
 g_speedUnitLetter3Positions = g_speedUnitLetter3[c_elementSurface]
 
+-- [BRS] - Blinkers
+g_leftBlinkerAnimation = createQuadAnimationTable(
+    c_colorBrightGreenR,
+    c_colorBrightGreenG,
+    c_colorBrightGreenB,
+    0,
+    quintInOutAnimation
+)
+
+g_rightBlinkerAnimation = createQuadAnimationTable(
+    c_colorBrightGreenR,
+    c_colorBrightGreenG,
+    c_colorBrightGreenB,
+    0,
+    quintInOutAnimation
+)
+
 -- [BRS] - Speed dial
 g_speedDialOuterColorAnimations = createQuadAnimationTable(
     c_colorSpeedDialOffTopR,
@@ -61,5 +78,7 @@ g_quadAnimations = {
     g_speedUnitLetter3Color,
     g_speedUnitLetter1Positions,
     g_speedUnitLetter2Positions,
-    g_speedUnitLetter3Positions
+    g_speedUnitLetter3Positions,
+    g_leftBlinkerAnimation,
+    g_rightBlinkerAnimation
 }
