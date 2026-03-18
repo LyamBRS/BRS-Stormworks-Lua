@@ -44,12 +44,20 @@ if g_showUI ~= g_previousShowUI then
         )
 
         setNewQuadAnimationTarget(
-            g_speedDialInnerColorAnimations,0,0,0,0,
+            g_speedDialInnerColorAnimations,
+            c_colorSpeedDialOffBotR,
+            c_colorSpeedDialOffBotG,
+            c_colorSpeedDialOffBotB,
+            c_colorSpeedDialOffBotA,
             c_durationSpeedDialColorsPreBoot
         )
 
         setNewQuadAnimationTarget(
-            g_speedDialOuterColorAnimations,0,0,0,0,
+            g_speedDialOuterColorAnimations,
+            c_colorSpeedDialOffTopR,
+            c_colorSpeedDialOffTopG,
+            c_colorSpeedDialOffTopB,
+            c_colorSpeedDialOffTopA,
             c_durationSpeedDialColorsPreBoot
         )
         setNewAnimationTarget(g_uiShownAnimation, 0, c_animationDurationLongest)

@@ -35,8 +35,20 @@ g_speedUnitLetter2Positions = g_speedUnitLetter2[c_elementSurface]
 g_speedUnitLetter3Positions = g_speedUnitLetter3[c_elementSurface]
 
 -- [BRS] - Speed dial
-g_speedDialOuterColorAnimations = createQuadAnimationTable(0,0,0,0,quintInOutAnimation)
-g_speedDialInnerColorAnimations = createQuadAnimationTable(0,0,0,0,quintInOutAnimation)
+g_speedDialOuterColorAnimations = createQuadAnimationTable(
+    c_colorSpeedDialOffTopR,
+    c_colorSpeedDialOffTopG,
+    c_colorSpeedDialOffTopB,
+    c_colorSpeedDialOffTopA,
+    quintInOutAnimation
+)
+g_speedDialInnerColorAnimations = createQuadAnimationTable(
+    c_colorSpeedDialOffBotR,
+    c_colorSpeedDialOffBotG,
+    c_colorSpeedDialOffBotB,
+    c_colorSpeedDialOffBotA,
+    quintInOutAnimation
+)
 g_speedDialRadiansAnimations    = createQuadAnimationTable(c_circleStartHidden,c_circleEndHidden,0,0,quintInOutAnimation)
 
 -- [BRS] - Quad animations

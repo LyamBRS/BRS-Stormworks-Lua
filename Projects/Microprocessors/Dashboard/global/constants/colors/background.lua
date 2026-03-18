@@ -1,4 +1,4 @@
-require("Projects.Microprocessors.Dashboard.global.constants.colors.vehicle")
+-- require("Projects.Microprocessors.Dashboard.global.constants.colors.vehicle")
 
 -- [BRS] - [[ Background colors ]] -
 -- Uncorrected, global background colors.
@@ -23,17 +23,17 @@ c_colorBackgroundFullBootedB = 25
 c_colorBackgroundFullBootedA = 255
 
 -- [BRS] - Gradiant when the dashboard isnt on, but prebooted, that means like showing vehicle name, charge, etc
-c_colorBackgroundGradiantTopPreBootR = c_colorVehicleBodyR
-c_colorBackgroundGradiantTopPreBootG = c_colorVehicleBodyG
-c_colorBackgroundGradiantTopPreBootB = c_colorVehicleBodyB
+c_colorBackgroundGradiantTopPreBootR = 166
+c_colorBackgroundGradiantTopPreBootG = 129
+c_colorBackgroundGradiantTopPreBootB = 18
 c_colorBackgroundGradiantTopPreBootA = 0
 
-c_colorBackgroundGradiantBotPreBootedR = c_colorVehicleBodyR
-c_colorBackgroundGradiantBotPreBootedG = c_colorVehicleBodyG
-c_colorBackgroundGradiantBotPreBootedB = c_colorVehicleBodyB
+c_colorBackgroundGradiantBotPreBootedR = 166
+c_colorBackgroundGradiantBotPreBootedG = 129
+c_colorBackgroundGradiantBotPreBootedB = 18
 c_colorBackgroundGradiantBotPreBootedA = 255
 
-c_colorBackgroundFullPreBootR = 0
-c_colorBackgroundFullPreBootG = 0
-c_colorBackgroundFullPreBootB = 0
+c_colorBackgroundFullPreBootR = 62
+c_colorBackgroundFullPreBootG = 54
+c_colorBackgroundFullPreBootB = 41
 c_colorBackgroundFullPreBootA = 255

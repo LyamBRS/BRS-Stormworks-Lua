@@ -17,3 +17,19 @@ c_colorSpeedDialRegularSpeedR = c_colorVehicleBodyR
 c_colorSpeedDialRegularSpeedG = c_colorVehicleBodyG
 c_colorSpeedDialRegularSpeedB = c_colorVehicleBodyB
 c_colorSpeedDialRegularSpeedA = 100
+
+-- [BRS] - In regular operations.
+c_colorSpeedDialOffTopR = 62
+c_colorSpeedDialOffTopG = 54
+c_colorSpeedDialOffTopB = 41
+c_colorSpeedDialOffTopA = 0
+
+c_colorSpeedDialOffBotR = 62
+c_colorSpeedDialOffBotG = 54
+c_colorSpeedDialOffBotB = 41
+c_colorSpeedDialOffBotA = 0
+
+c_colorSpeedDialRegularSpeedR = c_colorVehicleBodyR
+c_colorSpeedDialRegularSpeedG = c_colorVehicleBodyG
+c_colorSpeedDialRegularSpeedB = c_colorVehicleBodyB
+c_colorSpeedDialRegularSpeedA = 0

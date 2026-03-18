@@ -5,9 +5,9 @@ require("Projects.Microprocessors.Dashboard.global.constants.colors.vehicle")
 -- [BRS] - Vehicle name's colors
 
 -- Color used when the vehicle is booting off
-c_colorVehicleNameOffR = 0
-c_colorVehicleNameOffG = 0
-c_colorVehicleNameOffB = 0
+c_colorVehicleNameOffR = c_colorVehicleBodyR
+c_colorVehicleNameOffG = c_colorVehicleBodyG
+c_colorVehicleNameOffB = c_colorVehicleBodyB
 c_colorVehicleNameOffA = 0
 
 -- Active color during the preboot UI display.

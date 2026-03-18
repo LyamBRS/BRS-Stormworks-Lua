@@ -5,5 +5,5 @@ c_speedUnitHiddenY = 64     -- y position the units take when they become hidden
 -- [BRS] - Speed dial
 c_circleEndShown = 3.93
 c_circleStartShown = -.79
-c_circleEndHidden = -.79
-c_circleStartHidden = -2.79
+c_circleEndHidden = -2.79
+c_circleStartHidden = -4.79
