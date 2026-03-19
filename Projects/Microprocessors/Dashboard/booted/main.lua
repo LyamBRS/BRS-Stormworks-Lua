@@ -16,6 +16,7 @@ require("Functions.Animations.Framework.setNewQuadAnimationTarget")
 require("Variables.Monitor.Elements.surface")
 require("Variables.Monitor.Elements.colors")
 require("Variables.Monitor.Elements.function")
+require("Variables.Physic_sensor.velocities.absolutes")
 
 -- [BRS] - [[ Constants ]] --
 require("Projects.Microprocessors.Dashboard.global.variables.base64")
@@ -27,6 +28,8 @@ require("Projects.Microprocessors.Dashboard.booted.constants.inputChannels")
 require("Projects.Microprocessors.Dashboard.booted.constants.outputChannels")
 require("Projects.Microprocessors.Dashboard.global.constants.colors.speedDial")
 require("Projects.Microprocessors.Dashboard.global.constants.colors.generic")
+require("Projects.Microprocessors.Dashboard.global.constants.colors.speed")
+require("Projects.Microprocessors.Dashboard.global.constants.controls.speed")
 
 -- [BRS] - [[ Functions ]] --
 
@@ -41,7 +44,10 @@ function onTick()
     require("Projects.Microprocessors.Dashboard.booted.onTick.bootAnimations")
     require("Projects.Microprocessors.Dashboard.booted.onTick.showingManager")
 
+    require("Projects.Microprocessors.Dashboard.booted.onTick.speed")
+    if g_showUI then
     require("Projects.Microprocessors.Dashboard.booted.onTick.blinkers")
+    end
 
     -- [BRS] - [[ Outputs ]] --
     require("Projects.Microprocessors.Dashboard.booted.onTick.setOutputs")

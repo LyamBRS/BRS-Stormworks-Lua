@@ -68,6 +68,23 @@ g_speedDialInnerColorAnimations = createQuadAnimationTable(
 )
 g_speedDialRadiansAnimations    = createQuadAnimationTable(c_circleStartHidden,c_circleEndHidden,0,0,quintInOutAnimation)
 
+-- [BRS] - Speed units
+g_speedTextColor = createQuadAnimationTable(
+    c_colorSpeedOffR,
+    c_colorSpeedOffG,
+    c_colorSpeedOffB,
+    c_colorSpeedOffA,
+    quintInOutAnimation
+)
+
+g_speedTextPosition = createQuadAnimationTable(
+    c_speedTextPositionX,
+    c_speedTextPositionHiddenY,
+    0,
+    0,
+    quintInOutAnimation
+)
+
 -- [BRS] - Quad animations
 g_quadAnimations = {
     g_speedDialOuterColorAnimations,
@@ -80,5 +97,7 @@ g_quadAnimations = {
     g_speedUnitLetter2Positions,
     g_speedUnitLetter3Positions,
     g_leftBlinkerAnimation,
-    g_rightBlinkerAnimation
+    g_rightBlinkerAnimation,
+    g_speedTextColor,
+    g_speedTextPosition
 }

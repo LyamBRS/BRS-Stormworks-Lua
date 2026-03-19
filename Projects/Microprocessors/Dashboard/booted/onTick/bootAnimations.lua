@@ -33,6 +33,14 @@ if g_showUI ~= g_previousShowUI then
             c_durationSpeedDialColorsBooted
         )
         setNewAnimationTarget(g_uiShownAnimation, 1, c_animationDurationLongest)
+        setNewQuadAnimationTarget(
+            g_speedTextColor,
+            c_colorSpeedRegularR,
+            c_colorSpeedRegularG,
+            c_colorSpeedRegularB,
+            c_colorSpeedRegularA,
+            c_durationSpeedDialColorsBooted
+        )
     else
         setNewQuadAnimationTarget(
             g_speedDialRadiansAnimations,
@@ -61,5 +69,13 @@ if g_showUI ~= g_previousShowUI then
             c_durationSpeedDialColorsPreBoot
         )
         setNewAnimationTarget(g_uiShownAnimation, 0, c_animationDurationLongest)
+        setNewQuadAnimationTarget(
+            g_speedTextColor,
+            c_colorSpeedOffR,
+            c_colorSpeedOffG,
+            c_colorSpeedOffB,
+            c_colorSpeedOffA,
+            c_durationSpeedDialRadianPreBoot
+        )
     end
 end
