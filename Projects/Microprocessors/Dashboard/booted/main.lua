@@ -46,6 +46,7 @@ function onTick()
 
     require("Projects.Microprocessors.Dashboard.booted.onTick.speed")
     require("Projects.Microprocessors.Dashboard.booted.onTick.blinkers")
+    require("Projects.Microprocessors.Dashboard.booted.onTick.gears")
 
     -- [BRS] - [[ Outputs ]] --
     require("Projects.Microprocessors.Dashboard.booted.onTick.setOutputs")
@@ -58,6 +59,7 @@ function onDraw()
     end
     require("Projects.Microprocessors.Dashboard.booted.onDraw.speedDial")
     require("Projects.Microprocessors.Dashboard.booted.onDraw.speedUnit")
+    require("Projects.Microprocessors.Dashboard.booted.onDraw.gears")
     require("Projects.Microprocessors.Dashboard.booted.onDraw.blinkers")
 end
 

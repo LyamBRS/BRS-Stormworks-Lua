@@ -86,4 +86,5 @@ if not g_showUI then
     g_hazards = false
     g_rightBlinker = false
     g_leftBlinker = false
+    g_gear = c_minimumGearNumber - 1
 end

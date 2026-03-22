@@ -10,3 +10,14 @@ c_colorSpeedOffR = 125
 c_colorSpeedOffG = 125
 c_colorSpeedOffB = 125
 c_colorSpeedOffA = 0
+
+
+c_colorGearRegularR = 94
+c_colorGearRegularG = 92
+c_colorGearRegularB = 86
+c_colorGearRegularA = 200
+
+c_colorGearOffR = 94
+c_colorGearOffG = 92
+c_colorGearOffB = 86
+c_colorGearOffA = 0

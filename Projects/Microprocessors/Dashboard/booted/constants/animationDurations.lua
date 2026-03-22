@@ -6,3 +6,6 @@ c_durationSpeedDialRadianPreBoot = c_animationDurationNormal   -- Going back to 
 
 c_durationSpeedDialColorsPreBoot = c_animationDurationNormal     -- How long does the color need to change when going back to preboot screen
 c_durationSpeedDialColorsBooted  = c_animationDurationLong      -- How long does the color need to change when going from preboot to booted
+
+-- [BRS] - Gear position animation
+c_durationGearY = c_animationDurationShort

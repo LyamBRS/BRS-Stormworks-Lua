@@ -1,0 +1,1 @@
+g_gearAnimation[c_elementFunction](g_gearAnimation)

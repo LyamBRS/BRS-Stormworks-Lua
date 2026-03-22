@@ -7,21 +7,21 @@ g_uiShownAnimation = createAnimation(0,0,0,lerpAnimation)
 
 -- [BRS] - Speed unit elements
 g_speedUnitLetter1 = newAnimatedBase64UnicolorImage(
-    c_letter1X, 64, 1,
+    c_letter1X, c_speedUnitHiddenY, 1,
     49, 47, 44, 0,
     "sul1",
     quintInOutAnimation
 )
 
 g_speedUnitLetter2 = newAnimatedBase64UnicolorImage(
-    c_letter2X, 64, 1,
+    c_letter2X, c_speedUnitHiddenY, 1,
     49, 47, 44, 0,
     "sul2",
     quintInOutAnimation
 )
 
 g_speedUnitLetter3 = newAnimatedBase64UnicolorImage(
-    c_letter3X, 64, 1,
+    c_letter3X, c_speedUnitHiddenY, 1,
     49, 47, 44, 0,
     "sul3",
     quintInOutAnimation
@@ -95,6 +95,16 @@ g_speedTextPosition = createQuadAnimationTable(
     quintInOutAnimation
 )
 
+-- [BRS] - Gears
+g_gearAnimation = newAnimatedBase64UnicolorImage(
+    c_gearsPositionShownX, c_gearsPositionMiddleY, 1,
+    c_colorGearOffR, c_colorGearOffG, c_colorGearOffB, c_colorGearOffA,
+    "g"..c_gearPark,
+    quintInOutAnimation
+)
+g_gearColors = g_gearAnimation[c_elementColors][1]
+g_gearPosition = g_gearAnimation[c_elementSurface]
+
 -- [BRS] - Quad animations
 g_quadAnimations = {
     g_speedDialOuterColorAnimations,
@@ -111,5 +121,7 @@ g_quadAnimations = {
     g_speedTextColor,
     g_speedTextPosition,
     g_hazardTriangleColors,
-    g_hazardPosition
+    g_hazardPosition,
+    g_gearColors,
+    g_gearPosition
 }
