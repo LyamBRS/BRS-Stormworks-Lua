@@ -77,5 +77,13 @@ if g_showUI ~= g_previousShowUI then
             c_colorSpeedOffA,
             c_durationSpeedDialRadianPreBoot
         )
+        
     end
+end
+
+-- [BRS] - Forces inputs as false if we dont wanna show the UI, so they automatically boot off
+if not g_showUI then
+    g_hazards = false
+    g_rightBlinker = false
+    g_leftBlinker = false
 end

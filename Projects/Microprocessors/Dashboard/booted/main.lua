@@ -45,9 +45,7 @@ function onTick()
     require("Projects.Microprocessors.Dashboard.booted.onTick.showingManager")
 
     require("Projects.Microprocessors.Dashboard.booted.onTick.speed")
-    if g_showUI then
     require("Projects.Microprocessors.Dashboard.booted.onTick.blinkers")
-    end
 
     -- [BRS] - [[ Outputs ]] --
     require("Projects.Microprocessors.Dashboard.booted.onTick.setOutputs")
