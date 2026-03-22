@@ -65,7 +65,5 @@ CCB@A:AABDBBCBDABBDCBBFAECFCBBKABDNABDLBCB
 
 ## Known bugs
 ### Booted screen
-1. Blinkers displays on preboot screen
-2. Speed dial inner layer displayed on top of outer layer
 3. Animation direction of speed dial flipped for one of the layers
 4. Speed dial's current speed stuck on display when speed is 0.
