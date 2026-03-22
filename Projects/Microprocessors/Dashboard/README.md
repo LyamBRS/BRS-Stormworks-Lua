@@ -40,3 +40,34 @@ CCB@A:AABDDABDBBCB
 ```lua
 CCB@A:AABDBBCBDABBDCBBFAECFCBBKABDNABDLBCB
 ```
+### Blinkers
+#### Hazard icon
+```lua
+/AA@A:BACBABEC
+```
+### Gears (4x5)
+#### Reverse
+```lua
+///@A:AAEBDBBBCCBBDDBCAEBBACBB
+```
+#### Parked
+```lua
+///@A:AAEBDBBBACEBADBC
+```
+#### Neutral
+```lua
+///@A:AABFDABCBCBBCDBBDEBB
+```
+#### In drive
+```lua
+///@A:AADBDBBDAEDBACBB
+```
+
+## Known bugs
+### Booted screen
+1. Blinkers displays on preboot screen
+2. Speed dial inner layer displayed on top of outer layer
+3. Animation direction of speed dial flipped for one of the layers
+4. Speed dial's current speed stuck on display when speed is 0.
+### Preboot screen
+1. Boot up sequence doesnt take into account vehicle name's letters offset time adjustments
