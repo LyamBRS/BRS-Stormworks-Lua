@@ -13,3 +13,6 @@ screen.setColor(
     g_rightBlinkerAnimation[4][c_animationCurrent]
 )
 screen.drawRectF(56,7,4,1)
+
+-- [BRS] - Hazards icon placement
+g_hazardTriangleAnimation[c_elementFunction](g_hazardTriangleAnimation)

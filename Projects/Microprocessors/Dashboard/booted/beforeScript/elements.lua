@@ -51,6 +51,16 @@ g_rightBlinkerAnimation = createQuadAnimationTable(
     quintInOutAnimation
 )
 
+g_hazardTriangleAnimation = newAnimatedBase64UnicolorImage(
+    46, 9, 1,
+    c_colorBrightRedR, c_colorBrightRedG, c_colorBrightRedB, 0,
+    "hzd",
+    quintInOutAnimation
+)
+
+g_hazardTriangleColors = g_hazardTriangleAnimation[c_elementColors][1]
+g_hazardPosition = g_hazardTriangleAnimation[c_elementSurface]
+
 -- [BRS] - Speed dial
 g_speedDialOuterColorAnimations = createQuadAnimationTable(
     c_colorSpeedDialOffTopR,
@@ -99,5 +109,7 @@ g_quadAnimations = {
     g_leftBlinkerAnimation,
     g_rightBlinkerAnimation,
     g_speedTextColor,
-    g_speedTextPosition
+    g_speedTextPosition,
+    g_hazardTriangleColors,
+    g_hazardPosition
 }
