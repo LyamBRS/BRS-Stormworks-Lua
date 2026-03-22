@@ -20,4 +20,5 @@
     output.setBool(6, selectedBlinker == blinkRight or selectedBlinker == blinkBoth)
     output.setBool(7, selectedBlinker == blinkLeft or selectedBlinker == blinkBoth)
     output.setBool(8, lightRGB)
+    output.setBool(9, selectedBlinker == blinkBoth)
     output.setBool(32, carOn)
