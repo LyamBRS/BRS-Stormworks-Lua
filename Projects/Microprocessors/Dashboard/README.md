@@ -43,7 +43,7 @@ CCB@A:AABDBBCBDABBDCBBFAECFCBBKABDNABDLBCB
 ### Blinkers
 #### Hazard icon
 ```lua
-/AA@A:BACBABEC
+/AA@A:BACBABEB
 ```
 ### Gears (4x5)
 #### Reverse
