@@ -4,7 +4,7 @@ c_speedUnitHiddenY = 28     -- y position the units take when they become hidden
 
 -- [BRS] - 
 c_speedTextPositionX = 41
-c_speedTextPositionShownY = 20
+c_speedTextPositionShownY = 15
 c_speedTextPositionHiddenY = 32
 
 -- [BRS] - Speed dial

@@ -53,15 +53,3 @@ for i = 0, segments * (g_speed / c_maxSpeed) do
         1
     )
 end
-
--- complexCircleOutline(
---     47, 18, 11.25,
---     g_speedDialRadiansAnimations[1][c_animationCurrent] + g_speedCirclePerimeter,
---     g_speedDialRadiansAnimations[2][c_animationCurrent]
--- )
-
--- complexCircleOutline(
---     47, 19, 11.25,
---     g_speedDialRadiansAnimations[1][c_animationCurrent] + g_speedCirclePerimeter,
---     g_speedDialRadiansAnimations[2][c_animationCurrent]
--- )
