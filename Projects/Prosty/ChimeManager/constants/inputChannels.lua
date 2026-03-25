@@ -10,4 +10,4 @@ c_gbDoorLock = 6        -- Doors are locked
 c_gbDoorButtons = 7     -- Any door button is pressed.
 
 -- [BRS] ------------------------------------------------ [[ NUMERICAL ]] -
-c_gnCurrentGear = 25    -- Vehicle's current gear.
+c_gnCurrentGear = 5    -- Vehicle's current gear.
