@@ -8,3 +8,6 @@ g_previousSeatbeltAlarm = false
 g_currentMusic = {}
 g_awaitedMusic = false
 g_playingMusic = false
+
+g_seatBeltAlarmLevel = 0
+g_seatBeltAlarmTimer = 0

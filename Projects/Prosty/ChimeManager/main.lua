@@ -16,6 +16,8 @@ require("Functions.Base64.Music.decodeMusic")
 require("Projects.Prosty.ChimeManager.constants.inputChannels")
 require("Projects.Prosty.ChimeManager.constants.outputChannels")
 require("Projects.Prosty.ChimeManager.constants.propertyNames")
+require("Projects.Prosty.ChimeManager.constants.seatbeltDurations")
+require("Projects.Prosty.ChimeManager.constants.seatBeltAlarmLevels")
 
 -- [BRS] - [[ Functions ]] --
 require("Projects.Prosty.ChimeManager.functions.setNewMusic")
@@ -25,19 +27,22 @@ function onTick()
     -- [BRS] - [[ Inputs ]] --
     require("Projects.Prosty.ChimeManager.onTick.getInputs")
 
+    -- [BRS] - [[ Logic ]] --
+    require("Projects.Prosty.ChimeManager.onTick.seatBeltManager")
+
     -- [BRS] - [[ MUSIC ]] -- 
     require("Projects.Prosty.ChimeManager.onTick.playMusic")
 
-    -- [BRS] - [[ TESTS ]] --
-    if g_previousVehicleOn ~= g_vehicleOn then
-        g_previousVehicleOn = g_vehicleOn
+    -- [BRS] - [[ MANAGEMENT ]] --
+    if not g_awaitedMusic then
+        if g_previousVehicleOn ~= g_vehicleOn then
+            g_previousVehicleOn = g_vehicleOn
+            require("Projects.Prosty.ChimeManager.onTick.bootChimes")
+            return
+        end
 
-        if g_vehicleOn then
-            -- [BRS] - Start up chime must be played this instant.
-            setNewMusic(c_ptMusicStartChime, true)
-        else
-            -- [BRS] - Bootoff chime must be played this instant.
-            setNewMusic(c_ptMusicOffChime, true)
+        if g_seatBeltAlarmLevel ~= c_seatBeltAlarmOff then
+            require("Projects.Prosty.ChimeManager.onTick.seatbeltChimes")
         end
     end
 
