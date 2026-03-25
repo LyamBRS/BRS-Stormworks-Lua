@@ -23,8 +23,8 @@ function decodeMusic(music)
 
     for i=1, #chunks do
         currentChunk = chunks[i]
-    	if string.find(currentChunk, c_base64MusicBundleBinary) then
-    		bundle = split(currentChunk,c_base64MusicBundleBinary)
+    	if string.find(currentChunk, c_base64MusicBundleSeperator) then
+    		bundle = split(currentChunk,c_base64MusicBundleSeperator)
     		bundle[c_base64MusicBundleBinary] = numberFromBase64(bundle[c_base64MusicBundleBinary])
        		bundle[c_base64MusicBundleDuration] = numberFromBase64(bundle[c_base64MusicBundleDuration])
     		notes[#notes+1] = bundle
