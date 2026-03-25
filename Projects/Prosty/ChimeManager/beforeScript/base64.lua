@@ -1,0 +1,1 @@
+g_base64 = property.getText(c_ptBase64)
