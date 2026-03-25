@@ -43,7 +43,7 @@ function playMusic(music)
         -- [BRS] - Output all the piano keys on the right composite channels
         outputs = binaryNoteToBooleanOutputs(bundle[c_base64MusicBundleBinary])
         for i=1,c_base64MusicResolution do
-            output.setBool(i,outputs[(c_base64MusicResolution-1)-i])
+            output.setBool(i,outputs[(c_base64MusicResolution+1)-i])
         end
 
         g_base64MusicCurrentDelay = g_base64MusicCurrentDelay - 1
