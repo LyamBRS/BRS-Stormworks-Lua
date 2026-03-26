@@ -3,11 +3,12 @@
 
 -- [BRS] ------------------------------------------------ [[ BOOLEAN ]] -
 g_vehicleOn     = input.getBool(c_gbVehicleOn)
-g_seatBeltAlarm = input.getBool(c_gbSeatBeltAlarm)
+-- g_seatBeltAlarm = input.getBool(c_gbSeatBeltAlarm)
 g_doorOpened    = input.getBool(c_gbDoorOpened)
 g_alarm         = input.getBool(c_gbAlarm)
 g_doorLock      = input.getBool(c_gbDoorLock)
 g_doorPressed   = input.getBool(c_gbDoorButtons)
 
 -- [BRS] ------------------------------------------------ [[ NUMERICAL ]] -
-g_gear          = input.getNumber(c_gnCurrentGear)
+g_gear                  = input.getNumber(c_gnCurrentGear)
+g_seatBeltAlarmLevel    = input.getNumber(c_gnSeatBeltAlarmLevel)

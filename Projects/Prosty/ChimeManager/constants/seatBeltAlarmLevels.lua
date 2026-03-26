@@ -1,6 +1,6 @@
 -- [BRS] - [[ INFORMATIONS ]] - 
 -- The different levels the seatbelt alarm can reach.
+-- Defined in the main controller scripts.
 
-c_seatBeltAlarmOff = 0
-c_seatBeltAlarmLow = 1
-c_seatBeltAlarmHigh = 2
+c_seatBeltAlarmLow = 3
+c_seatBeltAlarmHigh = 4

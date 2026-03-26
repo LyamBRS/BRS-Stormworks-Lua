@@ -16,7 +16,6 @@ require("Functions.Base64.Music.decodeMusic")
 require("Projects.Prosty.ChimeManager.constants.inputChannels")
 require("Projects.Prosty.ChimeManager.constants.outputChannels")
 require("Projects.Prosty.ChimeManager.constants.propertyNames")
-require("Projects.Prosty.ChimeManager.constants.seatbeltDurations")
 require("Projects.Prosty.ChimeManager.constants.seatBeltAlarmLevels")
 
 -- [BRS] - [[ Functions ]] --
@@ -26,9 +25,6 @@ require("Projects.Prosty.ChimeManager.functions.setNewMusic")
 function onTick()
     -- [BRS] - [[ Inputs ]] --
     require("Projects.Prosty.ChimeManager.onTick.getInputs")
-
-    -- [BRS] - [[ Logic ]] --
-    require("Projects.Prosty.ChimeManager.onTick.seatBeltManager")
 
     -- [BRS] - [[ MUSIC ]] -- 
     require("Projects.Prosty.ChimeManager.onTick.playMusic")
@@ -41,7 +37,7 @@ function onTick()
             return
         end
 
-        if g_seatBeltAlarmLevel ~= c_seatBeltAlarmOff then
+        if g_seatBeltAlarmLevel >= c_seatBeltAlarmLow then
             require("Projects.Prosty.ChimeManager.onTick.seatbeltChimes")
         end
     end
