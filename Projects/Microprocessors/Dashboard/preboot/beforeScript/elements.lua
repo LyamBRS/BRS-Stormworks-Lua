@@ -17,7 +17,7 @@ g_vehicleNameElements = {}
 pos=0
 for char in g_vehicleName:gmatch(".") do
     g_vehicleNameElements[#g_vehicleNameElements+1] = newAnimatedBase64UnicolorImage(
-        g_centeredVehicleNameX + pos*c_companyFontFullWidth,32,1,
+        (g_centeredVehicleNameX + pos*c_companyFontFullWidth),32,1,
         c_colorVehicleNameOffR,
         c_colorVehicleNameOffG,
         c_colorVehicleNameOffB,
