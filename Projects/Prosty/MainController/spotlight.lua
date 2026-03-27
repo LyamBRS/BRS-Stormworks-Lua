@@ -8,14 +8,14 @@ require("Projects.Prosty.MainController.variables")
 -- Handles the spotlights status and tilt based on various modes of the beams as well as seat stuff.
 -- ## Where is this used?
 -- Prosty main.lua
-    if outputBeam == high or outputBeam == low then
+    if outputBeam == c_lightSettingHighBeams or outputBeam == c_lightSettingLowBeams then
     	spotlight = true
     	wantedLeftTilt = lowTilt
     	wantedRightTilt = lowTilt
     	wantedRightYaw = lowYaw
     	wantedLeftYaw = lowYaw
 
-    	if outputBeam == high then
+    	if outputBeam == c_lightSettingHighBeams then
     		wantedLeftTilt = highTilt
     		wantedRightTilt = highTilt
 	    	wantedRightYaw = highYaw

@@ -1,6 +1,1 @@
-    -- [BRS] - Could be minified.
-    if outputBeam == high or outputBeam == low then
-    	tailight = true
-    else
-    	tailight = false
-    end
+tailight = (outputBeam == c_lightSettingHighBeams or outputBeam == c_lightSettingLowBeams)

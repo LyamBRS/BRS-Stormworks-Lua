@@ -27,4 +27,6 @@ c_gnSeatUD                      = 4 -- Up down kwy
 c_gnPlayerSensor                = 5
 c_gnAngularSpeed                = 11
 c_gnVelocity                    = 13
+c_gnTopDistanceSensor           = 30
+c_gnClock                       = 31
 c_gnBRSyncTimeSlot              = 32

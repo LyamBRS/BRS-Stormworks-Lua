@@ -25,6 +25,8 @@ velocity                    = tonumber(string.format("%.2f", input.getNumber(c_g
 angularSpeed                = input.getNumber(c_gnAngularSpeed)
 
 g_playerSensor              = input.getNumber(c_gnPlayerSensor)
+g_clock                     = input.getNumber(c_gnClock)
+g_topDistanceSensor         = input.getNumber(c_gnTopDistanceSensor)
 
 seatWS                      = input.getNumber(c_gnSeatWS)
 seatAD                      = input.getNumber(c_gnSeatAD)

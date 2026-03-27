@@ -7,10 +7,10 @@ drive = 2
 
 -- [BRS] - Beams
 off = 0
-drl = 1
-auto = 2
-low = 3
-high = 4
+-- drl = 1
+-- auto = 2
+-- low = 3
+-- high = 4
 outputBeam = off
 selectedBeam = off
 

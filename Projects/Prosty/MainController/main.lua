@@ -7,6 +7,7 @@ require("Projects.Prosty.MainController.constants.inputsChannels")
 require("Projects.Prosty.MainController.constants.outputChannels")
 require("Projects.Prosty.MainController.constants.seatbelt")
 require("Projects.Prosty.MainController.constants.doors")
+require("Projects.Prosty.MainController.constants.lights")
 
 -- [BRS] - [[ Functions ]] --
 

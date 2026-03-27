@@ -18,22 +18,31 @@ require("Projects.Prosty.MainController.variables")
         -- [BRS] - Beams only change if the car is ON... idk if that's the best thing tbh. If they are left on it should have an alarm instead.
     	if seatCycleBeams and carOn then
     		selectedBeam = selectedBeam + 1
-	    	if selectedBeam > high then
-    			selectedBeam = drl
+	    	if selectedBeam > c_lightSettingHighBeams then
+    			selectedBeam = c_lightSettingDRL
 			end
     	end
     end
 
+
+
     -- [BRS] - High beam flashing management.
     if carOn and seatFlashBeams then
-        outputBeam = high
-    	if selectedBeam == high then
-	    	outputBeam = low
-	    end
+        outputBeam = selectedBeam == c_lightSettingHighBeams and c_lightSettingHighBeams or c_lightSettingLowBeams
     else
     	outputBeam = selectedBeam
+		if selectedBeam == c_lightSettingAutomatic then
+			outputBeam = c_lightSettingDRL
+			if g_clock < c_clockDayTime or g_clock > c_clockNightTime then -- Night time
+				outputBeam = c_lightSettingLowBeams
+			else
+				if g_topDistanceSensor < c_distanceTunnelDetection then
+					outputBeam = c_lightSettingLowBeams
+				end
+			end
+		end
     end
 
 	if not carOn then
-		selectedBeam = off
+		selectedBeam = c_lightSettingOff
 	end
