@@ -1,5 +1,6 @@
 
 -- [BRS] - [[ Imports ]] --
+require("Functions.Physic_sensor.Euler.upsideDownRatio")
 
 -- [BRS] - [[ Constants ]] --
 require("Projects.Prosty.MainController.constants.inputsChannels")
@@ -8,6 +9,7 @@ require("Projects.Prosty.MainController.constants.seatbelt")
 require("Projects.Prosty.MainController.constants.doors")
 require("Projects.Prosty.global.constants.controls.lights")
 require("Projects.Prosty.global.constants.controls.gears")
+require("Projects.Prosty.global.constants.physics.tilt")
 
 -- [BRS] - [[ Functions ]] --
 
@@ -15,6 +17,7 @@ require("Projects.Prosty.global.constants.controls.gears")
 function onTick()
 	-- [BRS] - All the inputs of the Lua script are there.
 	require("Projects.Prosty.MainController.onTick.inputs")
+	require("Projects.Prosty.MainController.onTick.calculatePositions")
 	require("Projects.Prosty.MainController.gearManagement")
 	require("Projects.Prosty.MainController.brakeManagement")
 	require("Projects.Prosty.MainController.throttleManagement")

@@ -28,6 +28,10 @@ g_playerSensor              = input.getNumber(c_gnPlayerSensor)
 g_clock                     = input.getNumber(c_gnClock)
 g_topDistanceSensor         = input.getNumber(c_gnTopDistanceSensor)
 
+g_EulerX                    = input.getNumber(c_gnEulerX)
+g_EulerY                    = input.getNumber(c_gnEulerY)
+g_EulerZ                    = input.getNumber(c_gnEulerZ)
+
 seatWS                      = input.getNumber(c_gnSeatWS)
 seatAD                      = input.getNumber(c_gnSeatAD)
 seatUpDown                  = input.getNumber(c_gnSeatUD)
