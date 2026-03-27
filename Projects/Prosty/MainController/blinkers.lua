@@ -1,4 +1,3 @@
-require("Projects.Prosty.MainController.variables")
 -- [BRS] - [[ Information ]] --
 -- `25/09/09`
 -- ## Generic info:

@@ -15,11 +15,17 @@ seatedPlayers = g_brPassengerSeatOccupancy  and (seatedPlayers+1) or seatedPlaye
 g_seatBeltAlarmLevel = c_seatBeltAlarmOff
 countDown = false
 
+-- [BRS] - Seatbelt alarm is only active when there's more detected players than seated one
+-- and the car is on.
 if g_playerSensor > seatedPlayers and carOn then
-    if selectedGear ~= park then
+
+    -- [BRS] - Not being in park requires more indepth seatbelt alarms
+    if selectedGear ~= c_gearPark then
+        -- [BRS] - Velocity exeeds some set speed, really remind them they aint wearing it.
         if velocity > c_seatBeltMinSpeedHighLevel then
             g_seatBeltAlarmLevel = c_seatBeltAlarmHigh
             g_seatBeltAlarmTimer = c_durationSeatbeltAlarm
+        -- [BRS] - Below a certain speed, seatbelt alarm can shut off after a while
         elseif velocity > c_seatBeltMinSpeedLowLevel and g_seatBeltAlarmTimer>0 then
             g_seatBeltAlarmLevel = c_seatBeltAlarmLow
             countDown = true
@@ -28,6 +34,7 @@ if g_playerSensor > seatedPlayers and carOn then
             g_seatBeltAlarmLevel = c_seatBeltAlarmFlashing
         end
     else
+        -- [BRS] - When you're in park, just make the icon constant. No sound.
         g_seatBeltAlarmLevel = c_seatBeltAlarmConstant
     end
 else

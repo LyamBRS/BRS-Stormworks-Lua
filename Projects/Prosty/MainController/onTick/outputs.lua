@@ -9,20 +9,27 @@
     output.setBool(c_sbHazards, selectedBlinker == blinkBoth)
     output.setBool(c_sbCarOn, carOn)
 
-    output.setNumber(c_snSteeringLeft, steeringLeft)
-    output.setNumber(c_snSteeringRight, steeringRight)
-    output.setNumber(c_snVariableBrakes, brakes)
-    output.setNumber(c_snSelectedGear, selectedGear)
+    -- [BRS] - spotlight
     output.setNumber(c_snSpotlightTiltRight, spotlightTiltRight)
     output.setNumber(c_snSpotlightTiltLeft, spotlightTiltLeft)
     output.setNumber(c_snSpotlightYawRight, spotlightYawRight)
     output.setNumber(c_snSpotlightYawLeft, spotlightYawLeft)
-    output.setNumber(c_snDriverDoorPivot, driverDoorPivot)
-    output.setNumber(c_snPassengerDoorPivot, passengerDoorPivot)
-	output.setNumber(c_snHoodPivot, hoodPivot)
-	output.setNumber(c_snTrunkPivot, trunkPivot)
+
+    -- [BRS] - vehicle pivots
+    output.setNumber(c_snDriverDoorPivot, g_driverPivot)
+    output.setNumber(c_snPassengerDoorPivot, g_passengerPivot)
+	output.setNumber(c_snHoodPivot, g_hoodPivot)
+	output.setNumber(c_snTrunkPivot, g_trunkPivot)
+
+    -- [BRS] - vehicle driving
     output.setNumber(c_snThrottleFR, throttle)
     output.setNumber(c_snThrottleFL, throttle)
     output.setNumber(c_snThrottleBR, throttle)
     output.setNumber(c_snThrottleBL, throttle)
+    output.setNumber(c_snSteeringLeft, steeringLeft)
+    output.setNumber(c_snSteeringRight, steeringRight)
+    output.setNumber(c_snVariableBrakes, brakes)
+    output.setNumber(c_snSelectedGear, selectedGear)
+
+    -- [BRS] - vehicle alarms
     output.setNumber(c_snSeatBeltAlarmLevel, g_seatBeltAlarmLevel)

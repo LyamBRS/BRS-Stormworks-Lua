@@ -1,9 +1,5 @@
 -- [BRS] - Gears
 selectedGear = 0
-park = 0
-reverse = -1
-neutral = 1
-drive = 2
 
 -- [BRS] - Beams
 off = 0
@@ -54,10 +50,10 @@ hoodPressed = {}
 trunkPressed = {}
 closeAllPressed = {}
 
-driverDoorPivot = -1
-passengerDoorPivot = -1
-trunkPivot = 0
-hoodPivot = 0
+g_driverPivot     = c_pivotDriverClosed
+g_passengerPivot  = c_pivotPassengerClosed
+g_trunkPivot      = c_pivotTrunkClosed
+g_hoodPivot       = c_pivotHoodClosed
 
 -- [BRS] - Brake light velocity management
 checkStage = 0

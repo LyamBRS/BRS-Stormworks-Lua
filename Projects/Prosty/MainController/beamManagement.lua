@@ -1,4 +1,3 @@
-require("Projects.Prosty.MainController.variables")
 -- [BRS] - [[ Information ]] --
 -- `25/08/14`
 -- ## Generic info:
@@ -23,8 +22,6 @@ require("Projects.Prosty.MainController.variables")
 			end
     	end
     end
-
-
 
     -- [BRS] - High beam flashing management.
     if carOn and seatFlashBeams then

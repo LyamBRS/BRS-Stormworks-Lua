@@ -1,4 +1,3 @@
-require("Projects.Prosty.MainController.variables")
 
 -- [BRS] - [[ Imports ]] --
 
@@ -7,7 +6,8 @@ require("Projects.Prosty.MainController.constants.inputsChannels")
 require("Projects.Prosty.MainController.constants.outputChannels")
 require("Projects.Prosty.MainController.constants.seatbelt")
 require("Projects.Prosty.MainController.constants.doors")
-require("Projects.Prosty.MainController.constants.lights")
+require("Projects.Prosty.global.constants.controls.lights")
+require("Projects.Prosty.global.constants.controls.gears")
 
 -- [BRS] - [[ Functions ]] --
 
@@ -25,10 +25,10 @@ function onTick()
 	require("Projects.Prosty.MainController.tailight")
 	require("Projects.Prosty.MainController.blinkers")
 	require("Projects.Prosty.MainController.spotlight")
-	require("Projects.Prosty.MainController.doors")
-
+	require("Projects.Prosty.MainController.onTick.doors")
+	
 	require("Projects.Prosty.MainController.onTick.seatBeltAlarm")
-
+	
 	-- [BRS] - All the outputs of this Lua script are there.
 	require("Projects.Prosty.MainController.onTick.outputs")
 end
@@ -36,3 +36,4 @@ end
 require("Functions.Vehicles.Cars.Steering.ackerman")
 require("Functions.Vehicles.Cars.Steering.angularStabilization")
 require("Projects.Prosty.MainController.beforeScript.globals")
+require("Projects.Prosty.MainController.variables")

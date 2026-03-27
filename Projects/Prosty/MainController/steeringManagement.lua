@@ -1,4 +1,3 @@
-require("Projects.Prosty.MainController.variables")
 -- [BRS] - [[ Information ]] --
 -- `25/08/14`
 -- ## Generic info:
@@ -9,11 +8,11 @@ require("Projects.Prosty.MainController.variables")
 -- ## Where is this used?
 -- Prosty main.lua
 
-    -- [BRS] - Adjust the steering output based on angular velocity values
-    stabelizedSteering = AngularStabilization(seatAD, angularSpeed, 1, 10, gear==reverse)
+-- [BRS] - Adjust the steering output based on angular velocity values
+stabelizedSteering = AngularStabilization(seatAD, angularSpeed, 1, 10, gear==c_gearReverse)
 
-    -- [BRS] - Needs to account for vehicle speeds and do ackerman.
-    steeringLeft = Ackermann(stabelizedSteering, 11, 9, -1)
-    steeringRight = Ackermann(stabelizedSteering, 11, 9, 1)
+-- [BRS] - Needs to account for vehicle speeds and do ackerman.
+steeringLeft = Ackermann(stabelizedSteering, 11, 9, -1)
+steeringRight = Ackermann(stabelizedSteering, 11, 9, 1)
 
 

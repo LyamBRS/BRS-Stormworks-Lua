@@ -1,4 +1,3 @@
-require("Projects.Prosty.MainController.variables")
 -- [BRS] - [[ Information ]] --
 -- `25/08/14`
 -- ## Generic info:
@@ -8,9 +7,11 @@ require("Projects.Prosty.MainController.variables")
 -- Handles the wheels brakes using the driver seat inputs and other various data.
 -- ## Where is this used?
 -- Prosty main.lua
-    if selectedGear == park then
-    	brakes = 1
-    else
-        -- [BRS] - Double tap S should apply the full brakes. Need to do ABS here as well.
-    	brakes = -seatWS
-    end
+
+-- Brakes must be fully applied when you're in park. Obviously.
+if selectedGear == c_gearPark then
+    brakes = 1
+else
+    -- [BRS] - Needs implementation of vector based tire smoke cancel traction control
+    brakes = -seatWS
+end
