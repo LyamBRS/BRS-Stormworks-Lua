@@ -1,7 +1,6 @@
 ## Known bugs
 ### Main controller
 1. Unstable steering while in reverse
-2. Car can be used without it being booted on (gears functions)
 3. Steering velocity cancels at high speed causing PID wiggle
 4. Brakelight status not working the same in MP as it does in SP
 ### Monitor lights
