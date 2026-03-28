@@ -17,6 +17,8 @@ require("Variables.Monitor.Elements.surface")
 require("Variables.Monitor.Elements.colors")
 require("Variables.Monitor.Elements.function")
 require("Variables.Physic_sensor.velocities.absolutes")
+require("Variables.Monitor.Elements.surface.width")
+require("Variables.Monitor.Elements.surface.height")
 
 -- [BRS] - [[ Constants ]] --
 require("Projects.Microprocessors.Dashboard.global.variables.base64")
@@ -57,6 +59,7 @@ function onDraw()
     if not g_scriptsOn then
         return
     end
+    require("Projects.Microprocessors.Dashboard.booted.onDraw.batteryLevel")
     require("Projects.Microprocessors.Dashboard.booted.onDraw.speedDial")
     require("Projects.Microprocessors.Dashboard.booted.onDraw.speedUnit")
     require("Projects.Microprocessors.Dashboard.booted.onDraw.gears")

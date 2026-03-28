@@ -16,6 +16,15 @@ if g_showUI ~= g_previousShowUI then
         )
 
         setNewQuadAnimationTarget(
+            g_speedDialRadiansAnimations,
+            c_circleStartShown,
+            c_circleEndShown,
+            0,
+            0,
+            c_durationSpeedDialRadianBooted
+        )
+
+        setNewQuadAnimationTarget(
             g_speedDialInnerColorAnimations,
             c_colorSpeedDialRegularBotR,
             c_colorSpeedDialRegularBotG,
@@ -32,7 +41,6 @@ if g_showUI ~= g_previousShowUI then
             c_colorSpeedDialRegularTopA,
             c_durationSpeedDialColorsBooted
         )
-        setNewAnimationTarget(g_uiShownAnimation, 1, c_animationDurationLongest)
         setNewQuadAnimationTarget(
             g_speedTextColor,
             c_colorSpeedRegularR,
@@ -41,6 +49,16 @@ if g_showUI ~= g_previousShowUI then
             c_colorSpeedRegularA,
             c_durationSpeedDialColorsBooted
         )
+        
+        setNewQuadAnimationTarget(
+            g_batteryPosition,
+            c_positionBatteryLevelShownX,
+            c_positionBatteryLevelParkY,
+            c_positionBatteryLevelShownWidth,
+            c_positionBatteryLevelShownHeight,
+            c_animationDurationLongest
+        )
+        setNewAnimationTarget(g_uiShownAnimation, 1, c_animationDurationLongest)
     else
         setNewQuadAnimationTarget(
             g_speedDialRadiansAnimations,
@@ -68,7 +86,6 @@ if g_showUI ~= g_previousShowUI then
             c_colorSpeedDialOffTopA,
             c_durationSpeedDialColorsPreBoot
         )
-        setNewAnimationTarget(g_uiShownAnimation, 0, c_animationDurationLongest)
         setNewQuadAnimationTarget(
             g_speedTextColor,
             c_colorSpeedOffR,
@@ -78,6 +95,16 @@ if g_showUI ~= g_previousShowUI then
             c_durationSpeedDialRadianPreBoot
         )
         
+        setNewQuadAnimationTarget(
+            g_batteryPosition,
+            c_positionBatteryLevelHiddenX,
+            c_positionBatteryLevelHiddenY,
+            c_positionBatteryLevelHiddenWidth,
+            c_positionBatteryLevelHiddenHeight,
+            c_animationDurationLongest
+        )
+
+        setNewAnimationTarget(g_uiShownAnimation, 0, c_animationDurationLongest)
     end
 end
 

@@ -105,6 +105,23 @@ g_gearAnimation = newAnimatedBase64UnicolorImage(
 g_gearColors = g_gearAnimation[c_elementColors][1]
 g_gearPosition = g_gearAnimation[c_elementSurface]
 
+-- [BRS] - Battery
+g_batteryPosition = createQuadAnimationTable(
+    c_positionBatteryLevelHiddenX, 
+    c_positionBatteryLevelHiddenY,
+    c_positionBatteryLevelHiddenWidth,
+    c_positionBatteryLevelHiddenHeight,
+    quintInOutAnimation
+)
+
+g_batteryColor = createQuadAnimationTable(
+    255,
+    255,
+    255,
+    255,
+    quintInOutAnimation
+)
+
 -- [BRS] - Quad animations
 g_quadAnimations = {
     g_speedDialOuterColorAnimations,
@@ -123,5 +140,7 @@ g_quadAnimations = {
     g_hazardTriangleColors,
     g_hazardPosition,
     g_gearColors,
-    g_gearPosition
+    g_gearPosition,
+    g_batteryPosition,
+    g_batteryColor
 }

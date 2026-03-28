@@ -28,6 +28,7 @@ if g_previousGears ~= g_gear then
             setNewAnimationTarget(g_speedUnitLetter3Positions[2], c_speedUnitHiddenY, c_animationDurationNormal)
             setNewAnimationTarget(g_speedTextColor[4], c_colorSpeedOffA, c_durationGearY)
             setNewAnimationTarget(g_speedTextPosition[2], c_speedTextPositionHiddenY, c_durationGearY)
+            setNewAnimationTarget(g_batteryPosition[c_elementSurfaceY], c_positionBatteryLevelParkY, c_animationDurationNormal)
         else
             setNewAnimationTarget(yPos, c_gearsPositionTopY, c_durationGearY)
             setNewAnimationTarget(g_speedUnitLetter1Color[4], 200, c_animationDurationShortest)
@@ -38,6 +39,7 @@ if g_previousGears ~= g_gear then
             setNewAnimationTarget(g_speedUnitLetter3Positions[2], c_speedUnitShownY, c_animationDurationNormal)
             setNewAnimationTarget(g_speedTextColor[4], c_colorSpeedRegularA, c_durationGearY)
             setNewAnimationTarget(g_speedTextPosition[2], c_speedTextPositionShownY, c_durationGearY)
+            setNewAnimationTarget(g_batteryPosition[c_elementSurfaceY], c_positionBatteryLevelNotParkedY, c_animationDurationShortest)
         end
     else
         setNewQuadAnimationTarget(
