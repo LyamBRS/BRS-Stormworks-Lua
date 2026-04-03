@@ -11,10 +11,9 @@
 
 	-- [BRS] - If the car is on, the lights can't be off.
 	if carOn and selectedBeam == c_lightSettingOff then
-		selectedBeam = c_lightSettingDRL
+		selectedBeam = c_lightSettingAutomatic -- TODO: Make it a constant to allow users to select what the default beam should be
 	end
 
-    -- [BRS] - Has an issue where it doesn't begin in the right beam the first time.
     -- [BRS] - Seats presses management.
     if seatCycleBeams ~= previousSeatCycleBeams then
     	previousSeatCycleBeams = seatCycleBeams
@@ -31,10 +30,25 @@
 	-- [BRS] - Automatic lights management
 	if selectedBeam == c_lightSettingAutomatic then
 		outputBeam = c_lightSettingDRL
-		if g_clock < c_clockDayTime or g_clock > c_clockNightTime then -- Night time
+
+		-- [BRS] - Night time
+		if g_clock < c_clockDayTime or g_clock > c_clockNightTime then
 			outputBeam = c_lightSettingLowBeams
+
+			-- [BRS] - Automatic high beam management
+			if g_clock < c_clockDayTimeHigh or g_clock > c_clockNightTimeHigh then
+				if g_noCarInFrontOfHighBeams and velocity > c_lightAutoHighMinSpeed and g_humidity < c_lightAutoHighMaxFog and g_rain < c_lightAutoHighMaxRain then
+					outputBeam = c_lightSettingHighBeams
+				end
+			end
 		else
+			-- [BRS] - Tunnel detection
 			if g_topDistanceSensor < c_distanceTunnelDetection and g_upsideDownRatio < c_ratioOnTheSide then
+				outputBeam = c_lightSettingLowBeams
+			end
+
+			-- [BRS] - Weather condition detections
+			if g_rain > c_lightAutoLowMinRain or g_humidity > c_lightAutoLowMinFog then
 				outputBeam = c_lightSettingLowBeams
 			end
 		end
