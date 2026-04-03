@@ -17,6 +17,7 @@ c_gbCloseAllButton              = 12
 c_gbPassengerSeatOccupancy      = 13
 c_gbLeftRearPassengerOccupancy  = 14
 c_gbRightRearPassengerOccupancy = 15
+c_gbNoCarInFrontOfHighBeams     = 16    -- True if there's nothing in the FOV of the highbeams
 c_gbDriverSeatOccupancy         = 32    -- If the driver is in the seat or not.
 
 -- [BRS] ------------------------------------------------ [[ NUMERICAL ]] -
@@ -25,6 +26,8 @@ c_gnSeatWS                      = 2 -- Throttle / brakes from the seat
 c_gnSeatLR                      = 3 -- Left right arrow
 c_gnSeatUD                      = 4 -- Up down kwy
 c_gnPlayerSensor                = 5
+c_gnRain                        = 6
+c_gnHumidity                    = 7
 c_gnAngularSpeed                = 11
 c_gnVelocity                    = 13
 c_gnEulerX                      = 27

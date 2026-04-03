@@ -20,12 +20,16 @@ hoodPressed[1]              = input.getBool(c_gbHoodButton)
 trunkPressed[1]             = input.getBool(c_gbTrunkButton)
 closeAllPressed[1]          = input.getBool(c_gbCloseAllButton)
 
+g_noCarInFrontOfHighBeams   = input.getBool(c_gbNoCarInFrontOfHighBeams)
+
 -- [BRS] ------------------------------------------------ [[ NUMERICAL ]] -
 velocity                    = tonumber(string.format("%.2f", input.getNumber(c_gnVelocity))) -- Needed due to MP bullshit
 angularSpeed                = input.getNumber(c_gnAngularSpeed)
 
 g_playerSensor              = input.getNumber(c_gnPlayerSensor)
 g_clock                     = input.getNumber(c_gnClock)
+g_rain                      = input.getNumber(c_gnRain)
+g_humidity                  = input.getNumber(c_gnHumidity)
 g_topDistanceSensor         = input.getNumber(c_gnTopDistanceSensor)
 
 g_EulerX                    = input.getNumber(c_gnEulerX)
