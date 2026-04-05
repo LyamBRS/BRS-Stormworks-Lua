@@ -15,11 +15,6 @@ spotlight = false
 spotlightTiltLeft = 0
 spotlightTiltRight = 0
 
-highTilt = 0
-lowTilt = -.70
-highYaw = .5
-lowYaw = -.25
-
 spotlightYawRight = 0
 spotlightYawLeft = 0
 
