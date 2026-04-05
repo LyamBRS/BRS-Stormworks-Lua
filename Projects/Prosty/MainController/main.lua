@@ -8,8 +8,9 @@ require("Projects.Prosty.MainController.constants.outputChannels")
 require("Projects.Prosty.MainController.constants.seatbelt")
 require("Projects.Prosty.MainController.constants.doors")
 require("Projects.Prosty.global.constants.controls.lights")
-require("Projects.Prosty.global.constants.settings.lights")
 require("Projects.Prosty.global.constants.controls.gears")
+require("Projects.Prosty.global.constants.settings.lights")
+require("Projects.Prosty.global.constants.settings.spotlights")
 require("Projects.Prosty.global.constants.physics.tilt")
 
 -- [BRS] - [[ Functions ]] --
