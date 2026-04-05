@@ -14,6 +14,14 @@
 		selectedBeam = c_lightSettingAutomatic -- TODO: Make it a constant to allow users to select what the default beam should be
 	end
 
+	-- [BRS] - You need to be going the minimum speed for a bit before the high beams can turn on.
+	--       - Without this, if you spin in circles, it can jitter on / off
+	if velocity > c_lightAutoHighMinSpeed then
+		g_highBeamSpeedTimer = g_highBeamSpeedTimer - 1
+	else
+		g_highBeamSpeedTimer = c_lightAutoHighSpeedDuration
+	end
+
     -- [BRS] - Seats presses management.
     if seatCycleBeams ~= previousSeatCycleBeams then
     	previousSeatCycleBeams = seatCycleBeams
@@ -37,7 +45,7 @@
 
 			-- [BRS] - Automatic high beam management
 			if g_clock < c_clockDayTimeHigh or g_clock > c_clockNightTimeHigh then
-				if g_noCarInFrontOfHighBeams and velocity > c_lightAutoHighMinSpeed and g_humidity < c_lightAutoHighMaxFog and g_rain < c_lightAutoHighMaxRain then
+				if g_noCarInFrontOfHighBeams and g_highBeamSpeedTimer < 0 and g_humidity < c_lightAutoHighMaxFog and g_rain < c_lightAutoHighMaxRain then
 					outputBeam = c_lightSettingHighBeams
 				end
 			end
