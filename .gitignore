@@ -1,3 +1,5 @@
 output.lua
 minified.lua
 *.pyc
+
+/Projects/Prosty/generated
