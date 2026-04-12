@@ -12,3 +12,4 @@ g_doorPressed   = input.getBool(c_gbDoorButtons)
 -- [BRS] ------------------------------------------------ [[ NUMERICAL ]] -
 g_gear                  = input.getNumber(c_gnCurrentGear)
 g_seatBeltAlarmLevel    = input.getNumber(c_gnSeatBeltAlarmLevel)
+g_velocity              = input.getNumber(c_gnVelocity)
