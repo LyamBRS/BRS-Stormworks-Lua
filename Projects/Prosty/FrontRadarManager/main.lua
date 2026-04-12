@@ -16,6 +16,7 @@ require("Functions.Vectors.angleDifference")
 
 -- [BRS] - [[ Constants ]] --
 require("Projects.Prosty.global.constants.controls.lights")
+require("Projects.Prosty.global.constants.settings.lights")
 require("Projects.Prosty.FrontRadarManager.constants.inputChannels")
 require("Projects.Prosty.FrontRadarManager.constants.outputChannels")
 require("Projects.Prosty.FrontRadarManager.constants.radar")

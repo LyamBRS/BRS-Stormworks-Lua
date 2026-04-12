@@ -11,7 +11,7 @@ c_sbRightBlinker        = 6
 c_sbLeftBlinker         = 7
 c_sbRGBLights           = 8
 c_sbHazards             = 9
-
+c_sbAccessOpened        = 10    -- Any doors or other access is opened
 c_sbCarOn               = 32
 
 -- [BRS] ------------------------------------------------ [[ NUMERICAL ]] -

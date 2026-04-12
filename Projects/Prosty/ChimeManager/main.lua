@@ -18,6 +18,7 @@ require("Projects.Prosty.ChimeManager.constants.outputChannels")
 require("Projects.Prosty.ChimeManager.constants.propertyNames")
 require("Projects.Prosty.ChimeManager.constants.seatBeltAlarmLevels")
 require("Projects.Prosty.global.constants.controls.gears")
+require("Projects.Prosty.global.constants.settings.doors")
 
 -- [BRS] - [[ Functions ]] --
 require("Projects.Prosty.ChimeManager.functions.setNewMusic")
@@ -29,6 +30,8 @@ function onTick()
 
     -- [BRS] - [[ MUSIC ]] -- 
     require("Projects.Prosty.ChimeManager.onTick.playMusic")
+
+    require("Projects.Prosty.ChimeManager.onTick.doorManager")
 
     -- [BRS] - [[ MANAGEMENT ]] --
     if not g_awaitedMusic then
