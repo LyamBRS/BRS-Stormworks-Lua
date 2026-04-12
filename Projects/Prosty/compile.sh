@@ -9,7 +9,9 @@ FRONT_RADAR_OUTPUT="$GENERATED_DIR/front_radar_manager.lua"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Script directory: $SCRIPT_DIR"
-cd "$SCRIPT_DIR/../../.."
+cd "$SCRIPT_DIR/../.."
+
+echo $GENERATED_DIR
 
 # Ensure directory exists
 mkdir -p "$GENERATED_DIR"
