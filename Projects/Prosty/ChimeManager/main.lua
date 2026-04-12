@@ -17,6 +17,7 @@ require("Projects.Prosty.ChimeManager.constants.inputChannels")
 require("Projects.Prosty.ChimeManager.constants.outputChannels")
 require("Projects.Prosty.ChimeManager.constants.propertyNames")
 require("Projects.Prosty.ChimeManager.constants.seatBeltAlarmLevels")
+require("Projects.Prosty.global.constants.controls.gears")
 
 -- [BRS] - [[ Functions ]] --
 require("Projects.Prosty.ChimeManager.functions.setNewMusic")
@@ -31,15 +32,12 @@ function onTick()
 
     -- [BRS] - [[ MANAGEMENT ]] --
     if not g_awaitedMusic then
-        if g_previousVehicleOn ~= g_vehicleOn then
-            g_previousVehicleOn = g_vehicleOn
-            require("Projects.Prosty.ChimeManager.onTick.bootChimes")
-            return
-        end
-
-        if g_seatBeltAlarmLevel >= c_seatBeltAlarmLow then
-            require("Projects.Prosty.ChimeManager.onTick.seatbeltChimes")
-        end
+        -- These must be ordered in their priority.
+        -- Each has a return statement at the end of their ifs checkers
+        -- Meaning if they get to execute, nobody below them should be able to.
+        require("Projects.Prosty.ChimeManager.onTick.chimes.booting")
+        require("Projects.Prosty.ChimeManager.onTick.chimes.seatbelt")
+        require("Projects.Prosty.ChimeManager.onTick.chimes.openedAccess")
     end
 
     -- [BRS] - [[ Outputs ]] --
