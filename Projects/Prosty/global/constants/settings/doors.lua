@@ -12,6 +12,6 @@ c_pivotHoodOpened           = .75
 c_pivotHoodClosed           = 0
 
 -- [BRS] ------------------------------------------------ [[ CHIME MANAGEMENT ]] -
-c_openedAccessChimeMinSpeed         = .3    -- Minimum velocity in m/s the car needs to move at, for the access open chime to play.
-c_openedAccessChimeLowPlayTime      = 120   -- The low warning access chime plays for this amount of ticks before shutting up about it. For the trunk or similar.
-c_openedAccessChimeHighPlayTime     = 240   -- The high warning access chime plays for this amount of ticks before shutting up about it.
+c_openedAccessChimeMinSpeed         = .3  -- Minimum velocity in m/s the car needs to move at, for the access open chime to play.
+c_openedAccessChimeLowPlayTime      = 6   -- The low warning access chime plays for this amount of ticks before shutting up about it. For the trunk or similar.
+c_openedAccessChimeHighPlayTime     = 10  -- The high warning access chime plays for this amount of ticks before shutting up about it.

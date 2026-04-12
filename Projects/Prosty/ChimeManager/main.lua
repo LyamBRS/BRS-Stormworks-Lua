@@ -39,6 +39,7 @@ function onTick()
         -- Each has a return statement at the end of their ifs checkers
         -- Meaning if they get to execute, nobody below them should be able to.
         require("Projects.Prosty.ChimeManager.onTick.chimes.booting")
+        require("Projects.Prosty.ChimeManager.onTick.chimes.shifting")
         require("Projects.Prosty.ChimeManager.onTick.chimes.seatbelt")
         require("Projects.Prosty.ChimeManager.onTick.chimes.openedAccess")
     end

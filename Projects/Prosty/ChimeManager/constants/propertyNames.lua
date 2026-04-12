@@ -12,10 +12,13 @@ c_ptMusicStartChime     = "m_start"
 c_ptMusicOffChime       = "m_off"
 c_ptMusicSeatBeltSlow   = "m_sbl"
 c_ptMusicSeatBeltFast   = "m_sbf"
-c_ptMusicAlarm          = "m_alarm"
 c_ptMusicDoorOpenedHigh = "m_doorH"
 c_ptMusicDoorOpenedLow  = "m_doorL"
-c_ptMusicParked         = "m_parked"
-c_ptMusicDrive          = "m_drive"
-c_ptMusicReverse        = "m_reverse"
+
+c_ptMusicShiftToDrive   = "m_shiftD"    -- Chime when you shift into drive gear
+c_ptMusicShiftToReverse = "m_shiftR"    -- Chime when you shift into reverse gear
+c_ptMusicDriveToParked  = "m_shiftDP"   -- Chime when you shift from drive to park
+c_ptMusicReverseToParked= "m_shiftRP"   -- Chime when you shift from reverse to park
+
+c_ptMusicAlarm          = "m_alarm"
 c_ptMusicDoorLocked     = "m_dl"

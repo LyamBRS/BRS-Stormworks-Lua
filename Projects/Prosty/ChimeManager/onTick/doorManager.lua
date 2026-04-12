@@ -32,8 +32,8 @@ if g_openedAccessPreviousGear ~= g_gear then
 end
 
 -- [BRS] - Timer management
+-- Timer decreases every time the sound is played. Otherwise, its possible it never does play.
 if shouldPlayHighAccessChime then
-    g_openedAccessHighTimer = g_openedAccessHighTimer - 1
     g_playHighAccessChime = g_openedAccessHighTimer > 0
 else
     g_playHighAccessChime = false
@@ -41,7 +41,6 @@ else
 end
 
 if shouldPlayLowAccessChime then
-    g_openedAccessLowTimer = g_openedAccessLowTimer - 1
     g_playLowAccessChime = g_openedAccessLowTimer > 0
 else
     g_playLowAccessChime = false
